@@ -1,7 +1,7 @@
 package beans;
 
 
-public abstract class Korisnik {
+public class Korisnik {
 	private String kIme, lozinka, ime, prezime, datumRodjenja;
 	private Pol pol;
 	

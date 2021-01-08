@@ -1,0 +1,20 @@
+@charset "utf-8";
+
+h1{
+    text-align: center;
+    padding: 50px;
+}
+
+div{
+    padding: 10px;
+    position: relative;
+    left: 300px;
+}
+
+input, select{
+    width: 300px;
+}
+
+label{
+    font-size: large;
+}

@@ -68,4 +68,14 @@ public class Karta {
 	public void setTip(TipKarte tip) {
 		this.tip = tip;
 	}
+	
+	public void setCenaForTip() {
+		if(tip == TipKarte.FANPIT) {
+			cena = manifestacija.getCenaRegular() * 2;
+		}else if(tip == TipKarte.VIP) {
+			cena = manifestacija.getCenaRegular() * 4;
+		}else {
+			cena = manifestacija.getCenaRegular();
+		}
+	}
 }

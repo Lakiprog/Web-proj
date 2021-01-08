@@ -27,13 +27,13 @@ public class TipKupca {
 	public void setForTip(TipMedalje tip) {
 		if(tip == TipMedalje.BRONZANI) {
 			popust = 5;
-			brBodova = 100;
+			brBodova = 2000;
 		}else if(tip == TipMedalje.SREBRNI) {
 			popust = 10;
-			brBodova = 300;
+			brBodova = 10000;
 		}else {
 			popust = 20;
-			brBodova = 1000;
+			brBodova = 100000;
 		}
 	}
 	
