@@ -1,4 +1,4 @@
-package beans;
+package domain;
 
 public class TipKupca {
 	private TipMedalje tip;

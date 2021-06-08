@@ -1,4 +1,4 @@
-package beans;
+package domain;
 
 public class Manifestacija {
 	private String naziv, datumVreme, posterLink;

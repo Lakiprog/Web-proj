@@ -1,12 +1,12 @@
-package beans;
+package domain;
 
 
 public class Korisnik {
 	private String kIme, lozinka, ime, prezime, datumRodjenja;
 	private Pol pol;
+	private Uloga uloga;
 	
-	
-	public Korisnik(String kIme, String lozinka, String ime, String prezime, String datumRodjenja, Pol pol) {
+	public Korisnik(String kIme, String lozinka, String ime, String prezime, String datumRodjenja, Pol pol, Uloga uloga) {
 		super();
 		this.kIme = kIme;
 		this.lozinka = lozinka;
@@ -14,6 +14,7 @@ public class Korisnik {
 		this.prezime = prezime;
 		this.datumRodjenja = datumRodjenja;
 		this.pol = pol;
+		this.setUloga(uloga);
 	}
 	
 	public String getkIme() {
@@ -51,6 +52,14 @@ public class Korisnik {
 	}
 	public void setPol(Pol pol) {
 		this.pol = pol;
+	}
+
+	public Uloga getUloga() {
+		return uloga;
+	}
+
+	public void setUloga(Uloga uloga) {
+		this.uloga = uloga;
 	}
 	
 }

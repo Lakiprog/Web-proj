@@ -1,4 +1,4 @@
-package beans;
+package domain;
 
 public class Komentar {
 	private Kupac kupac;

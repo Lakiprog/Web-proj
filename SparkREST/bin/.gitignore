@@ -1,4 +1,4 @@
 /beans/
-/rest/
-/ws/
 /handlers/
+/rest/
+/domain/

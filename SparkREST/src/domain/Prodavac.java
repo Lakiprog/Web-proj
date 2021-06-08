@@ -1,4 +1,4 @@
-package beans;
+package domain;
 
 import java.util.ArrayList;
 
@@ -13,8 +13,8 @@ public class Prodavac extends Korisnik {
 		this.manifestacije = manifestacije;
 	}
 
-	public Prodavac(String kIme, String lozinka, String ime, String prezime, String datumRodjenja, Pol pol) {
-		super(kIme, lozinka, ime, prezime, datumRodjenja, pol);
+	public Prodavac(String kIme, String lozinka, String ime, String prezime, String datumRodjenja, Pol pol, Uloga uloga) {
+		super(kIme, lozinka, ime, prezime, datumRodjenja, pol, uloga);
 	}
 
 }
