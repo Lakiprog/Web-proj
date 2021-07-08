@@ -12,9 +12,13 @@ public class Prodavac extends Korisnik {
 	public void setManifestacije(ArrayList<Manifestacija> manifestacije) {
 		this.manifestacije = manifestacije;
 	}
+	
+	public Prodavac() {
+		
+	}
 
-	public Prodavac(String kIme, String lozinka, String ime, String prezime, String datumRodjenja, Pol pol) {
-		super(kIme, lozinka, ime, prezime, datumRodjenja, pol);
+	public Prodavac(Integer id, String kIme, String lozinka, String ime, String prezime, String datumRodjenja, Pol pol) {
+		super(id, kIme, lozinka, ime, prezime, datumRodjenja, pol);
 	}
 
 }

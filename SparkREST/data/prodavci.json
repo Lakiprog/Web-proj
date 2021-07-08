@@ -1,0 +1,26 @@
+{
+  "prodavci" : {
+    "1" : {
+      "id" : 1,
+      "kIme" : "admin",
+      "lozinka" : "admin",
+      "ime" : "admin",
+      "prezime" : "admin",
+      "datumRodjenja" : "1999.12.08",
+      "pol" : "MUSKO",
+      "obrisan" : false,
+      "manifestacije" : null
+    },
+    "2" : {
+      "id" : 2,
+      "kIme" : "admin",
+      "lozinka" : "admin",
+      "ime" : "admin",
+      "prezime" : "admin",
+      "datumRodjenja" : "1999.12.08",
+      "pol" : "MUSKO",
+      "obrisan" : false,
+      "manifestacije" : null
+    }
+  }
+}

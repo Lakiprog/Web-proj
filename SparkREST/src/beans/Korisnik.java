@@ -1,12 +1,18 @@
 package beans;
 
 
-public class Korisnik {
+public abstract class Korisnik {
+	private Integer id;
 	private String kIme, lozinka, ime, prezime, datumRodjenja;
 	private Pol pol;
+	private boolean obrisan;
+	
+	public Korisnik() {
+		
+	}
 	
 	
-	public Korisnik(String kIme, String lozinka, String ime, String prezime, String datumRodjenja, Pol pol) {
+	public Korisnik(Integer id, String kIme, String lozinka, String ime, String prezime, String datumRodjenja, Pol pol) {
 		super();
 		this.kIme = kIme;
 		this.lozinka = lozinka;
@@ -14,6 +20,15 @@ public class Korisnik {
 		this.prezime = prezime;
 		this.datumRodjenja = datumRodjenja;
 		this.pol = pol;
+		this.id = id;
+	}
+	
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
 	}
 	
 	public String getkIme() {
@@ -51,6 +66,14 @@ public class Korisnik {
 	}
 	public void setPol(Pol pol) {
 		this.pol = pol;
+	}
+
+	public boolean isObrisan() {
+		return obrisan;
+	}
+
+	public void setObrisan(boolean obrisan) {
+		this.obrisan = obrisan;
 	}
 	
 }
