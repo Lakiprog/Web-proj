@@ -2,11 +2,6 @@ package handlers;
 
 import java.util.HashMap;
 
-import beans.Admin;
-import beans.Korisnik;
-import beans.Kupac;
-import beans.Pol;
-import beans.Prodavac;
 
 public class ProbaMain {
 
