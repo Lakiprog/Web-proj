@@ -25,7 +25,7 @@ public class SparkAppMain {
 	private static Gson g = new Gson();
 
 	/**
-	 * Klju za potpisivanje JWT tokena.
+	 * Kljuc za potpisivanje JWT tokena.
 	 * Biblioteka: https://github.com/jwtk/jjwt
 	 */
 	static Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);

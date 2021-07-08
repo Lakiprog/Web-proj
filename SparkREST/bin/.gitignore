@@ -1,3 +1,4 @@
-/handlers/
 /beans/
-/data/
+/handlers/
+/rest/
+/domain/

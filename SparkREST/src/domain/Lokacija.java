@@ -1,4 +1,4 @@
-package beans;
+package domain;
 
 public class Lokacija {
 	private double sirina, duzina;

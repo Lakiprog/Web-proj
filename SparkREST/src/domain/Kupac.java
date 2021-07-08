@@ -1,4 +1,4 @@
-package beans;
+package domain;
 
 import java.util.ArrayList;
 

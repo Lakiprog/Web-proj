@@ -1,4 +1,4 @@
-package beans;
+package domain;
 
 
 public abstract class Korisnik {

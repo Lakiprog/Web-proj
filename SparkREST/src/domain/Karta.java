@@ -1,4 +1,4 @@
-package beans;
+package domain;
 
 public class Karta {
 	private String id, datumVreme, imeKupca, prezimeKupca;
