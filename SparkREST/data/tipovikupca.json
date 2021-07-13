@@ -1,0 +1,11 @@
+{
+  "tipovi" : {
+    "1" : {
+      "id" : 1,
+      "tip" : "BRONZANI",
+      "popust" : 0.1,
+      "brBodova" : 100,
+      "obrisan" : false
+    }
+  }
+}

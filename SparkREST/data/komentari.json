@@ -1,0 +1,12 @@
+{
+  "komentari" : {
+    "1" : {
+      "id" : 1,
+      "kupac" : null,
+      "manifestacija" : null,
+      "komentar" : "bruh",
+      "ocena" : 3,
+      "obrisan" : false
+    }
+  }
+}

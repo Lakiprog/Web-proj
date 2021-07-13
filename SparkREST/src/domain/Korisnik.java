@@ -2,7 +2,7 @@ package domain;
 
 
 public abstract class Korisnik {
-	private Integer id;
+	private int id;
 	private String kIme, lozinka, ime, prezime, datumRodjenja;
 	private Pol pol;
 	private boolean obrisan;
@@ -12,7 +12,7 @@ public abstract class Korisnik {
 	}
 	
 	
-	public Korisnik(Integer id, String kIme, String lozinka, String ime, String prezime, String datumRodjenja, Pol pol) {
+	public Korisnik(int id, String kIme, String lozinka, String ime, String prezime, String datumRodjenja, Pol pol) {
 		super();
 		this.kIme = kIme;
 		this.lozinka = lozinka;
@@ -23,11 +23,11 @@ public abstract class Korisnik {
 		this.id = id;
 	}
 	
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	

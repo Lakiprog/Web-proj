@@ -51,7 +51,31 @@ public class AdminHandler {
 		sacuvaj();
 	}
 	
-	public void brisiAdminaFizicki(Integer id) {
+	public void azurirajAdmina(Admin k) {
+		ucitani.put(k.getId(), k);
+		for (Admin admin : admini) {
+			if(k.getId() == admin.getId()){
+				admin = k;
+			}
+		}
+		sacuvaj();
+	}
+	
+	public void brisiAdminaLogicki(int id) {
+		for(int i = 0; i < admini.size(); i++) {
+			if(admini.get(i).getId() == id) {
+				admini.remove(i);
+			}
+		}
+		for (Admin admin : ucitani.values()) {
+			if(admin.getId() == id) {
+				admin.setObrisan(true);
+			}
+		}
+		sacuvaj();
+	}
+	
+	public void brisiAdminaFizicki(int id) {
 		ucitani.remove(id);
 		admini.clear();
 		for (Admin admin : ucitani.values()) {
@@ -79,6 +103,17 @@ public class AdminHandler {
 			e.printStackTrace();
 		}
 	}
+	
+	public int nextId() {
+		int next = 0;
+		for (Admin admin : admini) {
+			if(admin.getId() > next) {
+				next = admin.getId();
+			}
+		}
+		return next+1;
+	}
+	
 	
 	public Admin poId(Integer id) {
 		return ucitani.get(id);

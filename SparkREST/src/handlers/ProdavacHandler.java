@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import domain.Admin;
 import domain.Prodavac;
 
 public class ProdavacHandler {
@@ -51,7 +52,31 @@ public class ProdavacHandler {
 		sacuvaj();
 	}
 	
-	public void brisiProdavcaFizicki(Integer id) {
+	public void azurirajProdavca(Prodavac p) {
+		ucitani.put(p.getId(), p);
+		for (Prodavac prodavac : prodavci) {
+			if(p.getId() == prodavac.getId()){
+				prodavac = p;
+			}
+		}
+		sacuvaj();
+	}
+	
+	public void brisiProdavcaLogicki(int id) {
+		for(int i = 0; i < prodavci.size(); i++) {
+			if(prodavci.get(i).getId() == id) {
+				prodavci.remove(i);
+			}
+		}
+		for (Prodavac prodavac : ucitani.values()) {
+			if(prodavac.getId() == id) {
+				prodavac.setObrisan(true);
+			}
+		}
+		sacuvaj();
+	}
+	
+	public void brisiProdavcaFizicki(int id) {
 		ucitani.remove(id);
 		prodavci.clear();
 		for (Prodavac prodavac : ucitani.values()) {
@@ -78,6 +103,16 @@ public class ProdavacHandler {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public int nextId() {
+		int next = 0;
+		for (Prodavac prodavac : prodavci) {
+			if(prodavac.getId() > next) {
+				next = prodavac.getId();
+			}
+		}
+		return next+1;
 	}
 	
 	public Prodavac poId(Integer id) {

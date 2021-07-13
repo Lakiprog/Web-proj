@@ -1,15 +1,18 @@
 package domain;
 
 public class Lokacija {
+	private int id;
 	private double sirina, duzina;
 	private Adresa adresa;
+	private boolean obrisan;
 	
 	
-	public Lokacija(double sirina, double duzina, Adresa adresa) {
+	public Lokacija(int id, double sirina, double duzina, Adresa adresa) {
 		super();
 		this.sirina = sirina;
 		this.duzina = duzina;
 		this.adresa = adresa;
+		this.id = id;
 	}
 	
 	public double getSirina() {
@@ -29,6 +32,22 @@ public class Lokacija {
 	}
 	public void setAdresa(Adresa adresa) {
 		this.adresa = adresa;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public boolean isObrisan() {
+		return obrisan;
+	}
+
+	public void setObrisan(boolean obrisan) {
+		this.obrisan = obrisan;
 	}
 	
 	

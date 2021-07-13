@@ -1,0 +1,16 @@
+{
+  "lokacije" : {
+    "1" : {
+      "id" : 1,
+      "sirina" : 4.2,
+      "duzina" : 5.6,
+      "adresa" : {
+        "ulica" : "telepska",
+        "broj" : "4",
+        "mesto" : "Novi Sad",
+        "postanskiBr" : 21000
+      },
+      "obrisan" : false
+    }
+  }
+}

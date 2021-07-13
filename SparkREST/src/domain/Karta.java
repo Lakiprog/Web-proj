@@ -1,48 +1,39 @@
 package domain;
 
 public class Karta {
-	private String id, datumVreme, imeKupca, prezimeKupca;
+	private String datumVreme;
+	private int id, idKupca;
 	private Manifestacija manifestacija;
 	private double cena;
 	private StatusKarte status;
 	private TipKarte tip;
+	private boolean obrisan;
 	
-	public Karta(String id, String datumVreme, String imeKupca, String prezimeKupca, Manifestacija manifestacija,
+	public boolean isObrisan() {
+		return obrisan;
+	}
+
+	public void setObrisan(boolean obrisan) {
+		this.obrisan = obrisan;
+	}
+
+	public Karta(int id, String datumVreme, int idKupca, Manifestacija manifestacija,
 			double cena, StatusKarte status, TipKarte tip) {
 		super();
 		this.id = id;
 		this.datumVreme = datumVreme;
-		this.imeKupca = imeKupca;
-		this.prezimeKupca = prezimeKupca;
+		this.idKupca = idKupca;
 		this.manifestacija = manifestacija;
 		this.cena = cena;
 		this.status = status;
 		this.tip = tip;
 	}
-	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+
 	public String getDatumVreme() {
 		return datumVreme;
 	}
 	public void setDatumVreme(String datumVreme) {
 		this.datumVreme = datumVreme;
-	}
-	public String getImeKupca() {
-		return imeKupca;
-	}
-	public void setImeKupca(String imeKupca) {
-		this.imeKupca = imeKupca;
-	}
-	public String getPrezimeKupca() {
-		return prezimeKupca;
-	}
-	public void setPrezimeKupca(String prezimeKupca) {
-		this.prezimeKupca = prezimeKupca;
 	}
 	public Manifestacija getManifestacija() {
 		return manifestacija;
@@ -69,6 +60,24 @@ public class Karta {
 		this.tip = tip;
 	}
 	
+	
+	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public int getIdKupca() {
+		return idKupca;
+	}
+
+	public void setIdKupca(int idKupca) {
+		this.idKupca = idKupca;
+	}
+
 	public void setCenaForTip() {
 		if(tip == TipKarte.FANPIT) {
 			cena = manifestacija.getCenaRegular() * 2;

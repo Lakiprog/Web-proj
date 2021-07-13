@@ -1,0 +1,16 @@
+{
+  "manifestacije" : {
+    "1" : {
+      "id" : 1,
+      "naziv" : "Koncert Ramba Hamada",
+      "datumVreme" : "2021.8.10",
+      "posterLink" : null,
+      "lokacija" : null,
+      "brMesta" : 1000,
+      "cenaRegular" : 600.0,
+      "status" : "NEAKTIVNO",
+      "tip" : "KONCERT",
+      "obrisan" : false
+    }
+  }
+}

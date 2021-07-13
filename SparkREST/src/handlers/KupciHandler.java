@@ -10,6 +10,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import domain.Admin;
 import domain.Kupac;
 
 public class KupciHandler {
@@ -51,7 +52,31 @@ public class KupciHandler {
 		sacuvaj();
 	}
 	
-	public void brisiKupcaFizicki(Integer id) {
+	public void azurirajKupca(Kupac k) {
+		ucitani.put(k.getId(), k);
+		for (Kupac kupac : kupci) {
+			if(k.getId() == kupac.getId()){
+				kupac = k;
+			}
+		}
+		sacuvaj();
+	}
+	
+	public void brisiKupcaLogicki(int id) {
+		for(int i = 0; i < kupci.size(); i++) {
+			if(kupci.get(i).getId() == id) {
+				kupci.remove(i);
+			}
+		}
+		for (Kupac kupac : ucitani.values()) {
+			if(kupac.getId() == id) {
+				kupac.setObrisan(true);
+			}
+		}
+		sacuvaj();
+	}
+	
+	public void brisiKupcaFizicki(int id) {
 		ucitani.remove(id);
 		kupci.clear();
 		for (Kupac kupac : ucitani.values()) {
@@ -78,6 +103,16 @@ public class KupciHandler {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public int nextId() {
+		int next = 0;
+		for (Kupac kupac : kupci) {
+			if(kupac.getId() > next) {
+				next = kupac.getId();
+			}
+		}
+		return next+1;
 	}
 	
 	public Kupac poId(Integer id) {

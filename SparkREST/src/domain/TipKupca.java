@@ -1,9 +1,11 @@
 package domain;
 
 public class TipKupca {
+	private int id;
 	private TipMedalje tip;
 	private double popust;
 	private int brBodova;
+	private boolean obrisan;
 	
 	public TipMedalje getTip() {
 		return tip;
@@ -37,10 +39,25 @@ public class TipKupca {
 		}
 	}
 	
-	public TipKupca(TipMedalje tip, double popust, int brBodova) {
+	public TipKupca(int id, TipMedalje tip, double popust, int brBodova) {
 		super();
 		this.tip = tip;
 		this.popust = popust;
 		this.brBodova = brBodova;
+		this.id = id;
 	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public boolean isObrisan() {
+		return obrisan;
+	}
+	public void setObrisan(boolean obrisan) {
+		this.obrisan = obrisan;
+	}
+	
+	
 }

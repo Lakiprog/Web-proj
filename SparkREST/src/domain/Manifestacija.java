@@ -1,15 +1,17 @@
 package domain;
 
 public class Manifestacija {
+	private int id;
 	private String naziv, datumVreme, posterLink;
 	private Lokacija lokacija;
 	private int brMesta;
 	private double cenaRegular;
 	private StatusManifestacije status;
 	private TipManifestacije tip;
+	private boolean obrisan;
 	
 	
-	public Manifestacija(String naziv, String datumVreme, String posterLink, Lokacija lokacija, int brMesta,
+	public Manifestacija(int id, String naziv, String datumVreme, String posterLink, Lokacija lokacija, int brMesta,
 			double cenaRegular, StatusManifestacije status, TipManifestacije tip) {
 		super();
 		this.naziv = naziv;
@@ -20,8 +22,25 @@ public class Manifestacija {
 		this.cenaRegular = cenaRegular;
 		this.status = status;
 		this.tip = tip;
+		this.id = id;
 	}
 	
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public boolean isObrisan() {
+		return obrisan;
+	}
+
+	public void setObrisan(boolean obrisan) {
+		this.obrisan = obrisan;
+	}
+
 	public String getNaziv() {
 		return naziv;
 	}
