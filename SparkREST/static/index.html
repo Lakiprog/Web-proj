@@ -2,22 +2,87 @@
 <html>
 
 <head>
-	<!-- linkovi na css-ove -->
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>Pocetna</title>
+	<link href="css/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+	<meta charset="utf-8"/>
+</head> 
 
-</head>
 <body>
+<div class = "app" align=center>
+	  <div class="header">
+		<h1>Gigzztix (no trademark)</h1>
+	  </div>
+	  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 
-	<div id="webRezervacija" align=center>
-		<a class="navbar" href="#" v-bind:hidden="korisnik.uloga != 'KUPAC' || korisnik.uloga != 'GOST'">Pocetna stranica</a>
-	</div>
-	<script src="js/axios.js"></script>
-	<script src="js/vue.js"></script>
-	<script src="js/vue-router.js"></script>
-	<script src="js/toast.js"></script>
-	<script src="js/jquery.min.js"></script>
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 
-	<script src="app/app.js"></script>
+			<ul class="navbar-nav mr-auto">
+
+				<li class="nav-item">
+					<a class="nav-link" href="#/" v-bind:hidden="korisnik.uloga == 'ADMIN' || korisnik.uloga=='PRODAVAC'">Pocetna</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#/registration" v-bind:hidden="korisnik.uloga != 'GOST'">Registruj se</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#/login" v-bind:hidden="korisnik.uloga != 'GOST'">Login</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#/profile" v-bind:hidden="korisnik.uloga == 'GOST'">Moj Profil</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#/registrujProdavca" v-bind:hidden="korisnik.uloga != 'ADMIN'">Dodaj prodavca</a>
+				</li>
+
+				<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Pregledi
+				</a>
+				<div  class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#/adminManifestacije" v-bind:hidden="korisnik.uloga != 'ADMIN'">Pregled manifestacija</a>
+						<a class="dropdown-item" href="#/adminKarte" v-bind:hidden="korisnik.uloga != 'ADMIN'">Pregled karata</a>
+						<a class="dropdown-item" href="#/adminKorisnici" v-bind:hidden="korisnik.uloga != 'ADMIN'">Pregled korisnika</a>
+						<a class="dropdown-item" href="#/adminKomentari" v-bind:hidden="korisnik.uloga != 'ADMIN'">Pregled komentara</a>
+				</div>
+				</li>
+
+				<li class="nav-item">
+					<a class="nav-link" href="#/dodajManifestaciju" v-bind:hidden="korisnik.uloga != 'PRODAVAC'">Dodaj manifestaciju</a>
+				</li>
+
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Pregledi
+					</a>
+					<div  class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#/prodavacManifestacije" v-bind:hidden="korisnik.uloga != 'PRODAVAC'">Pregled manifestacija</a>
+						<a class="dropdown-item" href="#/rezervisaneKarte" v-bind:hidden="korisnik.uloga != 'PRODAVAC'">Pregled rezervisanih karata</a>
+						<a class="dropdown-item" href="#/komentariProdavac" v-bind:hidden="korisnik.uloga != 'PRODAVAC'">Pregled komentara</a>
+						<a class="dropdown-item" href="#/kupacKarte" v-bind:hidden="korisnik.uloga != 'KUPAC'">Pregled svih karata</a>					
+					</div>
+				</li>
+				
+				<li class="nav-item">
+					<a class="nav-link" href="#/" v-on:click="logout()"  v-bind:hidden="korisnik.uloga == 'GOST'">Izloguj se</a>
+				</li>
+			</ul>
+			
+		</div>
+
+	  <br/>
+	  <br/>
+			<router-view></router-view>
+			
+	  </nav>
+</div>
+
+
+<link href="css/styles.css" rel="stylesheet" />
+<script src="js/vue.js"></script>
+<script src="js/vue-router.js"></script>
+<script src="js/axios.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="css/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+
+<script src="app/app.js"></script>
 </body>
 </html>

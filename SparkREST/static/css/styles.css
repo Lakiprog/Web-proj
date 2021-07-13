@@ -1,0 +1,24 @@
+a {
+    margin: 5px;
+}
+
+.header {
+    height: 200px;
+    background-image: url("partyhard.jpg");
+}
+
+h1{
+    color: wheat;
+}
+
+.navbar-nav {
+    float:none;
+    margin:0 auto;
+    display: block;
+    text-align: center;
+}
+
+.navbar-nav > li {
+    display: inline-block;
+    float:none;
+}
