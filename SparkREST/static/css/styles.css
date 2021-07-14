@@ -11,6 +11,11 @@ h1{
     color: wheat;
 }
 
+h2{
+    padding-bottom: 15px;
+}
+
+
 .navbar-nav {
     float:none;
     margin:0 auto;
@@ -21,4 +26,43 @@ h1{
 .navbar-nav > li {
     display: inline-block;
     float:none;
+}
+
+.form-group{
+    width: 90%;
+    margin-left: 30px;
+    margin-right: 30px;
+}
+
+#registruj{
+    margin-left: 30px;
+}
+
+#filtriranje{
+    color: white;
+}
+
+#filtriraj{
+    margin-left: 30px;
+}
+
+#uloguj{
+    margin-left: 30px;
+}
+
+#azuriraj{
+    margin-left: 30px;
+}
+
+#azurirajLozinku{
+    margin-left: 30px;
+}
+
+.card{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+img{
+    height: 40%;
 }

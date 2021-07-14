@@ -9,8 +9,6 @@ import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
-
-import domain.Admin;
 import domain.Manifestacija;
 
 public class ManifestacijaHandler {

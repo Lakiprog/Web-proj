@@ -2,29 +2,33 @@
   "kupci" : {
     "1" : {
       "id" : 1,
-      "kIme" : "admin",
-      "lozinka" : "admin",
-      "ime" : "admin",
-      "prezime" : "admin",
-      "datumRodjenja" : "1999.12.08",
-      "pol" : "MUSKO",
+      "kIme" : "markuzic",
+      "lozinka" : "markuzaRage",
+      "ime" : "Petar",
+      "prezime" : "Markovic",
+      "datumRodjenja" : "1999.10.10",
+      "pol" : "ZENSKO",
       "obrisan" : false,
       "tip" : null,
       "brBodova" : 0,
-      "karte" : null
+      "brOtkazivanja" : 0,
+      "karte" : null,
+      "blokiran" : false
     },
     "2" : {
       "id" : 2,
-      "kIme" : "admin",
-      "lozinka" : "admin",
-      "ime" : "admin",
-      "prezime" : "admin",
-      "datumRodjenja" : "1999.12.08",
+      "kIme" : "micko",
+      "lozinka" : "loznica",
+      "ime" : "Micko",
+      "prezime" : "Jarak",
+      "datumRodjenja" : "1999.10.20",
       "pol" : "MUSKO",
       "obrisan" : false,
       "tip" : null,
       "brBodova" : 0,
-      "karte" : null
+      "brOtkazivanja" : 0,
+      "karte" : null,
+      "blokiran" : false
     }
   }
 }

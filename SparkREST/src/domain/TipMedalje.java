@@ -1,5 +1,5 @@
 package domain;
 
 public enum TipMedalje {
-	ZLATNI, SREBRNI, BRONZANI;
+	NIKAKVA, ZLATNI, SREBRNI, BRONZANI;
 }

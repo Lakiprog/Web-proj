@@ -1,14 +1,21 @@
 package domain;
 
+import java.time.LocalDateTime;
+
 public class Manifestacija {
 	private int id;
-	private String naziv, datumVreme, posterLink;
+	private String naziv, posterLink;
+	private String datumVreme;
 	private Lokacija lokacija;
 	private int brMesta;
 	private double cenaRegular;
 	private StatusManifestacije status;
 	private TipManifestacije tip;
 	private boolean obrisan;
+	
+	public Manifestacija() {
+		
+	}
 	
 	
 	public Manifestacija(int id, String naziv, String datumVreme, String posterLink, Lokacija lokacija, int brMesta,

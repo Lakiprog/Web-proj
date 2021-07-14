@@ -1,5 +1,7 @@
 package domain;
 
+import java.time.LocalDateTime;
+
 public class Karta {
 	private String datumVreme;
 	private int id, idKupca;
@@ -15,6 +17,10 @@ public class Karta {
 
 	public void setObrisan(boolean obrisan) {
 		this.obrisan = obrisan;
+	}
+	
+	public Karta() {
+		
 	}
 
 	public Karta(int id, String datumVreme, int idKupca, Manifestacija manifestacija,

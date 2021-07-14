@@ -2,25 +2,27 @@
   "prodavci" : {
     "1" : {
       "id" : 1,
-      "kIme" : "admin",
-      "lozinka" : "admin",
-      "ime" : "admin",
-      "prezime" : "admin",
-      "datumRodjenja" : "1999.12.08",
+      "kIme" : "machiavelli",
+      "lozinka" : "lozinka",
+      "ime" : "Francis",
+      "prezime" : "Bacon",
+      "datumRodjenja" : "1999.10.10",
       "pol" : "MUSKO",
       "obrisan" : false,
-      "manifestacije" : null
+      "manifestacije" : null,
+      "blokiran" : false
     },
     "2" : {
       "id" : 2,
-      "kIme" : "admin",
-      "lozinka" : "admin",
-      "ime" : "admin",
-      "prezime" : "admin",
-      "datumRodjenja" : "1999.12.08",
+      "kIme" : "marco",
+      "lozinka" : "polo",
+      "ime" : "Marco",
+      "prezime" : "Polo",
+      "datumRodjenja" : "1550.10.10",
       "pol" : "MUSKO",
       "obrisan" : false,
-      "manifestacije" : null
+      "manifestacije" : null,
+      "blokiran" : false
     }
   }
 }

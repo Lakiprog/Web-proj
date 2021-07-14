@@ -1,11 +1,13 @@
 package domain;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Kupac extends Korisnik {
 	private TipMedalje tip;
-	private int brBodova;
+	private int brBodova, brOtkazivanja;
 	private ArrayList<Karta> karte;
+	private boolean blokiran;
 
 	public Kupac() {}
 	
@@ -37,4 +39,21 @@ public class Kupac extends Korisnik {
 		this.karte = karte;
 	}
 
+	public int getBrOtkazivanja() {
+		return brOtkazivanja;
+	}
+
+	public void setBrOtkazivanja(int brOtkazivanja) {
+		this.brOtkazivanja = brOtkazivanja;
+	}
+
+	public boolean isBlokiran() {
+		return blokiran;
+	}
+
+	public void setBlokiran(boolean blokiran) {
+		this.blokiran = blokiran;
+	}
+
+	
 }

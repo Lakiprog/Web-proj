@@ -1,9 +1,11 @@
 package domain;
 
+import java.time.LocalDateTime;
 
 public abstract class Korisnik {
 	private int id;
-	private String kIme, lozinka, ime, prezime, datumRodjenja;
+	private String kIme, lozinka, ime, prezime;
+	private String datumRodjenja;
 	private Pol pol;
 	private boolean obrisan;
 	
