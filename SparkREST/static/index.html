@@ -7,7 +7,7 @@
 </head> 
 
 <body>
-<div class = "app" align=center>
+<div id="webRezervacija" class = "app" align=center>
 	  <div class="header">
 		<h1>Gigzztix (no trademark)</h1>
 	  </div>
@@ -18,7 +18,7 @@
 			<ul class="navbar-nav mr-auto">
 
 				<li class="nav-item">
-					<a class="nav-link" href="#/" v-bind:hidden="korisnik.uloga == 'ADMIN' || korisnik.uloga=='PRODAVAC'">Pocetna</a>
+					<a class="nav-link" href="#/pocetna" v-bind:hidden="korisnik.uloga == 'ADMIN' || korisnik.uloga=='PRODAVAC'">Pocetna</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#/registration" v-bind:hidden="korisnik.uloga != 'GOST'">Registruj se</a>
@@ -33,16 +33,16 @@
 					<a class="nav-link" href="#/registrujProdavca" v-bind:hidden="korisnik.uloga != 'ADMIN'">Dodaj prodavca</a>
 				</li>
 
-				<li class="nav-item dropdown">
+				<li v-bind:hidden="korisnik.uloga != 'ADMIN'" class="nav-item dropdown">
 				<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 					Pregledi
 				</a>
-				<div  class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#/adminManifestacije" v-bind:hidden="korisnik.uloga != 'ADMIN'">Pregled manifestacija</a>
-						<a class="dropdown-item" href="#/adminKarte" v-bind:hidden="korisnik.uloga != 'ADMIN'">Pregled karata</a>
-						<a class="dropdown-item" href="#/adminKorisnici" v-bind:hidden="korisnik.uloga != 'ADMIN'">Pregled korisnika</a>
-						<a class="dropdown-item" href="#/adminSumnjivi" v-bind:hidden="korisnik.uloga != 'ADMIN'">Pregled sumnjivih korisnika</a>
-						<a class="dropdown-item" href="#/adminKomentari" v-bind:hidden="korisnik.uloga != 'ADMIN'">Pregled komentara</a>
+				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+						<a class="dropdown-item" href="#/adminManifestacije" >Pregled manifestacija</a>
+						<a class="dropdown-item" href="#/adminKarte" >Pregled karata</a>
+						<a class="dropdown-item" href="#/adminKorisnici">Pregled korisnika</a>
+						<a class="dropdown-item" href="#/adminSumnjivi" >Pregled sumnjivih korisnika</a>
+						<a class="dropdown-item" href="#/adminKomentari">Pregled komentara</a>
 				</div>
 				</li>
 
@@ -71,9 +71,10 @@
 
 	  <br/>
 	  <br/>
-			<router-view></router-view>
 			
 	  </nav>
+
+	<router-view></router-view>
 </div>
 
 
@@ -83,6 +84,8 @@
 <script src="js/axios.js"></script>
 <script src="js/jquery.min.js"></script>
 <script src="css/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+
+<script src="app/pocetna.js"></script>
 
 <script src="app/app.js"></script>
 </body>

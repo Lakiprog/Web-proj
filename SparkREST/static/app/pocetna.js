@@ -1,12 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link href="css/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
-	<meta charset="utf-8"/>
-</head>
-<body>
-
-    <h2 align=center>Manifestacije</h2>
+Vue.component("pocetna-strana", {
+	data: function () {
+		    return {
+		    }
+	},
+	template: ` 
+<div>
+		
+<h2 align=center>Manifestacije</h2>
 
     <div id="accordion">
         <div class="card text-white bg-dark mb-3 ">
@@ -98,7 +98,6 @@
 
         </div>
         
-    </div>
     
     <div class="card text-black bg-dark mb-3">
 
@@ -148,12 +147,13 @@
           </li>
         </ul>
     </nav>
-
-    <link href="css/styles.css" rel="stylesheet" />
-    <script src="js/vue.js"></script>
-    <script src="js/vue-router.js"></script>
-    <script src="js/axios.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="css/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
-</body>
-</html>
+		
+</div>		  
+`
+	, 
+	methods : {
+        
+	},
+	mounted () {
+    }
+});
