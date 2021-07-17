@@ -130,11 +130,8 @@ Vue.component("pocetna-strana", {
                 </div>
 
             </div>
-        </div>
 
-    </div>
-
-    <nav aria-label="Paginacija rezultata">
+            <nav aria-label="Paginacija rezultata">
         <ul class="pagination justify-content-center">
           <li class="page-item disabled">
             <a class="page-link" href="#" tabindex="-1">Prethodni</a>
@@ -147,6 +144,9 @@ Vue.component("pocetna-strana", {
           </li>
         </ul>
     </nav>
+        </div>
+
+    </div>
 		
 </div>		  
 `

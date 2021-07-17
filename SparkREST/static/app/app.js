@@ -1,4 +1,4 @@
-const Registration = { template: '<registration></registration' };
+const Registration = { template: '<registration></registration>' };
 const Login = { template: '<login></login>' };
 const Pocetna = { template: '<pocetna-strana></pocetna-strana>'};
 

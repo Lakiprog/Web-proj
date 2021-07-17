@@ -15,6 +15,10 @@ h2{
     padding-bottom: 15px;
 }
 
+.dinamic{
+    height: 2px;
+}
+
 
 .navbar-nav {
     float:none;
