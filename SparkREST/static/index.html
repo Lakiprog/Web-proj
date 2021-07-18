@@ -18,7 +18,7 @@
 			<ul class="navbar-nav mr-auto">
 
 				<li class="nav-item">
-					<a class="nav-link" href="#/pocetna" v-bind:hidden="korisnik.uloga == 'ADMIN' || korisnik.uloga=='PRODAVAC'">Pocetna</a>
+					<a class="nav-link" href="#/pocetna">Pocetna</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#/register" v-bind:hidden="korisnik.uloga != 'GOST'">Registruj se</a>
@@ -27,7 +27,7 @@
 					<a class="nav-link" href="#/login" v-bind:hidden="korisnik.uloga != 'GOST'">Login</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#/profile" v-bind:hidden="korisnik.uloga == 'GOST'">Moj Profil</a>
+					<a class="nav-link" href="#/profil" v-bind:hidden="korisnik.uloga == 'GOST'">Moj Profil</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#/registrujProdavca" v-bind:hidden="korisnik.uloga != 'ADMIN'">Dodaj prodavca</a>
@@ -41,7 +41,6 @@
 							<a class="dropdown-item" href="#/adminManifestacije" >Pregled manifestacija</a>
 							<a class="dropdown-item" href="#/adminKarte" >Pregled karata</a>
 							<a class="dropdown-item" href="#/adminKorisnici">Pregled korisnika</a>
-							<a class="dropdown-item" href="#/adminSumnjivi" >Pregled sumnjivih korisnika</a>
 							<a class="dropdown-item" href="#/adminKomentari">Pregled komentara</a>
 					</div>
 				</li>
@@ -56,18 +55,13 @@
 					</a>
 					<div  class="dropdown-menu" aria-labelledby="navbarDropdown">
 						<a class="dropdown-item" href="#/prodavacManifestacije">Pregled manifestacija</a>
-						<a class="dropdown-item" href="#/rezervisaneKarte">Pregled rezervisanih karata</a>
-						<a class="dropdown-item" href="#/komentariProdavac">Pregled komentara</a>		
+						<a class="dropdown-item" href="#/prodavacKarte">Pregled karata</a>
+						<a class="dropdown-item" href="#/prodavacKomentari">Pregled komentara</a>		
 					</div>
 				</li>
 
-				<li v-bind:hidden="korisnik.uloga != 'KUPAC'" class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Pregledi
-					</a>
-					<div  class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#/kupacKarte">Pregled svih karata</a>					
-					</div>
+				<li class="nav-item">
+					<a class="nav-link" href="#/kupacKarte" v-bind:hidden="korisnik.uloga != 'KUPAC'">Pregled karata</a>
 				</li>
 				
 				<li class="nav-item">
@@ -96,7 +90,17 @@
 <script src="app/pocetna.js"></script>
 <script src="app/registration.js"></script>
 <script src="app/login.js"></script>
-
+<script src="app/profile.js"></script>
+<script src="app/registrujProdavca.js"></script>
+<script src="app/adminManifestacije.js"></script>
+<script src="app/adminKarte.js"></script>
+<script src="app/adminKorisnici.js"></script>
+<script src="app/adminKomentari.js"></script>
+<script src="app/dodajManifestaciju.js"></script>
+<script src="app/prodavacManifestacije.js"></script>
+<script src="app/prodavacKarte.js"></script>
+<script src="app/prodavacKomentari.js"></script>
+<script src="app/kupacKarte.js"></script>
 
 <script src="app/app.js"></script>
 </body>

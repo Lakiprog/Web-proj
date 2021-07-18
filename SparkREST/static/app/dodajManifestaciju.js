@@ -1,40 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link href="css/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
-	<meta charset="utf-8"/>
-</head>
-<body>
-
+Vue.component("dodajManifestaciju", {
+	data: function () {
+		    return {
+		    }
+	},
+	template: ` 
+    <div class="dinamic">
     <h2 align=center>Dodavanje Manifestacije</h2>
     
-    <div class="card text-white bg-dark mb-3">
+    <div class="card text-white bg-dark mb-3 w-75">
 
         <div class="card-body">
             <form action="" method="POST">
                 <div class="form-group">
                     <label for="naziv">Naziv:</label>
-                    <input type="text" name = "naziv" id = "naziv" class="form-control" required>
+                    <input type="text" name = "naziv" id = "naziv" class="form-control form-control-sm" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="brMesta">Broj mesta:</label>
-                    <input type="number" name = "brMesta" id = "brMesta" class="form-control" min="0" required>
+                    <input type="number" name = "brMesta" id = "brMesta" class="form-control form-control-sm" min="0" required>
                 </div>
         
                 <div class="form-group">
                     <label for="cena">Cena regularne karte:</label>
-                    <input type="number" name = "cena" id = "cena" class="form-control" min="0" required>
+                    <input type="number" name = "cena" id = "cena" class="form-control form-control-sm" min="0" required>
                 </div>
         
                 <div class="form-group">
                     <label for="datum">Datum i vreme odrzavanja:</label>
-                    <input type="datetime-local" name = "datum" id = "datum" class="form-control" required>
+                    <input type="datetime-local" name = "datum" id = "datum" class="form-control form-control-sm" required>
                 </div>
         
                 <div class="form-group">
                     <label for="tip">Tip manifestacije:</label>
-                    <select name="tip" id="tip" class="form-control">
+                    <select name="tip" id="tip" class="form-control form-control-sm">
                         <option value="KONCERT">Koncert</option>
                         <option value="FESTIVAL">Festival</option>
                         <option value="POZORISTE">Pozoriste</option>
@@ -44,12 +43,12 @@
         
                 <div class="form-group">
                     <label for="lokacija">Lokacija (ovde cemo staviti onu mapu bacane, ja msm barem) :</label>
-                    <input type="text" name = "lokacija" id = "lokacija" class="form-control" required>
+                    <input type="text" name = "lokacija" id = "lokacija" class="form-control form-control-sm" required>
                 </div>
         
                 <div class="form-group">
                     <label for="poster">Slika postera:</label>
-                    <input type="file" name = "poster" id = "poster" class="form-control" accept="image/png, image/jpeg" required>
+                    <input type="file" name = "poster" id = "poster" class="form-control form-control-sm" accept="image/png, image/jpeg" required>
                 </div>
         
                 <div>
@@ -59,12 +58,12 @@
         </div>
 
     </div>
-
-    <link href="css/styles.css" rel="stylesheet" />
-    <script src="js/vue.js"></script>
-    <script src="js/vue-router.js"></script>
-    <script src="js/axios.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="css/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
-</body>
-</html>
+</div>
+`
+	, 
+	methods : {
+        
+	},
+	mounted () {
+    }
+});

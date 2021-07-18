@@ -1,40 +1,39 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link href="css/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
-	<meta charset="utf-8"/>
-</head>
-<body>
-
+Vue.component("profile", {
+	data: function () {
+		    return {
+		    }
+	},
+	template: ` 
+    <div class="dinamic">
     <h2 align=center>Profil</h2>
     
-    <div class="card text-white bg-dark mb-3">
+    <div class="card text-white bg-dark mb-3 w-75">
 
         <div class="card-body">
             <form action="" method="POST">
                 <div class="form-group">
                     <label for="kIme">Korisnicko ime:</label>
-                    <input type="text" name = "kIme" id = "kIme" class="form-control" required>
+                    <input type="text" name = "kIme" id = "kIme" class="form-control  form-control-sm" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="ime">Ime:</label>
-                    <input type="text" name = "ime" id = "ime" class="form-control" required>
+                    <input type="text" name = "ime" id = "ime" class="form-control  form-control-sm" required>
                 </div>
         
                 <div class="form-group">
                     <label for="prezime">Prezime:</label>
-                    <input type="text" name = "prezime" id = "prezime" class="form-control" required>
+                    <input type="text" name = "prezime" id = "prezime" class="form-control  form-control-sm" required>
                 </div>
         
                 <div class="form-group">
                     <label for="datumRodjenja">Datum rodjenja:</label>
-                    <input type="date" name = "datumRodjenja" id = "datumRodjenja" class="form-control" required>
+                    <input type="date" name = "datumRodjenja" id = "datumRodjenja" class="form-control  form-control-sm" required>
                 </div>
         
                 <div class="form-group">
                     <label for="pol">Pol:</label>
-                    <select name="pol" id="pol" class="form-control">
+                    <select name="pol" id="pol" class="form-control  form-control-sm">
                         <option value="MUSKO">Musko</option>
                         <option value="ZENSKO">Zensko</option>
                     </select>
@@ -42,7 +41,7 @@
         
                 <div class="form-group">
                     <label for="lozinka">Sadasnja lozinka:</label>
-                    <input type="text" name = "lozinka" id = "lozinka" class="form-control" readonly>
+                    <input type="text" name = "lozinka" id = "lozinka" class="form-control-plaintext" readonly>
                 </div>
         
                 <div>
@@ -53,18 +52,18 @@
 
     </div>
 
-    <div class="card text-white bg-dark mb-3">
+    <div class="card text-white bg-dark mb-3 w-75">
 
         <div class="card-body">
             <form action="" method="POST">
                 <div class="form-group">
                     <label for="lozinkaNova">Nova lozinka:</label>
-                    <input type="password" name = "lozinkaNova" id = "lozinkaNova" class="form-control" required>
+                    <input type="password" name = "lozinkaNova" id = "lozinkaNova" class="form-control  form-control-sm" required>
                 </div>
         
                 <div class="form-group">
                     <label for="lozinkaOpet">Nova lozinka opet:</label>
-                    <input type="password" name = "lozinkaOpet" id = "lozinkaOpet" class="form-control" required>
+                    <input type="password" name = "lozinkaOpet" id = "lozinkaOpet" class="form-control  form-control-sm" required>
                 </div>
         
                 <div>
@@ -74,12 +73,12 @@
         </div>
 
     </div>
-
-    <link href="css/styles.css" rel="stylesheet" />
-    <script src="js/vue.js"></script>
-    <script src="js/vue-router.js"></script>
-    <script src="js/axios.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="css/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
-</body>
-</html>
+</div>
+`
+	, 
+	methods : {
+        
+	},
+	mounted () {
+    }
+});
