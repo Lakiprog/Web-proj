@@ -5,7 +5,12 @@ Vue.component("registration", {
 	},
 	template: ` 
     <div class="dinamic">
+
+    <br><br>
+
     <h2 align=center>Registracija</h2>
+    
+    <br>
     
     <div class="card text-white bg-dark mb-3 w-75">
 

@@ -27,7 +27,7 @@
 					<a class="nav-link" href="#/login" v-bind:hidden="korisnik.uloga != 'GOST'">Login</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#/profil" v-bind:hidden="korisnik.uloga == 'GOST'">Moj Profil</a>
+					<a class="nav-link" href="#/profile" v-bind:hidden="korisnik.uloga == 'GOST'">Moj Profil</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#/registrujProdavca" v-bind:hidden="korisnik.uloga != 'ADMIN'">Dodavanje prodavca</a>
@@ -101,7 +101,6 @@
 <script src="app/adminKarte.js"></script>
 <script src="app/adminKorisnici.js"></script>
 <script src="app/adminKomentari.js"></script>
-<script src="app/dodajManifestaciju.js"></script>
 <script src="app/prodavacManifestacije.js"></script>
 <script src="app/prodavacKarte.js"></script>
 <script src="app/prodavacKomentari.js"></script>

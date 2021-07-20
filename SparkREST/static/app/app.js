@@ -1,14 +1,13 @@
 const Home = { template: '<home-page></home-page>'};
 const Registration = { template: '<registration></registration>' };
 const Login = { template: '<login></login>' };
-const Pocetna = { template: '<pocetna-strana></pocetna-strana>'};
-const Profil = { template: '<profile></profile>'};
+const Profile = { template: '<profile></profile>'};
 const RegistracijaProdavca = { template: '<registrujProdavca></registrujProdavca>' };
 const AdminManifestacije = { template: '<adminManifestacije></adminManifestacije>' };
 const AdminKarte = { template: '<adminKarte></adminKarte>' };
 const AdminKorisnici = { template: '<adminKorisnici></adminKorisnici>' };
 const AdminKomentari = { template: '<adminKomentari></adminKomentari>' };
-const DodajManifestaciju = { template: '<dodajManifestaciju></dodajManifestaciju>' };
+const CreateManifestation = { template: '<create-manifestation></create-manifestation>' };
 const ProdavacManifestacije = { template: '<prodavacManifestacije></prodavacManifestacije>' };
 const ProdavacKarte = { template: '<prodavacKarte></prodavacKarte>' };
 const ProdavacKomentari = { template: '<prodavacKomentari></prodavacKomentari>' };
@@ -20,14 +19,13 @@ const router = new VueRouter({
         { path: '/', component: Home },
         { path: '/register', component: Registration },
         { path: '/login', component: Login },
-        { path: '/pocetna', component: Pocetna },
-        { path: '/profil', component: Profil },
+        { path: '/profile', component: Profile },
         { path: '/registrujProdavca', component: RegistracijaProdavca },
         { path: '/adminManifestacije', component: AdminManifestacije },
         { path: '/adminKarte', component: AdminKarte },
         { path: '/adminKorisnici', component: AdminKorisnici },
         { path: '/adminKomentari', component: AdminKomentari },
-        { path: '/dodajManifestaciju', component: DodajManifestaciju },
+        { path: '/createManifestation', component: CreateManifestation },
         { path: '/prodavacManifestacije', component: ProdavacManifestacije },
         { path: '/prodavacKarte', component: ProdavacKarte },
         { path: '/prodavacKomentari', component: ProdavacKomentari },
