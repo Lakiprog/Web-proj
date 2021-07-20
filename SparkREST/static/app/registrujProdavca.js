@@ -1,43 +1,38 @@
-Vue.component("profile", {
+Vue.component("registrujProdavca", {
 	data: function () {
 		    return {
 		    }
 	},
 	template: ` 
     <div class="dinamic">
-    
-    <br><br>
-
-    <h2 align=center>Profil</h2>
-
-    <br>
+    <h2 align=center>Registracija Prodavca</h2>
     
     <div class="card text-white bg-dark mb-3 w-75">
 
         <div class="card-body">
             <form action="" method="POST">
                 <div class="form-group">
-                    <label for="kIme">Korisnicko ime:</label>
+                    <label for="kIme">Unesite korisnicko ime:</label>
                     <input type="text" name = "kIme" id = "kIme" class="form-control  form-control-sm" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="ime">Ime:</label>
+                    <label for="ime">Unesite ime:</label>
                     <input type="text" name = "ime" id = "ime" class="form-control  form-control-sm" required>
                 </div>
         
                 <div class="form-group">
-                    <label for="prezime">Prezime:</label>
+                    <label for="prezime">Unesite prezime:</label>
                     <input type="text" name = "prezime" id = "prezime" class="form-control  form-control-sm" required>
                 </div>
         
                 <div class="form-group">
-                    <label for="datumRodjenja">Datum rodjenja:</label>
+                    <label for="datumRodjenja">Unesite datum rodjenja:</label>
                     <input type="date" name = "datumRodjenja" id = "datumRodjenja" class="form-control  form-control-sm" required>
                 </div>
         
                 <div class="form-group">
-                    <label for="pol">Pol:</label>
+                    <label for="pol">Birajte pol:</label>
                     <select name="pol" id="pol" class="form-control  form-control-sm">
                         <option value="MUSKO">Musko</option>
                         <option value="ZENSKO">Zensko</option>
@@ -45,43 +40,24 @@ Vue.component("profile", {
                 </div>
         
                 <div class="form-group">
-                    <label for="lozinka">Trenutna lozinka:</label>
-                    <input type="text" name = "lozinka" id = "lozinka" class="form-control-plaintext" readonly>
+                    <label for="lozinka1">Unesite lozinku:</label>
+                    <input type="password" name = "lozinka1" id = "lozinka1" class="form-control  form-control-sm" required>
+                </div>
+        
+                <div class="form-group">
+                    <label for="lozinka2">Unesite lozinku opet:</label>
+                    <input type="password" name = "lozinka2" id = "lozinka2" class="form-control  form-control-sm" required>
                 </div>
         
                 <div>
-                    <input type="submit" name = "azuriraj" id = "azuriraj" value="Azurirajte podatke" class="btn btn-primary">
+                    <input type="submit" name = "registruj" id = "registruj" value="Registrujte se" class="btn btn-primary">
                 </div>
             </form>
         </div>
 
     </div>
-
-    <div class="card text-white bg-dark mb-3 w-75">
-
-        <div class="card-body">
-            <form action="" method="POST">
-                <div class="form-group">
-                    <label for="lozinkaNova">Nova lozinka:</label>
-                    <input type="password" name = "lozinkaNova" id = "lozinkaNova" class="form-control  form-control-sm" required>
-                </div>
-        
-                <div class="form-group">
-                    <label for="lozinkaOpet">Nova lozinka ponovo (lozinke se moraju ponavljati):</label>
-                    <input type="password" name = "lozinkaOpet" id = "lozinkaOpet" class="form-control  form-control-sm" required>
-                </div>
-        
-                <div>
-                    <input type="submit" name = "azurirajLozinku" id = "azurirajLozinku" value="Azurirajte lozinku" class="btn btn-primary">
-                </div>
-            </form>
-        </div>
-
-    </div>
-
-    </div>
-
-    `
+</div>
+`
 	, 
 	methods : {
         

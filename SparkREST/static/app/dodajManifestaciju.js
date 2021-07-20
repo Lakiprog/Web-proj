@@ -1,9 +1,14 @@
+<<<<<<< HEAD:SparkREST/static/app/createManifestation.js
 Vue.component("create-manifestation", {
+=======
+Vue.component("dodajManifestaciju", {
+>>>>>>> b3896e3fb17f7076d4277f69fd71d58f5512fba6:SparkREST/static/app/dodajManifestaciju.js
 	data: function () {
 		    return {
 		    }
 	},
 	template: ` 
+<<<<<<< HEAD:SparkREST/static/app/createManifestation.js
 
     <div>
 
@@ -12,6 +17,10 @@ Vue.component("create-manifestation", {
     <h2 align=center>Kreiranje manifestacije</h2>
 
     <br>
+=======
+    <div class="dinamic">
+    <h2 align=center>Dodavanje Manifestacije</h2>
+>>>>>>> b3896e3fb17f7076d4277f69fd71d58f5512fba6:SparkREST/static/app/dodajManifestaciju.js
     
     <div class="card text-white bg-dark mb-3 w-75">
 
@@ -64,10 +73,15 @@ Vue.component("create-manifestation", {
         </div>
 
     </div>
+<<<<<<< HEAD:SparkREST/static/app/createManifestation.js
 
     </div>
     
     `
+=======
+</div>
+`
+>>>>>>> b3896e3fb17f7076d4277f69fd71d58f5512fba6:SparkREST/static/app/dodajManifestaciju.js
 	, 
 	methods : {
         
