@@ -18,7 +18,7 @@
 			<ul class="navbar-nav mr-auto">
 
 				<li class="nav-item">
-					<a class="nav-link" href="#/" v-bind:hidden="korisnik.uloga == 'ADMIN' || korisnik.uloga=='PRODAVAC'">Pocetna</a>
+					<a class="nav-link" href="#/">Pocetna</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#/register" v-bind:hidden="korisnik.uloga != 'GOST'">Registracija</a>
@@ -30,10 +30,7 @@
 					<a class="nav-link" href="#/profile" v-bind:hidden="korisnik.uloga == 'GOST'">Moj Profil</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#/registrujProdavca" v-bind:hidden="korisnik.uloga != 'ADMIN'">Dodavanje prodavca</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#/createManifestation" v-bind:hidden="korisnik.uloga != 'ADMIN'">Kreiranje manifestacije</a>
+					<a class="nav-link" href="#/registerSeller" v-bind:hidden="korisnik.uloga != 'ADMIN'">Dodavanje prodavca</a>
 				</li>
 
 				<li v-bind:hidden="korisnik.uloga != 'ADMIN'" class="nav-item dropdown">
@@ -41,15 +38,15 @@
 						Pregledi
 					</a>
 					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="#/adminManifestacije" >Pregled manifestacija</a>
-							<a class="dropdown-item" href="#/adminKarte" >Pregled karata</a>
-							<a class="dropdown-item" href="#/adminKorisnici">Pregled korisnika</a>
-							<a class="dropdown-item" href="#/adminKomentari">Pregled komentara</a>
+							<a class="dropdown-item" href="#/adminManifestations" >Pregled manifestacija</a>
+							<a class="dropdown-item" href="#/adminCards" >Pregled karata</a>
+							<a class="dropdown-item" href="#/adminUsers">Pregled korisnika</a>
+							<a class="dropdown-item" href="#/adminComments">Pregled komentara</a>
 					</div>
 				</li>
 
 				<li class="nav-item">
-					<a class="nav-link" href="#/dodajManifestaciju" v-bind:hidden="korisnik.uloga != 'PRODAVAC'">Dodaj manifestaciju</a>
+					<a class="nav-link" href="#/createManifestation" v-bind:hidden="korisnik.uloga != 'PRODAVAC'">Dodaj manifestaciju</a>
 				</li>
 
 				<li v-bind:hidden="korisnik.uloga != 'PRODAVAC'" class="nav-item dropdown">
@@ -57,14 +54,14 @@
 						Pregledi
 					</a>
 					<div  class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="#/prodavacManifestacije">Pregled manifestacija</a>
-						<a class="dropdown-item" href="#/prodavacKarte">Pregled karata</a>
-						<a class="dropdown-item" href="#/prodavacKomentari">Pregled komentara</a>		
+						<a class="dropdown-item" href="#/sellerManifestations">Pregled manifestacija</a>
+						<a class="dropdown-item" href="#/sellerCards">Pregled karata</a>
+						<a class="dropdown-item" href="#/sellerComments">Pregled komentara</a>		
 					</div>
 				</li>
 
 				<li class="nav-item">
-					<a class="nav-link" href="#/kupacKarte" v-bind:hidden="korisnik.uloga != 'KUPAC'">Pregled karata</a>
+					<a class="nav-link" href="#/buyerCards" v-bind:hidden="korisnik.uloga != 'KUPAC'">Pregled karata</a>
 				</li>
 				
 				<li class="nav-item">
@@ -96,15 +93,15 @@
 <script src="app/profile.js"></script>
 <script src="app/createManifestation.js"></script>
 
-<script src="app/registrujProdavca.js"></script>
-<script src="app/adminManifestacije.js"></script>
-<script src="app/adminKarte.js"></script>
-<script src="app/adminKorisnici.js"></script>
-<script src="app/adminKomentari.js"></script>
-<script src="app/prodavacManifestacije.js"></script>
-<script src="app/prodavacKarte.js"></script>
-<script src="app/prodavacKomentari.js"></script>
-<script src="app/kupacKarte.js"></script>
+<script src="app/registerSeller.js"></script>
+<script src="app/adminManifestations.js"></script>
+<script src="app/adminCards.js"></script>
+<script src="app/adminUsers.js"></script>
+<script src="app/adminComments.js"></script>
+<script src="app/sellerManifestations.js"></script>
+<script src="app/sellerCards.js"></script>
+<script src="app/sellerComments.js"></script>
+<script src="app/buyerCards.js"></script>
 
 <script src="app/app.js"></script>
 </body>

@@ -1,4 +1,4 @@
-Vue.component("kupacKarte", {
+Vue.component("adminCards", {
 	data: function () {
 		    return {
 		    }
@@ -103,30 +103,31 @@ Vue.component("kupacKarte", {
 
     <table class="table table-hover table-dark">
     <tr>
-        <th>Manifestacija</th>
-        <th>Tip Manifestacije</th>
-        <th>Tip Karte</th>
+        <th>K.Ime Kupca</th>
+        <th>Ime i prezime</th>
+        <th>Tip</th>
 		<th>Broj mesta</th>
+		<th>Manifestacija</th>
 		<th>Datum</th>
         <th>Status</th>
-        <th></th>
     </tr>
 
     <tr>
-        <td>Primer Koncert Ramba</td>
+        <td>markuza</td>
+        <td>Petar Markovic</td>
         <td>Koncert</td>
-        <td>Regular</td>
         <td>1000</td>
+        <td>Primer Koncert Ramba</td>
         <td>2021.10.10</td>
         <td style="color:green;">Rezervisano</td>
-        <td><input type="button" class="btn btn-danger" value="Odustani"/></td>
     </tr>
 
     <tr>
-        <td>Dombos Fest</td>
+        <td>markuza</td>
+        <td>Petar Markovic</td>
         <td>Festival</td>
-        <td>VIP</td>
         <td>10000</td>
+        <td>Dombos Fest</td>
         <td>2021.08.08</td>
         <td style="color:red;">Odustano</td>
     </tr>

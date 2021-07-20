@@ -2,16 +2,16 @@ const Home = { template: '<home-page></home-page>'};
 const Registration = { template: '<registration></registration>' };
 const Login = { template: '<login></login>' };
 const Profile = { template: '<profile></profile>'};
-const RegistracijaProdavca = { template: '<registrujProdavca></registrujProdavca>' };
-const AdminManifestacije = { template: '<adminManifestacije></adminManifestacije>' };
-const AdminKarte = { template: '<adminKarte></adminKarte>' };
-const AdminKorisnici = { template: '<adminKorisnici></adminKorisnici>' };
-const AdminKomentari = { template: '<adminKomentari></adminKomentari>' };
+const RegisterSeller = { template: '<registerSeller></registerSeller>' };
+const AdminManifestations = { template: '<adminManifestations></adminManifestations>' };
+const AdminCards = { template: '<adminCards></adminCards>' };
+const AdminUsers = { template: '<adminUsers></adminUsers>' };
+const AdminComments = { template: '<adminComments></adminComments>' };
 const CreateManifestation = { template: '<create-manifestation></create-manifestation>' };
-const ProdavacManifestacije = { template: '<prodavacManifestacije></prodavacManifestacije>' };
-const ProdavacKarte = { template: '<prodavacKarte></prodavacKarte>' };
-const ProdavacKomentari = { template: '<prodavacKomentari></prodavacKomentari>' };
-const KupacKarte = { template: '<kupacKarte></kupacKarte>' };
+const SellerManifestations = { template: '<sellerManifestations></sellerManifestations>' };
+const SellerCards = { template: '<sellerCards></sellerCards>' };
+const SellerComments = { template: '<sellerComments></sellerComments>' };
+const BuyerCards = { template: '<buyerCards></buyerCards>' };
 
 const router = new VueRouter({
     mode: 'hash',
@@ -20,16 +20,16 @@ const router = new VueRouter({
         { path: '/register', component: Registration },
         { path: '/login', component: Login },
         { path: '/profile', component: Profile },
-        { path: '/registrujProdavca', component: RegistracijaProdavca },
-        { path: '/adminManifestacije', component: AdminManifestacije },
-        { path: '/adminKarte', component: AdminKarte },
-        { path: '/adminKorisnici', component: AdminKorisnici },
-        { path: '/adminKomentari', component: AdminKomentari },
+        { path: '/registerSeller', component: RegisterSeller },
+        { path: '/adminManifestations', component: AdminManifestations },
+        { path: '/adminCards', component: AdminCards },
+        { path: '/adminUsers', component: AdminUsers },
+        { path: '/adminComments', component: AdminComments },
         { path: '/createManifestation', component: CreateManifestation },
-        { path: '/prodavacManifestacije', component: ProdavacManifestacije },
-        { path: '/prodavacKarte', component: ProdavacKarte },
-        { path: '/prodavacKomentari', component: ProdavacKomentari },
-        { path: '/kupacKarte', component: KupacKarte },
+        { path: '/sellerManifestations', component: SellerManifestations },
+        { path: '/sellerCards', component: SellerCards },
+        { path: '/sellerComments', component: SellerComments },
+        { path: '/buyerCards', component: BuyerCards },
     ]
 });
 

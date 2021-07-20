@@ -1,4 +1,4 @@
-Vue.component("prodavacManifestacije", {
+Vue.component("adminManifestations", {
 	data: function () {
 		    return {
 		    }
@@ -18,7 +18,7 @@ Vue.component("prodavacManifestacije", {
         <th>Cena karte</th>
         <th>Adresa odrzavanja</th>
         <th>Status</th>
-        <th></th>
+        <th colspan=2 ></th>
     </tr>
 
     <tr>
@@ -29,7 +29,8 @@ Vue.component("prodavacManifestacije", {
         <td>300</td>
         <td>Telep</td>
         <td style="color:green;">Aktivno</td>
-        <td><input type="button" class="btn btn-primary" value="Azuriraj"/></td>
+        <td></td>
+        <td><input type="button" class="btn btn-danger" value="Obrisi"/></td>
     </tr>
 
     <tr>
@@ -40,7 +41,8 @@ Vue.component("prodavacManifestacije", {
         <td>10</td>
         <td>Mali idjos</td>
         <td style="color:red;">Neaktivno</td>
-        <td><input type="button" class="btn btn-primary" value="Azuriraj"/></td>
+        <td><input type="button" class="btn btn-primary" value="Aktiviraj"/></td>
+        <td><input type="button" class="btn btn-danger" value="Obrisi"/></td>
     </tr>
 </table>
 

@@ -1,4 +1,4 @@
-Vue.component("registrujProdavca", {
+Vue.component("registerSeller", {
 	data: function () {
 		    return {
 		    }

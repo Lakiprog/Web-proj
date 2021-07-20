@@ -1,4 +1,4 @@
-Vue.component("adminKorisnici", {
+Vue.component("adminUsers", {
 	data: function () {
 		    return {
 		    }

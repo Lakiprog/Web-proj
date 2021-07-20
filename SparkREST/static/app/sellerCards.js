@@ -1,4 +1,4 @@
-Vue.component("adminKarte", {
+Vue.component("sellerCards", {
 	data: function () {
 		    return {
 		    }

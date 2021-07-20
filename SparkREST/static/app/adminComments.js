@@ -1,4 +1,4 @@
-Vue.component("prodavacKomentari", {
+Vue.component("adminComments", {
 	data: function () {
 		    return {
 		    }
@@ -25,7 +25,7 @@ Vue.component("prodavacKomentari", {
         <td>Primer Koncert Ramba</td>
         <td>bruh</td>
         <td>5</td>
-        <td><input type="button" class="btn btn-primary" value="Odobri" /></td>
+        <td><input type="button" class="btn btn-danger" value="Obrisi" /></td>
     </tr>
 
     <tr>
@@ -34,7 +34,7 @@ Vue.component("prodavacKomentari", {
         <td>Primer Koncert Ramba</td>
         <td>premalo FAPa</td>
         <td>4</td>
-        <td></td>
+        <td><input type="button" class="btn btn-danger" value="Obrisi" /></td>
     </tr>
 </table>
 
