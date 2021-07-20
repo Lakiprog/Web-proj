@@ -1,12 +1,16 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <link href="css/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
-	<meta charset="utf-8"/>
-</head>
-<body>
+Vue.component("profile", {
+	data: function () {
+		    return {
+		    }
+	},
+	template: ` 
+    <div>
 
-    <h2 align=center>Profil</h2>
+    <br><br>
+
+    <h2 align=center>Moj profil</h2>
+
+    <br>
     
     <div class="card text-white bg-dark mb-3">
 
@@ -41,7 +45,7 @@
                 </div>
         
                 <div class="form-group">
-                    <label for="lozinka">Sadasnja lozinka:</label>
+                    <label for="lozinka">Trenutna lozinka:</label>
                     <input type="text" name = "lozinka" id = "lozinka" class="form-control" readonly>
                 </div>
         
@@ -63,7 +67,7 @@
                 </div>
         
                 <div class="form-group">
-                    <label for="lozinkaOpet">Nova lozinka opet:</label>
+                    <label for="lozinkaOpet">Nova lozinka ponovo (lozinke se moraju poklapati):</label>
                     <input type="password" name = "lozinkaOpet" id = "lozinkaOpet" class="form-control" required>
                 </div>
         
@@ -75,11 +79,13 @@
 
     </div>
 
-    <link href="css/styles.css" rel="stylesheet" />
-    <script src="js/vue.js"></script>
-    <script src="js/vue-router.js"></script>
-    <script src="js/axios.js"></script>
-    <script src="js/jquery.min.js"></script>
-    <script src="css/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
-</body>
-</html>
+    </div>
+
+    `
+	, 
+	methods : {
+        
+	},
+	mounted () {
+    }
+});

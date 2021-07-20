@@ -12,27 +12,27 @@ Vue.component("registration", {
         <div class="card-body">
             <form action="" method="POST">
                 <div class="form-group">
-                    <label for="kIme">Unesite korisnicko ime:</label>
+                    <label for="kIme">Korisnicko ime:</label>
                     <input type="text" name = "kIme" id = "kIme" class="form-control  form-control-sm" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="ime">Unesite ime:</label>
+                    <label for="ime">Ime:</label>
                     <input type="text" name = "ime" id = "ime" class="form-control  form-control-sm" required>
                 </div>
         
                 <div class="form-group">
-                    <label for="prezime">Unesite prezime:</label>
+                    <label for="prezime">Prezime:</label>
                     <input type="text" name = "prezime" id = "prezime" class="form-control  form-control-sm" required>
                 </div>
         
                 <div class="form-group">
-                    <label for="datumRodjenja">Unesite datum rodjenja:</label>
+                    <label for="datumRodjenja">Datum rodjenja:</label>
                     <input type="date" name = "datumRodjenja" id = "datumRodjenja" class="form-control  form-control-sm" required>
                 </div>
         
                 <div class="form-group">
-                    <label for="pol">Birajte pol:</label>
+                    <label for="pol">Pol:</label>
                     <select name="pol" id="pol" class="form-control  form-control-sm">
                         <option value="MUSKO">Musko</option>
                         <option value="ZENSKO">Zensko</option>
@@ -40,12 +40,12 @@ Vue.component("registration", {
                 </div>
         
                 <div class="form-group">
-                    <label for="lozinka1">Unesite lozinku:</label>
+                    <label for="lozinka1">Lozinka:</label>
                     <input type="password" name = "lozinka1" id = "lozinka1" class="form-control  form-control-sm" required>
                 </div>
         
                 <div class="form-group">
-                    <label for="lozinka2">Unesite lozinku opet:</label>
+                    <label for="lozinka2">Lozinka ponovo (lozinke se moraju poklapati):</label>
                     <input type="password" name = "lozinka2" id = "lozinka2" class="form-control  form-control-sm" required>
                 </div>
         

@@ -18,10 +18,10 @@
 			<ul class="navbar-nav mr-auto">
 
 				<li class="nav-item">
-					<a class="nav-link" href="#/pocetna" v-bind:hidden="korisnik.uloga == 'ADMIN' || korisnik.uloga=='PRODAVAC'">Pocetna</a>
+					<a class="nav-link" href="#/" v-bind:hidden="korisnik.uloga == 'ADMIN' || korisnik.uloga=='PRODAVAC'">Pocetna</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#/register" v-bind:hidden="korisnik.uloga != 'GOST'">Registruj se</a>
+					<a class="nav-link" href="#/register" v-bind:hidden="korisnik.uloga != 'GOST'">Registracija</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link" href="#/login" v-bind:hidden="korisnik.uloga != 'GOST'">Login</a>
@@ -30,7 +30,10 @@
 					<a class="nav-link" href="#/profile" v-bind:hidden="korisnik.uloga == 'GOST'">Moj Profil</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="#/registrujProdavca" v-bind:hidden="korisnik.uloga != 'ADMIN'">Dodaj prodavca</a>
+					<a class="nav-link" href="#/registrujProdavca" v-bind:hidden="korisnik.uloga != 'ADMIN'">Dodavanje prodavca</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#/createManifestation" v-bind:hidden="korisnik.uloga != 'ADMIN'">Kreiranje manifestacije</a>
 				</li>
 
 				<li v-bind:hidden="korisnik.uloga != 'ADMIN'" class="nav-item dropdown">
@@ -93,9 +96,11 @@
 <script src="js/jquery.min.js"></script>
 <script src="css/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
 
-<script src="app/pocetna.js"></script>
+<script src="app/home.js"></script>
 <script src="app/registration.js"></script>
 <script src="app/login.js"></script>
+<script src="app/profile.js"></script>
+<script src="app/createManifestation.js"></script>
 
 
 <script src="app/app.js"></script>

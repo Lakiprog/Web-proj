@@ -1,13 +1,17 @@
+const Home = { template: '<home-page></home-page>'};
 const Registration = { template: '<registration></registration>' };
 const Login = { template: '<login></login>' };
-const Pocetna = { template: '<pocetna-strana></pocetna-strana>'};
+const Profile = { template: '<profile></profile>' };
+const CreateManifestation = { template: '<create-manifestation></create-manifestation>' };
 
 const router = new VueRouter({
     mode: 'hash',
     routes: [
+        { path: '/', component: Home },
         { path: '/register', component: Registration },
         { path: '/login', component: Login },
-        { path: '/pocetna', component: Pocetna },
+        { path: '/profile', component: Profile },
+        { path: '/createManifestation', component: CreateManifestation },
     ]
 });
 

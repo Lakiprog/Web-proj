@@ -1,4 +1,4 @@
-Vue.component("pocetna-strana", {
+Vue.component("home-page", {
 	data: function () {
 		    return {
 		    }
@@ -6,7 +6,11 @@ Vue.component("pocetna-strana", {
 	template: ` 
 <div>
 		
+<br><br>
+
 <h2 align=center>Manifestacije</h2>
+
+<br>
 
     <div id="accordion">
         <div class="card text-white bg-dark mb-3 ">

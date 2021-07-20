@@ -5,19 +5,24 @@ Vue.component("login", {
 	},
 	template: ` 
     <div class="dinamic">
+
+    <br><br>
+
     <h2 align=center>Login</h2>
+
+    <br>
     
     <div class="card text-white bg-dark mb-3 w-75">
 
         <div class="card-body">
             <form action="" method="GET">
                 <div class="form-group">
-                    <label for="kIme">Unesite korisnicko ime:</label>
+                    <label for="kIme">Korisnicko ime:</label>
                     <input type="text" name = "kIme" id = "kIme" class="form-control" required>
                 </div>
         
                 <div class="form-group">
-                    <label for="lozinka">Unesite lozinku:</label>
+                    <label for="lozinka">Lozinka:</label>
                     <input type="password" name = "lozinka" id = "lozinka" class="form-control" required>
                 </div>
 
@@ -28,8 +33,8 @@ Vue.component("login", {
         </div>
 
     </div>
-</div>
-`
+    </div>
+    `
 	, 
 	methods : {
         
