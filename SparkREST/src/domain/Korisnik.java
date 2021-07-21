@@ -1,20 +1,19 @@
 package domain;
 
-import java.time.LocalDateTime;
+import java.io.Serializable;
 
-public abstract class Korisnik {
+public class Korisnik {
+
 	private int id;
 	private String kIme, lozinka, ime, prezime;
 	private String datumRodjenja;
 	private Pol pol;
 	private boolean obrisan;
+	private Uloga uloga;
 	
-	public Korisnik() {
-		
-	}
+	public Korisnik() {}
 	
-	
-	public Korisnik(int id, String kIme, String lozinka, String ime, String prezime, String datumRodjenja, Pol pol) {
+	public Korisnik(int id, String kIme, String lozinka, String ime, String prezime, String datumRodjenja, Pol pol, Uloga uloga) {
 		super();
 		this.kIme = kIme;
 		this.lozinka = lozinka;
@@ -23,6 +22,7 @@ public abstract class Korisnik {
 		this.datumRodjenja = datumRodjenja;
 		this.pol = pol;
 		this.id = id;
+		this.uloga = uloga;
 	}
 	
 	public int getId() {
@@ -77,5 +77,39 @@ public abstract class Korisnik {
 	public void setObrisan(boolean obrisan) {
 		this.obrisan = obrisan;
 	}
-	
+
+	public Uloga getUloga() {
+		return uloga;
+	}
+
+
+	public void setUloga(Uloga uloga) {
+		this.uloga = uloga;
+	}
+
+	@Override
+	public String toString() {
+		return "Korisnik [id=" + id + ", kIme=" + kIme + ", lozinka=" + lozinka + ", uloga=" + uloga + "]";
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		Korisnik other = (Korisnik) obj;
+		if (kIme == null) {
+			if (other.kIme != null)
+				return false;
+		} else if (!kIme.equals(other.kIme))
+			return false;
+		if (lozinka == null) {
+			if (other.lozinka != null)
+				return false;
+		} else if (!lozinka.equals(other.lozinka))
+			return false;
+		return true;
+	}
+
 }

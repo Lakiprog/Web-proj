@@ -9,6 +9,7 @@
       "datumRodjenja" : "1999.10.10",
       "pol" : "MUSKO",
       "obrisan" : false,
+      "uloga" : "PRODAVAC",
       "manifestacije" : null,
       "blokiran" : false
     },
@@ -21,6 +22,7 @@
       "datumRodjenja" : "1550.10.10",
       "pol" : "MUSKO",
       "obrisan" : false,
+      "uloga" : "PRODAVAC",
       "manifestacije" : null,
       "blokiran" : false
     }

@@ -12,7 +12,7 @@ public class KorisnikHandler {
 	private KupciHandler kupciHandler;
 	private AdminHandler adminHandler;
 	private ProdavacHandler prodavacHandler;
-	private ArrayList<Korisnik> korisnici;
+	private ArrayList<Korisnik> korisnici = new ArrayList<Korisnik>();
 	
 	public KorisnikHandler() {
 		kupciHandler = new KupciHandler();

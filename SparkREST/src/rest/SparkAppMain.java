@@ -12,6 +12,10 @@ import java.util.Date;
 
 import com.google.gson.Gson;
 
+import domain.Korisnik;
+import domain.Kupac;
+import handlers.KorisnikHandler;
+import handlers.KupciHandler;
 import handlers.WsHandler;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
@@ -22,12 +26,9 @@ import spark.Session;
 
 public class SparkAppMain {
 
-	private static Gson g = new Gson();
-
-	/**
-	 * Kljuc za potpisivanje JWT tokena.
-	 * Biblioteka: https://github.com/jwtk/jjwt
-	 */
+	private static KorisnikHandler usersHandler = new KorisnikHandler();
+	
+	private static Gson gson = new Gson();
 	static Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
 	public static void main(String[] args) throws Exception {
@@ -37,6 +38,26 @@ public class SparkAppMain {
 
 		staticFiles.externalLocation(new File("./static").getCanonicalPath());
 		
+		post("/rest/users/logUserIn", (req, res) -> {
+			Korisnik user = gson.fromJson(req.body(), Korisnik.class);
+			
+			System.out.println(user.getkIme());
+			System.out.println(user.getLozinka());
+
+			if (usersHandler.getKupci().contains(user)) {
+				res.type("application/json");
+				req.session().attribute("currentUser", user);
+				return "0k";
+			}
+
+			return "Username and password mismatch";
+		});
+
+		get("/rest/users/logUserOut", (req, res) -> {
+			req.session().invalidate();
+			return "0k";
+		});
+
 		get("/rest/demo/test", (req, res) -> {
 			return "Works";
 		});
