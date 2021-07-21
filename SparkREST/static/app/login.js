@@ -40,10 +40,29 @@ Vue.component("login", {
             axios
             .post("/rest/users/logUserIn", this.user)
             .then(response => {
-                alert(response.data);
+                if (response.data == "success") {
+                    axios
+                    .get("/rest/users/getCurrentUser")
+                    .then(response => {
+                        if (response.data) {
+                            this.korisnik = response.data;
+                        }
+                    });
+                    toast("Uspesno ste se prijavili.");
+                    this.$router.push({ name: "Home" });
+                } else {
+                    toast(response.data);
+                }
             });
         },
 	},
-	mounted () {
+	mounted() {
+        axios
+        .get("/rest/users/getCurrentUser")
+        .then(response => {
+            if (response.data) {
+                this.korisnik = response.data;
+            }
+        });
     }
 });

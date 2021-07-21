@@ -67,7 +67,7 @@ Vue.component("profile", {
                 </div>
         
                 <div class="form-group">
-                    <label for="lozinkaOpet">Nova lozinka ponovo (lozinke se moraju ponavljati):</label>
+                    <label for="lozinkaOpet">Nova lozinka ponovo (lozinke se moraju podudarati):</label>
                     <input type="password" name = "lozinkaOpet" id = "lozinkaOpet" class="form-control  form-control-sm" required>
                 </div>
         
@@ -86,6 +86,13 @@ Vue.component("profile", {
 	methods : {
         
 	},
-	mounted () {
+	mounted() {
+        axios
+        .get("/rest/users/getCurrentUser")
+        .then(response => {
+            if (response.data) {
+                this.korisnik = response.data;
+            }
+        });
     }
 });

@@ -25,6 +25,7 @@ public class KorisnikHandler {
 		
 		for (Admin admin : adminHandler.getAdmini()) {
 			korisnici.add(admin);
+			System.out.println(admin);
 		}
 		
 		for(Prodavac prodavac : prodavacHandler.getProdavci()) {
@@ -42,7 +43,7 @@ public class KorisnikHandler {
 	}
 
 	public ArrayList<Korisnik> getKorisnici() {
-		return korisnici;
+		return this.korisnici;
 	}
 	
 	public ArrayList<Kupac> getKupci() {

@@ -158,6 +158,13 @@ Vue.component("home-page", {
 	methods : {
         
 	},
-	mounted () {
+	mounted() {
+        axios
+        .get("/rest/users/getCurrentUser")
+        .then(response => {
+            if (response.data) {
+                this.korisnik = response.data;
+            }
+        });
     }
 });

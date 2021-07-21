@@ -3,6 +3,7 @@
 
 <head>
 	<link href="css/bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link href="js/toast/dist/jquery.toast.min.css" rel="stylesheet"/>
 	<meta charset="utf-8"/>
 </head> 
 
@@ -65,7 +66,7 @@
 				</li>
 				
 				<li class="nav-item">
-					<a class="nav-link" href="#/" v-on:click="logout()"  v-bind:hidden="korisnik.uloga == 'GOST'">Izloguj se</a>
+					<a class="nav-link" href="#/" v-on:click="logout()"  v-bind:hidden="korisnik.uloga == 'GOST'">Odjava</a>
 				</li>
 			</ul>
 			
@@ -85,7 +86,26 @@
 <script src="js/vue-router.js"></script>
 <script src="js/axios.js"></script>
 <script src="js/jquery.min.js"></script>
+<script src="js/toast/dist/jquery.toast.min.js"></script>
 <script src="css/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+    
+	function toast(t){
+		$.toast({ 
+			  text : t, 
+			  showHideTransition : 'slide', 
+			  bgColor : '#455a64', 
+			  textColor : 'white',
+			  allowToastClose : false,
+			  hideAfter : 5000,
+			  stack : 5,
+			  textAlign : 'left',
+			  position : 'bottom-right'
+			});
+	}
+	
+</script>
 
 <script src="app/home.js"></script>
 <script src="app/registration.js"></script>

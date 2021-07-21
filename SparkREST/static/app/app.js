@@ -16,9 +16,9 @@ const BuyerCards = { template: '<buyerCards></buyerCards>' };
 const router = new VueRouter({
     mode: 'hash',
     routes: [
-        { path: '/', component: Home },
+        { path: '/', component: Home, name: "Home" },
         { path: '/register', component: Registration },
-        { path: '/login', component: Login },
+        { path: '/login', component: Login, name: "Login" },
         { path: '/profile', component: Profile },
         { path: '/registerSeller', component: RegisterSeller },
         { path: '/adminManifestations', component: AdminManifestations },
@@ -40,9 +40,26 @@ var app = new Vue({
         korisnik: {uloga: "GOST"},
     },
     mounted () {
-
+        axios
+        .get("/rest/users/getCurrentUser")
+        .then(response => {
+            if (response.data) {
+                this.korisnik = response.data;
+            }
+        });
     },
     methods: {
-
+        logout: function() {
+            let self = this;
+            axios
+                .get("/rest/users/logUserOut")
+                .then(function(resp) {
+                    if (resp.data == "success") {
+                        self.korisnik = { zaposlenjeKorisnika: "GOST" };
+                        self.$router.push({ name: "Login" });
+                        self.$root.$emit('loggingUserOut', self.korisnik);
+                    }
+                });
+        },
     }
 });

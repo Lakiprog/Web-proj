@@ -12,8 +12,11 @@ import java.util.Date;
 
 import com.google.gson.Gson;
 
+import domain.Admin;
 import domain.Korisnik;
 import domain.Kupac;
+import domain.Prodavac;
+import domain.Uloga;
 import handlers.KorisnikHandler;
 import handlers.KupciHandler;
 import handlers.WsHandler;
@@ -41,21 +44,31 @@ public class SparkAppMain {
 		post("/rest/users/logUserIn", (req, res) -> {
 			Korisnik user = gson.fromJson(req.body(), Korisnik.class);
 			
-			System.out.println(user.getkIme());
-			System.out.println(user.getLozinka());
+			res.type("application/json");
 
-			if (usersHandler.getKupci().contains(user)) {
-				res.type("application/json");
-				req.session().attribute("currentUser", user);
-				return "0k";
+			for (Korisnik temp_user : usersHandler.getKorisnici()) {
+				if (user.equals(temp_user)) {
+					user.setUloga(temp_user.getUloga());
+					req.session().attribute("currentUser", user);
+					return "success";
+				}
 			}
 
-			return "Username and password mismatch";
+			return "Uneto korisnicko ime i lozinka ne postoje";
 		});
 
 		get("/rest/users/logUserOut", (req, res) -> {
 			req.session().invalidate();
-			return "0k";
+
+			return "success";
+		});
+		
+		get("/rest/users/getCurrentUser", (req, res) -> {
+			Korisnik user = (Korisnik) req.session().attribute("currentUser");
+
+			res.type("application/json");
+
+			return gson.toJson(user);
 		});
 
 		get("/rest/demo/test", (req, res) -> {

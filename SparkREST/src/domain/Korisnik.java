@@ -1,7 +1,5 @@
 package domain;
 
-import java.io.Serializable;
-
 public class Korisnik {
 
 	private int id;
@@ -81,7 +79,6 @@ public class Korisnik {
 	public Uloga getUloga() {
 		return uloga;
 	}
-
 
 	public void setUloga(Uloga uloga) {
 		this.uloga = uloga;
