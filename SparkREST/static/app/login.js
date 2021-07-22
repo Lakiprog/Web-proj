@@ -48,10 +48,10 @@ Vue.component("login", {
                             this.korisnik = response.data;
                         }
                     });
-                    toast("Uspesno ste se prijavili.");
+                    $.toast({text : "Uspesno ste se prijavili.", position : "mid-center", icon : "success"});
                     this.$router.push({ name: "Home" });
                 } else {
-                    toast(response.data);
+                   $. toast({text : response.data, position : "mid-center", icon: "error"});
                 }
             });
         },
