@@ -25,6 +25,19 @@
       "uloga" : "PRODAVAC",
       "manifestacije" : null,
       "blokiran" : false
+    },
+    "3" : {
+      "id" : 3,
+      "kIme" : "markuzaPolo",
+      "lozinka" : "money",
+      "ime" : "Markolo",
+      "prezime" : "Petrolo",
+      "datumRodjenja" : "2021-07-05",
+      "pol" : "ZENSKO",
+      "obrisan" : false,
+      "uloga" : "PRODAVAC",
+      "manifestacije" : null,
+      "blokiran" : false
     }
   }
 }

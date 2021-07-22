@@ -56,6 +56,38 @@ public class SparkAppMain {
 
 			return "Uneto korisnicko ime i lozinka ne postoje";
 		});
+		
+		post("/rest/users/registerBuyer", (req, res) -> {
+			Kupac user = gson.fromJson(req.body(), Kupac.class);
+			
+			res.type("application/json");
+
+			for (Korisnik temp_user : usersHandler.getKorisnici()) {
+				if (user.getkIme().equals(temp_user.getkIme())) {
+					return "Uneto korisnicko ime vec postoji";
+				}
+			}
+			
+			user.setId(usersHandler.nextIdKupac());
+			usersHandler.addKupac(user);
+			return "success";
+		});
+		
+		post("/rest/users/registerSeller", (req, res) -> {
+			Prodavac user = gson.fromJson(req.body(), Prodavac.class);
+			
+			res.type("application/json");
+
+			for (Korisnik temp_user : usersHandler.getKorisnici()) {
+				if (user.getkIme().equals(temp_user.getkIme())) {
+					return "Uneto korisnicko ime vec postoji";
+				}
+			}
+			
+			user.setId(usersHandler.nextIdProdavac());
+			usersHandler.addProdavac(user);
+			return "success";
+		});
 
 		get("/rest/users/logUserOut", (req, res) -> {
 			req.session().invalidate();
