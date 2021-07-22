@@ -38,6 +38,23 @@ h2{
     margin-right: 30px;
 }
 
+.map {
+    width: 26%;
+      height: 300px;
+      border: 1px solid black;
+      display: inline-block;
+      vertical-align: top;
+}
+
+.map-right {
+    width: 26%;
+      height: 300px;
+      border: 1px solid black;
+      display: inline-block;
+      margin-top: 100px;
+      vertical-align: top;
+}
+
 #registruj{
     margin-left: 30px;
 }
