@@ -8,6 +8,7 @@ import static spark.Spark.webSocket;
 
 import java.io.File;
 import java.security.Key;
+import java.util.ArrayList;
 import java.util.Date;
 
 import com.google.gson.Gson;
@@ -107,6 +108,14 @@ public class SparkAppMain {
 			res.type("application/json");
 
 			return gson.toJson(user);
+		});
+
+		get("/rest/manifestations/getManifestations", (req, res) -> {
+			ArrayList<Manifestacija> manifestations = manifestationHandler.getManifestacije();
+			
+			res.type("application/json");
+			
+			return gson.toJson(manifestations);
 		});
 		
 		post("/rest/manifestations/createManifestation", (req, res) -> {

@@ -25,7 +25,6 @@ public class KorisnikHandler {
 		
 		for (Admin admin : adminHandler.getAdmini()) {
 			korisnici.add(admin);
-			System.out.println(admin);
 		}
 		
 		for(Prodavac prodavac : prodavacHandler.getProdavci()) {

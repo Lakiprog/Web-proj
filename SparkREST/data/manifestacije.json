@@ -3,32 +3,39 @@
     "1" : {
       "id" : 1,
       "naziv" : "Koncert Ramba Amadeusa",
-      "posterLink" : "../static/css/rambo.jpg",
-      "datumVreme" : "2021.10.10",
+      "posterLink" : "./posters/rambo.jpeg",
+      "datumVremePocetka" : "2021.10.10",
+      "datumVremeKraja" : "2021-09-17T03:30",
       "lokacija" : null,
       "brMesta" : 1000,
       "cenaRegular" : 500.0,
       "status" : "AKTIVNO",
       "tip" : "KONCERT",
-      "obrisan" : false
+      "obrisan" : false,
+      "brojOcena" : 3,
+      "sumaOcena" : 7
     },
     "2" : {
       "id" : 2,
       "naziv" : "Dombos Festival",
-      "posterLink" : "../static/css/dombos.jpg",
-      "datumVreme" : "2021.07.08",
+      "posterLink" : "./posters/dombos.jpg",
+      "datumVremePocetka" : "2021.07.08",
+      "datumVremeKraja" : "2021-09-17T03:30",
       "lokacija" : null,
       "brMesta" : 10000,
       "cenaRegular" : 10.0,
       "status" : "AKTIVNO",
       "tip" : "FESTIVAL",
-      "obrisan" : false
+      "obrisan" : false,
+      "brojOcena" : 3,
+      "sumaOcena" : 7
     },
     "3" : {
       "id" : 3,
       "naziv" : "Ludilo",
-      "posterLink" : "C:\\fakepath\\ludilo.jpg",
-      "datumVreme" : "2021-07-30T15:54",
+      "posterLink" : "./posters/rambo.jpeg",
+      "datumVremePocetka" : "2021-07-30T15:54",
+      "datumVremeKraja" : "2021-09-17T03:30",
       "lokacija" : {
         "id" : 2,
         "sirina" : 45.241965,
@@ -44,13 +51,16 @@
       "cenaRegular" : 500.0,
       "status" : "NEAKTIVNO",
       "tip" : "FESTIVAL",
-      "obrisan" : false
+      "obrisan" : false,
+      "brojOcena" : 3,
+      "sumaOcena" : 7
     },
     "4" : {
       "id" : 4,
       "naziv" : "eh",
-      "posterLink" : "C:\\fakepath\\black.jpg",
-      "datumVreme" : "2021-07-23T01:00",
+      "posterLink" : "./posters/rambo.jpeg",
+      "datumVremePocetka" : "2021-07-23T01:00",
+      "datumVremeKraja" : "2021-09-17T03:30",
       "lokacija" : {
         "id" : 3,
         "sirina" : 45.24003,
@@ -66,13 +76,16 @@
       "cenaRegular" : 5.0,
       "status" : "NEAKTIVNO",
       "tip" : "FESTIVAL",
-      "obrisan" : false
+      "obrisan" : false,
+      "brojOcena" : 3,
+      "sumaOcena" : 7
     },
     "5" : {
       "id" : 5,
       "naziv" : "Ludilo",
-      "posterLink" : "C:\\fakepath\\black.jpg",
-      "datumVreme" : "2021-07-23T02:10",
+      "posterLink" : "./posters/dombos.jpg",
+      "datumVremePocetka" : "2021-07-23T02:10",
+      "datumVremeKraja" : "2021-09-17T03:30",
       "lokacija" : {
         "id" : 4,
         "sirina" : 45.24044,
@@ -88,7 +101,34 @@
       "cenaRegular" : 12.0,
       "status" : "NEAKTIVNO",
       "tip" : "KONCERT",
-      "obrisan" : false
+      "obrisan" : false,
+      "brojOcena" : 3,
+      "sumaOcena" : 7
+    },
+    "6" : {
+      "id" : 6,
+      "naziv" : "Loznica",
+      "posterLink" : "./posters/dombos.jpg",
+      "datumVremePocetka" : "2021-09-17T02:10",
+      "datumVremeKraja" : "2021-09-17T03:30",
+      "lokacija" : {
+        "id" : 4,
+        "sirina" : 45.24044,
+        "duzina" : 19.812106,
+        "adresa" : {
+          "ulica" : "Bele Vode",
+          "broj" : "7",
+          "mesto" : "Loznica City"
+        },
+        "obrisan" : false
+      },
+      "brMesta" : 1212,
+      "cenaRegular" : 12.0,
+      "status" : "AKTIVNO",
+      "tip" : "FESTIVAL",
+      "obrisan" : false,
+      "brojOcena" : 3,
+      "sumaOcena" : 7
     }
   }
 }
