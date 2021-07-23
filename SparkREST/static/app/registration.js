@@ -73,14 +73,14 @@ Vue.component("registration", {
                 .post("/rest/users/registerBuyer", this.user)
                 .then(response => {
                     if (response.data == "success") {
-                        $.toast({text : "Uspesno ste se registrovali.", position : "mid-center", icon : "success"});
+                        $.toast("Uspesno ste se registrovali.");
                         this.$router.push({ name: "Home" });
                     } else {
-                    $.toast({text : response.data, position : "mid-center", icon: "error"});
+                    $.toast(response.data);
                     }
                 });
             }else{
-                $.toast({text : "Lozinke nisu iste", position : "mid-center", icon: "error"});
+                $.toast("Lozinke nisu iste");
             }
         }
 	},

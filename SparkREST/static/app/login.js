@@ -48,7 +48,7 @@ Vue.component("login", {
                             this.korisnik = response.data;
                         }
                     });
-                    $.toast({text : "Uspesno ste se prijavili.", position : "mid-center", icon : "success"});
+                    $.toast("Uspesno ste se prijavili.");
                     this.$router.push({ name: "Home" });
                 } else {
                    $. toast({text : response.data, position : "mid-center", icon: "error"});

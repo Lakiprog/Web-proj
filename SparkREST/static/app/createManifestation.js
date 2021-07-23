@@ -169,10 +169,10 @@ Vue.component("create-manifestation", {
             .post("/rest/manifestations/createManifestation", this.manifestation)
             .then(response => {
                 if (response.data == "success") {
-                    $.toast({text : "Uspesno ste kreirali manifestaciju.", icon : "success"});
+                    $.toast("Uspesno ste kreirali manifestaciju.");
                     this.$router.push({ name: "Home" });
                  } else {
-                    $.toast({text : response.data, icon: "error"});
+                    $.toast(response.data);
                 }
             });
         }
