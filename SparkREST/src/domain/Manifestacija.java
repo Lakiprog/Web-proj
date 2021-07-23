@@ -1,28 +1,30 @@
 package domain;
 
-import java.time.LocalDateTime;
 
 public class Manifestacija {
 	private int id;
 	private String naziv, posterLink;
-	private String datumVreme;
+	private String datumVremePocetka;
+	private String datumVremeKraja;
 	private Lokacija lokacija;
 	private int brMesta;
 	private double cenaRegular;
 	private StatusManifestacije status;
 	private TipManifestacije tip;
 	private boolean obrisan;
+	private int brojOcena;
+	private int sumaOcena;
 	
 	public Manifestacija() {
 		
 	}
 	
 	
-	public Manifestacija(int id, String naziv, String datumVreme, String posterLink, Lokacija lokacija, int brMesta,
-			double cenaRegular, StatusManifestacije status, TipManifestacije tip) {
+	public Manifestacija(int id, String naziv, String datumVremePocetka, String datumVremeKraja, String posterLink, Lokacija lokacija, int brMesta,
+			double cenaRegular, StatusManifestacije status, TipManifestacije tip, int brojOcena, int sumaOcena) {
 		super();
 		this.naziv = naziv;
-		this.datumVreme = datumVreme;
+		this.setDatumVremePocetka(datumVremePocetka);
 		this.posterLink = posterLink;
 		this.lokacija = lokacija;
 		this.brMesta = brMesta;
@@ -30,6 +32,8 @@ public class Manifestacija {
 		this.status = status;
 		this.tip = tip;
 		this.id = id;
+		this.setBrojOcena(brojOcena);
+		this.setSumaOcena(sumaOcena);
 	}
 	
 	public int getId() {
@@ -53,12 +57,6 @@ public class Manifestacija {
 	}
 	public void setNaziv(String naziv) {
 		this.naziv = naziv;
-	}
-	public String getDatumVreme() {
-		return datumVreme;
-	}
-	public void setDatumVreme(String datumVreme) {
-		this.datumVreme = datumVreme;
 	}
 	public String getPosterLink() {
 		return posterLink;
@@ -95,6 +93,46 @@ public class Manifestacija {
 	}
 	public void setTip(TipManifestacije tip) {
 		this.tip = tip;
+	}
+
+
+	public String getDatumVremePocetka() {
+		return datumVremePocetka;
+	}
+
+
+	public void setDatumVremePocetka(String datumVremePocetka) {
+		this.datumVremePocetka = datumVremePocetka;
+	}
+
+
+	public String getDatumVremeKraja() {
+		return datumVremeKraja;
+	}
+
+
+	public void setDatumVremeKraja(String datumVremeKraja) {
+		this.datumVremeKraja = datumVremeKraja;
+	}
+
+
+	public int getBrojOcena() {
+		return brojOcena;
+	}
+
+
+	public void setBrojOcena(int brojOcena) {
+		this.brojOcena = brojOcena;
+	}
+
+
+	public int getSumaOcena() {
+		return sumaOcena;
+	}
+
+
+	public void setSumaOcena(int sumaOcena) {
+		this.sumaOcena = sumaOcena;
 	}
 	
 	

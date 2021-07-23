@@ -8,6 +8,7 @@ import static spark.Spark.webSocket;
 
 import java.io.File;
 import java.security.Key;
+import java.util.ArrayList;
 import java.util.Date;
 
 import com.google.gson.Gson;
@@ -19,6 +20,7 @@ import domain.Lokacija;
 import domain.Manifestacija;
 import domain.Prodavac;
 import domain.Uloga;
+import DTO.ManifestacijaDTO;
 import handlers.KorisnikHandler;
 import handlers.KupciHandler;
 import handlers.LokacijeHandler;
@@ -107,6 +109,19 @@ public class SparkAppMain {
 			res.type("application/json");
 
 			return gson.toJson(user);
+		});
+
+		get("rest/manifestations/getManifestations", (req, res) -> {
+			ArrayList<Manifestacija> manifestations = manifestationHandler.getManifestacije();
+			ArrayList<ManifestacijaDTO> manifestationsDTO = new ArrayList<>();
+			
+			for (Manifestacija m : manifestations) {
+				manifestationsDTO.add(new ManifestacijaDTO(m));
+			}
+
+			res.type("application/json");
+
+			return gson.toJson(manifestationsDTO);
 		});
 		
 		post("/rest/manifestations/createManifestation", (req, res) -> {

@@ -69,6 +69,11 @@ public class Adresa {
 			return false;
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return mesto + ", " + ulica + " " + broj;
+	}
 	
 	
 }
