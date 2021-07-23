@@ -31,6 +31,38 @@
       "brOtkazivanja" : 0,
       "karte" : null,
       "blokiran" : false
+    },
+    "3" : {
+      "id" : 3,
+      "kIme" : "lale",
+      "lozinka" : "123",
+      "ime" : "Laslo",
+      "prezime" : "Madjar",
+      "datumRodjenja" : "2021-07-06",
+      "pol" : "MUSKO",
+      "obrisan" : false,
+      "uloga" : "KUPAC",
+      "tip" : null,
+      "brBodova" : 0,
+      "brOtkazivanja" : 0,
+      "karte" : null,
+      "blokiran" : false
+    },
+    "4" : {
+      "id" : 4,
+      "kIme" : "anika",
+      "lozinka" : "bernie",
+      "ime" : "Annabella",
+      "prezime" : "Toth",
+      "datumRodjenja" : "2021-07-13",
+      "pol" : "ZENSKO",
+      "obrisan" : false,
+      "uloga" : "KUPAC",
+      "tip" : null,
+      "brBodova" : 0,
+      "brOtkazivanja" : 0,
+      "karte" : null,
+      "blokiran" : false
     }
   }
 }

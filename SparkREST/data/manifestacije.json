@@ -23,6 +23,72 @@
       "status" : "AKTIVNO",
       "tip" : "FESTIVAL",
       "obrisan" : false
+    },
+    "3" : {
+      "id" : 3,
+      "naziv" : "Ludilo",
+      "posterLink" : "C:\\fakepath\\ludilo.jpg",
+      "datumVreme" : "2021-07-30T15:54",
+      "lokacija" : {
+        "id" : 2,
+        "sirina" : 45.241965,
+        "duzina" : 19.807804,
+        "adresa" : {
+          "ulica" : "Koste Abrasevica",
+          "broj" : "40",
+          "mesto" : "Novi Sad City"
+        },
+        "obrisan" : false
+      },
+      "brMesta" : 10000,
+      "cenaRegular" : 500.0,
+      "status" : "NEAKTIVNO",
+      "tip" : "FESTIVAL",
+      "obrisan" : false
+    },
+    "4" : {
+      "id" : 4,
+      "naziv" : "eh",
+      "posterLink" : "C:\\fakepath\\black.jpg",
+      "datumVreme" : "2021-07-23T01:00",
+      "lokacija" : {
+        "id" : 3,
+        "sirina" : 45.24003,
+        "duzina" : 19.816844,
+        "adresa" : {
+          "ulica" : "Bulevar patrijarha",
+          "broj" : "Pavla",
+          "mesto" : "Novi Sad City"
+        },
+        "obrisan" : false
+      },
+      "brMesta" : 5,
+      "cenaRegular" : 5.0,
+      "status" : "NEAKTIVNO",
+      "tip" : "FESTIVAL",
+      "obrisan" : false
+    },
+    "5" : {
+      "id" : 5,
+      "naziv" : "Ludilo",
+      "posterLink" : "C:\\fakepath\\black.jpg",
+      "datumVreme" : "2021-07-23T02:10",
+      "lokacija" : {
+        "id" : 4,
+        "sirina" : 45.24044,
+        "duzina" : 19.812106,
+        "adresa" : {
+          "ulica" : "Bulevar patrijarha Pavla",
+          "broj" : "",
+          "mesto" : "Novi Sad City"
+        },
+        "obrisan" : false
+      },
+      "brMesta" : 1212,
+      "cenaRegular" : 12.0,
+      "status" : "NEAKTIVNO",
+      "tip" : "KONCERT",
+      "obrisan" : false
     }
   }
 }

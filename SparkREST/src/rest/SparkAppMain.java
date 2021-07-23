@@ -15,10 +15,14 @@ import com.google.gson.Gson;
 import domain.Admin;
 import domain.Korisnik;
 import domain.Kupac;
+import domain.Lokacija;
+import domain.Manifestacija;
 import domain.Prodavac;
 import domain.Uloga;
 import handlers.KorisnikHandler;
 import handlers.KupciHandler;
+import handlers.LokacijeHandler;
+import handlers.ManifestacijaHandler;
 import handlers.WsHandler;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jws;
@@ -30,6 +34,8 @@ import spark.Session;
 public class SparkAppMain {
 
 	private static KorisnikHandler usersHandler = new KorisnikHandler();
+	private static ManifestacijaHandler manifestationHandler = new ManifestacijaHandler();
+	private static LokacijeHandler locationHandler = new LokacijeHandler();
 	
 	private static Gson gson = new Gson();
 	static Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
@@ -56,6 +62,38 @@ public class SparkAppMain {
 
 			return "Uneto korisnicko ime i lozinka ne postoje";
 		});
+		
+		post("/rest/users/registerBuyer", (req, res) -> {
+			Kupac user = gson.fromJson(req.body(), Kupac.class);
+			
+			res.type("application/json");
+
+			for (Korisnik temp_user : usersHandler.getKorisnici()) {
+				if (user.getkIme().equals(temp_user.getkIme())) {
+					return "Uneto korisnicko ime vec postoji";
+				}
+			}
+			
+			user.setId(usersHandler.nextIdKupac());
+			usersHandler.addKupac(user);
+			return "success";
+		});
+		
+		post("/rest/users/registerSeller", (req, res) -> {
+			Prodavac user = gson.fromJson(req.body(), Prodavac.class);
+			
+			res.type("application/json");
+
+			for (Korisnik temp_user : usersHandler.getKorisnici()) {
+				if (user.getkIme().equals(temp_user.getkIme())) {
+					return "Uneto korisnicko ime vec postoji";
+				}
+			}
+			
+			user.setId(usersHandler.nextIdProdavac());
+			usersHandler.addProdavac(user);
+			return "success";
+		});
 
 		get("/rest/users/logUserOut", (req, res) -> {
 			req.session().invalidate();
@@ -70,6 +108,32 @@ public class SparkAppMain {
 
 			return gson.toJson(user);
 		});
+		
+		post("/rest/manifestations/createManifestation", (req, res) -> {
+			Manifestacija manifestation = gson.fromJson(req.body(), Manifestacija.class);
+			
+			res.type("application/json");
+
+			for (Manifestacija m : manifestationHandler.getManifestacije()) {
+				//TODO provera dal je u isto vreme na istom mestu jos jedna manifestacija, sad nemam zivaca to posle tolko hatea
+			}
+			
+			//TODO mozda prekopirati sliku u neki nas folder
+			
+			manifestation.setId(manifestationHandler.nextId());
+			manifestationHandler.dodajManifestaciju(manifestation);
+			
+			for (Lokacija location : locationHandler.getLokacije()) {
+				if(location.equals(manifestation.getLokacija())) {
+					return "success";
+				}
+			}
+			
+			manifestation.getLokacija().setId(locationHandler.nextId());
+			locationHandler.dodajLokaciju(manifestation.getLokacija());
+			return "success";
+		});
+
 
 		get("/rest/demo/test", (req, res) -> {
 			return "Works";

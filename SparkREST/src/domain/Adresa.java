@@ -2,14 +2,16 @@ package domain;
 
 public class Adresa {
 	private String ulica, broj, mesto;
-	private int postanskiBr;
 	
-	public Adresa(String ulica, String broj, String mesto, int postanskiBr) {
+	public Adresa() {
+		
+	}
+	
+	public Adresa(String ulica, String broj, String mesto) {
 		super();
 		this.ulica = ulica;
 		this.broj = broj;
 		this.mesto = mesto;
-		this.postanskiBr = postanskiBr;
 	}
 	
 	public String getUlica() {
@@ -30,10 +32,43 @@ public class Adresa {
 	public void setMesto(String mesto) {
 		this.mesto = mesto;
 	}
-	public int getPostanskiBr() {
-		return postanskiBr;
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((broj == null) ? 0 : broj.hashCode());
+		result = prime * result + ((mesto == null) ? 0 : mesto.hashCode());
+		result = prime * result + ((ulica == null) ? 0 : ulica.hashCode());
+		return result;
 	}
-	public void setPostanskiBr(int postanskiBr) {
-		this.postanskiBr = postanskiBr;
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Adresa other = (Adresa) obj;
+		if (broj == null) {
+			if (other.broj != null)
+				return false;
+		} else if (!broj.equals(other.broj))
+			return false;
+		if (mesto == null) {
+			if (other.mesto != null)
+				return false;
+		} else if (!mesto.equals(other.mesto))
+			return false;
+		if (ulica == null) {
+			if (other.ulica != null)
+				return false;
+		} else if (!ulica.equals(other.ulica))
+			return false;
+		return true;
 	}
+	
+	
 }
