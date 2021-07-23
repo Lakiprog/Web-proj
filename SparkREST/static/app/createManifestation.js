@@ -2,6 +2,7 @@ Vue.component("create-manifestation", {
 	data: function () {
 		    return {
                 currentPosition: { lat: 45.252600, lon: 19.830002, adresa: "Cirpanova 51, Novi Sad" },
+                manifestation: {naziv : "", brMesta: 0, cenaRegular: 0, tip: "KONCERT", status: "NEAKTIVNO", datumVreme: "", posterLink: "", lokacija: {}}
 		    }
 	},
 	template: ` 
@@ -17,35 +18,40 @@ Vue.component("create-manifestation", {
     <div class="card text-white bg-dark mb-3 w-75">
 
         <div class="card-body">
-            <form action="" method="POST">
+            
                 <div class="form-group">
                     <label for="naziv">Naziv:</label>
-                    <input type="text" name = "naziv" id = "naziv" class="form-control form-control-sm" required>
+                    <input type="text" name = "naziv" v-model="manifestation.naziv" id = "naziv" class="form-control form-control-sm" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="brMesta">Broj mesta:</label>
-                    <input type="number" name = "brMesta" id = "brMesta" class="form-control form-control-sm" min="0" required>
+                    <input type="number" name = "brMesta" v-model="manifestation.brMesta" id = "brMesta" class="form-control form-control-sm" min="0" required>
                 </div>
         
                 <div class="form-group">
                     <label for="cena">Cena regularne karte:</label>
-                    <input type="number" name = "cena" id = "cena" class="form-control form-control-sm" min="0" required>
+                    <input type="number" name = "cena" v-model="manifestation.cenaRegular" id = "cena" class="form-control form-control-sm" min="0" required>
                 </div>
         
                 <div class="form-group">
                     <label for="datum">Datum i vreme odrzavanja:</label>
-                    <input type="datetime-local" name = "datum" id = "datum" class="form-control form-control-sm" required>
+                    <input type="datetime-local" name = "datum" v-model="manifestation.datumVreme" id = "datum" class="form-control form-control-sm" required>
                 </div>
         
                 <div class="form-group">
                     <label for="tip">Tip manifestacije:</label>
-                    <select name="tip" id="tip" class="form-control form-control-sm">
+                    <select name="tip" id="tip" v-model="manifestation.tip" class="form-control form-control-sm">
                         <option value="KONCERT">Koncert</option>
                         <option value="FESTIVAL">Festival</option>
                         <option value="POZORISTE">Pozoriste</option>
                         <option value="DRUGO">Drugo</option>
                     </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="poster">Slika postera:</label>
+                    <input type="file" name = "poster" v-model="manifestation.posterLink" id = "poster" class="form-control form-control-sm" accept="image/png, image/jpeg" required>
                 </div>
         
                 <br>
@@ -69,15 +75,10 @@ Vue.component("create-manifestation", {
                     <input type="text" name="adresa" v-model="currentPosition.adresa" disabled/>
                 </div>
         
-                <div class="form-group">
-                    <label for="poster">Slika postera:</label>
-                    <input type="file" name = "poster" id = "poster" class="form-control form-control-sm" accept="image/png, image/jpeg" required>
-                </div>
-        
                 <div>
-                    <input type="submit" name = "napravi" id = "napravi" value="Napravijte manifestaciju" class="btn btn-primary">
+                    <input type="button" name = "napravi" id = "napravi" value="Napravijte manifestaciju" class="btn btn-primary" v-on:click="createManifestation()">
                 </div>
-            </form>
+            
         </div>
 
     </div>
@@ -142,6 +143,39 @@ Vue.component("create-manifestation", {
             });
 
         },
+        createManifestation: function(){
+            let splited = this.currentPosition.adresa.split(", ");
+            let grad = splited[1];
+            let ulicaSplit = splited[0].split(" ");
+            
+            let number = ulicaSplit.pop();
+            if(isNaN(number)){
+                ulicaSplit.push(number);
+                number = "";
+            }
+            let road = ulicaSplit.join(" ");
+
+            this.manifestation.lokacija = {
+                duzina: this.currentPosition.lon,
+                sirina: this.currentPosition.lat,
+                adresa: {
+                    ulica : road,
+                    broj : number,
+                    mesto : grad
+                }
+            }
+
+            axios
+            .post("/rest/manifestations/createManifestation", this.manifestation)
+            .then(response => {
+                if (response.data == "success") {
+                    $.toast({text : "Uspesno ste kreirali manifestaciju.", icon : "success"});
+                    this.$router.push({ name: "Home" });
+                 } else {
+                    $.toast({text : response.data, icon: "error"});
+                }
+            });
+        }
 	},
 	mounted () {
         axios

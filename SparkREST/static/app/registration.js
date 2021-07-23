@@ -85,6 +85,12 @@ Vue.component("registration", {
         }
 	},
 	mounted () {
-        
+        axios
+        .get("/rest/users/getCurrentUser")
+        .then(response => {
+            if (response.data) {
+                this.korisnik = response.data;
+            }
+        });
     }
 });

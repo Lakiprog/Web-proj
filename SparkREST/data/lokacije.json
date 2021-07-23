@@ -7,8 +7,51 @@
       "adresa" : {
         "ulica" : "telepska",
         "broj" : "4",
-        "mesto" : "Novi Sad",
-        "postanskiBr" : 21000
+        "mesto" : "Novi Sad"
+      },
+      "obrisan" : false
+    },
+    "2" : {
+      "id" : 2,
+      "sirina" : 45.241965,
+      "duzina" : 19.807804,
+      "adresa" : {
+        "ulica" : "Koste Abrasevica",
+        "broj" : "40",
+        "mesto" : "Novi Sad City"
+      },
+      "obrisan" : false
+    },
+    "3" : {
+      "id" : 3,
+      "sirina" : 45.24003,
+      "duzina" : 19.816844,
+      "adresa" : {
+        "ulica" : "Bulevar patrijarha",
+        "broj" : "Pavla",
+        "mesto" : "Novi Sad City"
+      },
+      "obrisan" : false
+    },
+    "4" : {
+      "id" : 4,
+      "sirina" : 45.24044,
+      "duzina" : 19.812106,
+      "adresa" : {
+        "ulica" : "Bulevar patrijarha Pavla",
+        "broj" : "",
+        "mesto" : "Novi Sad City"
+      },
+      "obrisan" : false
+    },
+    "5" : {
+      "id" : 5,
+      "sirina" : 45.244753,
+      "duzina" : 19.807719,
+      "adresa" : {
+        "ulica" : "Jermenska",
+        "broj" : "11",
+        "mesto" : "Novi Sad City"
       },
       "obrisan" : false
     }
