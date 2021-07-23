@@ -69,10 +69,6 @@ public class Adresa {
 			return false;
 		return true;
 	}
-
-	@Override
-	public String toString() {
-		return this.mesto + ", " + this.ulica + " " + this.broj;
-	}
+	
 	
 }

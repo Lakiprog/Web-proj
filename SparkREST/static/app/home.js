@@ -1,7 +1,6 @@
 Vue.component("home-page", {
 	data: function () {
 		    return {
-                manifestations: [],
 		    }
 	},
 	template: ` 
@@ -110,36 +109,45 @@ Vue.component("home-page", {
             
             <div class="row">
 
-                <div v-for="manifestation in manifestations" class="card" style="width: 20rem; display: inline;">
-                    <img class="card-img-top" v-bind:src="manifestation.posterLink" alt="Rambo car">
+                <div class="card" style="width: 20rem; display: inline;">
+                    <img class="card-img-top" src="./css/rambo.jpeg" alt="Rambo koncert">
                     <div class="card-body">
-                        <h5 class="card-title">{{manifestation.naziv}}</h5>
-                        <p class="card-text">{{manifestation.datumVreme}}</p>
-                        <p class="card-text">Loznica</p>
-                        <p class="card-text">Cena karte vec od: {{manifestation.cenaRegular}}RSD</p>
-                        <p class="card-text">Ocena: dodati polje</p>
-                        <a href="#" class="btn btn-primary">Detalji</a>
+                      <h5 class="card-title">Rambo primer</h5>
+                      <p class="card-text">2021.10.10</p>
+                      <p class="card-text">Kombank arena</p>
+                      <p class="card-text">Cena karte vec od: 500 RSD</p>
+                      <p class="card-text">Ocena: 5</p>
+                      <a href="#" class="btn btn-primary">Detalji</a>
+                    </div>
+                </div>
+                
+                <div class="card" style="width: 20rem; display: inline;">
+                    <img class="card-img-top" src="./css/dombos.jpg" alt="Dombos fest">
+                    <div class="card-body">
+                      <h5 class="card-title">Dombos fest</h5>
+                      <p class="card-text">2021.07.08</p>
+                      <p class="card-text">Mali idjos</p>
+                      <p class="card-text">Cena karte vec od: 10 RSD</p>
+                      <p class="card-text">Ocena: 1</p>
+                      <a href="#" class="btn btn-primary">Detalji</a>
                     </div>
                 </div>
 
             </div>
 
-            <div v-bind:hidden="manifestations.length < 6">
-                <nav aria-label="Paginacija rezultata">
-                <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Prethodni</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                <a class="page-link" href="#">Sledeci</a>
-                </li>
-                </ul>
-                </nav>
-            </div>
-
+            <nav aria-label="Paginacija rezultata">
+        <ul class="pagination justify-content-center">
+          <li class="page-item disabled">
+            <a class="page-link" href="#" tabindex="-1">Prethodni</a>
+          </li>
+          <li class="page-item"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#">Sledeci</a>
+          </li>
+        </ul>
+    </nav>
         </div>
 
     </div>
@@ -157,11 +165,6 @@ Vue.component("home-page", {
             if (response.data) {
                 this.korisnik = response.data;
             }
-        });
-        axios
-        .get("/rest/manifestations/getManifestations")
-        .then(response => {
-            this.manifestations = response.data;
         });
     }
 });
