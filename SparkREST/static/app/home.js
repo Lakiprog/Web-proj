@@ -115,9 +115,9 @@ Vue.component("home-page", {
                     <div class="card-body">
                         <h5 class="card-title">{{manifestation.naziv}}</h5>
                         <p class="card-text">{{manifestation.datumVreme}}</p>
-                        <p class="card-text">Loznica</p>
+                        <p class="card-text">{{manifestation.adresa}}</p>
                         <p class="card-text">Cena karte vec od: {{manifestation.cenaRegular}}RSD</p>
-                        <p class="card-text">Ocena: dodati polje</p>
+                        <p class="card-text">{{(manifestation.sumaOcena / manifestation.brojOcena).toFixed(2)}}</p>
                         <a href="#" class="btn btn-primary">Detalji</a>
                     </div>
                 </div>
