@@ -4,7 +4,31 @@
       "datumVreme" : "2021.10.10",
       "id" : 1,
       "idKupca" : 1,
-      "manifestacija" : null,
+      "manifestacija" : {
+      "id" : 1,
+      "naziv" : "Koncert Ramba Amadeusa",
+      "posterLink" : "./posters/rambo.jpeg",
+      "datumVremePocetka" : "2021-09-10T03:30",
+      "datumVremeKraja" : "2021-09-17T03:30",
+      "lokacija" : {
+        "id" : 2,
+        "sirina" : 45.241965,
+        "duzina" : 19.807804,
+        "adresa" : {
+          "ulica" : "Koste Abrasevica",
+          "broj" : "40",
+          "mesto" : "Novi Sad City"
+        },
+        "obrisan" : false
+      },
+      "brMesta" : 1000,
+      "cenaRegular" : 500.0,
+      "status" : "AKTIVNO",
+      "tip" : "KONCERT",
+      "obrisan" : false,
+      "brojOcena" : 3,
+      "sumaOcena" : 7
+    },
       "cena" : 1000.0,
       "status" : "REZERVISANA",
       "tip" : "REGULAR",
@@ -14,7 +38,31 @@
       "datumVreme" : "2021.07.08",
       "id" : 2,
       "idKupca" : 2,
-      "manifestacija" : null,
+      "manifestacija" : {
+      "id" : 1,
+      "naziv" : "Koncert Ramba Amadeusa",
+      "posterLink" : "./posters/rambo.jpeg",
+      "datumVremePocetka" : "2021-09-10T03:30",
+      "datumVremeKraja" : "2021-09-17T03:30",
+      "lokacija" : {
+        "id" : 2,
+        "sirina" : 45.241965,
+        "duzina" : 19.807804,
+        "adresa" : {
+          "ulica" : "Koste Abrasevica",
+          "broj" : "40",
+          "mesto" : "Novi Sad City"
+        },
+        "obrisan" : false
+      },
+      "brMesta" : 1000,
+      "cenaRegular" : 500.0,
+      "status" : "AKTIVNO",
+      "tip" : "KONCERT",
+      "obrisan" : false,
+      "brojOcena" : 3,
+      "sumaOcena" : 7
+    },
       "cena" : 300.0,
       "status" : "REZERVISANA",
       "tip" : "FANPIT",

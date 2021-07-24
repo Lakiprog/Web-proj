@@ -4,7 +4,7 @@
       "id" : 1,
       "naziv" : "Koncert Ramba Amadeusa",
       "posterLink" : "./posters/rambo.jpeg",
-      "datumVremePocetka" : "2021.10.10",
+      "datumVremePocetka" : "2021-09-10T03:30",
       "datumVremeKraja" : "2021-09-17T03:30",
       "lokacija" : {
         "id" : 2,
@@ -29,8 +29,8 @@
       "id" : 2,
       "naziv" : "Dombos Festival",
       "posterLink" : "./posters/dombos.jpg",
-      "datumVremePocetka" : "2021.07.08",
-      "datumVremeKraja" : "2021-09-17T03:30",
+      "datumVremePocetka" : "2021-09-17T03:30",
+      "datumVremeKraja" : "2021-09-19T03:30",
       "lokacija" : {
         "id" : 2,
         "sirina" : 45.241965,

@@ -1,6 +1,7 @@
 Vue.component("adminComments", {
 	data: function () {
 		    return {
+                comments: []
 		    }
 	},
 	template: ` 
@@ -19,23 +20,15 @@ Vue.component("adminComments", {
         <th></th>
     </tr>
 
-    <tr>
-        <td>markuza</td>
-        <td>Petar Markovic</td>
-        <td>Primer Koncert Ramba</td>
-        <td>bruh</td>
-        <td>5</td>
+    <tr v-for="c in this.comments">
+        <td>{{c.kIme}}</td>
+        <td>{{c.ime}} {{c.prezime}}</td>
+        <td>{{c.manifestacija}}</td>
+        <td>{{c.komentar}}</td>
+        <td>{{c.ocena}}</td>
         <td><input type="button" class="btn btn-danger" value="Obrisi" /></td>
     </tr>
 
-    <tr>
-        <td>markuza</td>
-        <td>Petar Markovic</td>
-        <td>Primer Koncert Ramba</td>
-        <td>premalo FAPa</td>
-        <td>4</td>
-        <td><input type="button" class="btn btn-danger" value="Obrisi" /></td>
-    </tr>
 </table>
 
     </div>
@@ -46,5 +39,17 @@ Vue.component("adminComments", {
         
 	},
 	mounted () {
+        axios
+        .get("/rest/users/getCurrentUser")
+        .then(response => {
+            if (response.data) {
+                this.korisnik = response.data;
+            }
+        });
+        axios
+        .get("/rest/comments/getComments")
+        .then(response => {
+            this.comments = response.data;
+        });
     }
 });

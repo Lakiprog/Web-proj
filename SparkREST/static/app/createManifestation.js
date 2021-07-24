@@ -2,7 +2,7 @@ Vue.component("create-manifestation", {
 	data: function () {
 		    return {
                 currentPosition: { lat: 45.252600, lon: 19.830002, adresa: "Cirpanova 51, Novi Sad" },
-                manifestation: {naziv : "", brMesta: 0, cenaRegular: 0, tip: "KONCERT", status: "NEAKTIVNO", datumVreme: "", posterLink: "", lokacija: {}}
+                manifestation: {naziv : "", brMesta: 0, cenaRegular: 0, tip: "KONCERT", status: "NEAKTIVNO", datumVremePocetka: "", datumVremeKraja: "", posterLink: "", lokacija: {}}
 		    }
 	},
 	template: ` 
@@ -36,7 +36,12 @@ Vue.component("create-manifestation", {
         
                 <div class="form-group">
                     <label for="datum">Datum i vreme odrzavanja:</label>
-                    <input type="datetime-local" name = "datum" v-model="manifestation.datumVreme" id = "datum" class="form-control form-control-sm" required>
+                    <input type="datetime-local" name = "datum" v-model="manifestation.datumVremePocetka" id = "datum" class="form-control form-control-sm" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="datumKraja">Kraj odrzavanja:</label>
+                    <input type="datetime-local" name = "datumKraja" v-model="manifestation.datumVremeKraja" id = "datumKraja" class="form-control form-control-sm" required>
                 </div>
         
                 <div class="form-group">
@@ -165,16 +170,22 @@ Vue.component("create-manifestation", {
                 }
             }
 
-            axios
-            .post("/rest/manifestations/createManifestation", this.manifestation)
-            .then(response => {
-                if (response.data == "success") {
-                    $.toast("Uspesno ste kreirali manifestaciju.");
-                    this.$router.push({ name: "Home" });
-                 } else {
-                    $.toast(response.data);
-                }
+            let startDate = new Date(this.manifestation.datumVremePocetka);
+            let endDate = new Date(this.manifestation.datumVremeKraja);
+            if(startDate < endDate){
+                axios
+                .post("/rest/manifestations/createManifestation", this.manifestation)
+                .then(response => {
+                    if (response.data == "success") {
+                        $.toast("Uspesno ste kreirali manifestaciju.");
+                        this.$router.push({ name: "Home" });
+                    } else {
+                        $.toast(response.data);
+                    }
             });
+            }else{
+                $.toast("Kraj manifestacije mora da bude posle pocetka");
+            }
         }
 	},
 	mounted () {

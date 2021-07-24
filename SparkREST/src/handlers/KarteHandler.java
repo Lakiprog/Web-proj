@@ -3,6 +3,7 @@ package handlers;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
@@ -10,8 +11,12 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
+import DTO.KarteSortiranjeDTO;
 import domain.Admin;
 import domain.Karta;
+import util.KartePoCeniSort;
+import util.KartePoDatumuSort;
+import util.KartePoManifestacijiSort;
 
 public class KarteHandler {
 	
@@ -127,5 +132,49 @@ public class KarteHandler {
 			}
 		}
 		return null;
+	}
+	
+	public ArrayList<Karta> sortiranje(KarteSortiranjeDTO kriterijumi){
+		ArrayList<Karta> k = new ArrayList<>();
+		
+		for (Karta karta : karte) {
+			if(karta.getManifestacija().getNaziv().contains(kriterijumi.getNaziv())) {
+				
+				if(kriterijumi.getTip().equals("SVE") || karta.getTip().toString().equals(kriterijumi.getTip())) {
+					
+					if(kriterijumi.getStatus().equals("SVE") || karta.getStatus().toString().equals(kriterijumi.getStatus())) {
+						
+						if(karta.getCena() <= kriterijumi.getCenaMax() && karta.getCena() >= kriterijumi.getCenaMin()) {
+							
+							//TODO jos dodati if za od do datume
+							k.add(karta);
+							
+						}
+						
+					}
+					
+				}
+				
+			}
+		}
+		
+		
+		switch(kriterijumi.getSortirajPo()) {
+			case "CENA":
+				Collections.sort(k, new KartePoCeniSort());
+				break;
+			case "DATUM":
+				Collections.sort(k, new KartePoDatumuSort());
+				break;
+			case "NAZIV":
+				Collections.sort(k, new KartePoManifestacijiSort());
+				break;
+		}
+		
+		if(kriterijumi.getSortiraj().equals("OPADAJUCE")) {
+			Collections.reverse(k);
+		}
+		
+		return k;
 	}
 }
