@@ -2,6 +2,7 @@ package handlers;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -146,8 +147,21 @@ public class ManifestacijaHandler {
 						
 						if(manifestacija.getTip().toString().equals(kriterijumi.getTip()) || kriterijumi.getTip().equals("SVE")) {
 							
-							//TODO jos ono od do datume da se proveri
-							m.add(manifestacija);
+							if(kriterijumi.getDatumOd().equals("") || kriterijumi.getDatumDo().equals("")) {
+								m.add(manifestacija);
+							}else {
+								
+								LocalDateTime pocetak = LocalDateTime.parse(manifestacija.getDatumVremePocetka());
+								LocalDateTime kriterijumOd = LocalDateTime.parse(kriterijumi.getDatumOd() + "T00:00:00");
+								LocalDateTime kriterijumDo = LocalDateTime.parse(kriterijumi.getDatumDo() + "T00:00:00");
+								
+								if(pocetak.isAfter(kriterijumOd) && pocetak.isBefore(kriterijumDo)) {
+									m.add(manifestacija);
+								}
+								
+							}
+							
+							
 						}
 						
 					}

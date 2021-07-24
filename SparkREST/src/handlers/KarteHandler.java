@@ -2,6 +2,7 @@ package handlers;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
@@ -146,8 +147,19 @@ public class KarteHandler {
 						
 						if(karta.getCena() <= kriterijumi.getCenaMax() && karta.getCena() >= kriterijumi.getCenaMin()) {
 							
-							//TODO jos dodati if za od do datume
-							k.add(karta);
+							if(kriterijumi.getDatumOd().equals("") || kriterijumi.getDatumDo().equals("")) {
+								k.add(karta);
+							}else {
+								
+								LocalDateTime pocetak = LocalDateTime.parse(karta.getDatumVreme());
+								LocalDateTime kriterijumOd = LocalDateTime.parse(kriterijumi.getDatumOd() + "T00:00:00");
+								LocalDateTime kriterijumDo = LocalDateTime.parse(kriterijumi.getDatumDo() + "T00:00:00");
+								
+								if(pocetak.isAfter(kriterijumOd) && pocetak.isBefore(kriterijumDo)) {
+									k.add(karta);
+								}
+								
+							}
 							
 						}
 						

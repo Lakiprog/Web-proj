@@ -193,8 +193,15 @@ public class KorisnikHandler {
 						
 						if(kriterijumi.getUloga().equals("SVE") || korisnik.getUloga().toString().equals(kriterijumi.getUloga())) {
 							
-							//TODO to za tip da vidimo dal cemo imati uopste, ako da onda jos jedan if
-							k.add(korisnik);
+							if(kriterijumi.getTip().equals("SVE")) {
+								k.add(korisnik);
+							}else {
+								if(korisnik instanceof Kupac && ((Kupac) korisnik).getTip().toString().equals(kriterijumi.getTip())) {
+									
+									k.add(korisnik);
+									
+								}
+							}
 							
 						}
 						

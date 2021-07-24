@@ -1,7 +1,7 @@
 {
   "karte" : {
     "1" : {
-      "datumVreme" : "2021.10.10",
+      "datumVreme" : "2021-10-10T03:30",
       "id" : 1,
       "idKupca" : 1,
       "manifestacija" : {
@@ -35,7 +35,7 @@
       "obrisan" : false
     },
     "2" : {
-      "datumVreme" : "2021.07.08",
+      "datumVreme" : "2021-07-08T03:30",
       "id" : 2,
       "idKupca" : 2,
       "manifestacija" : {
