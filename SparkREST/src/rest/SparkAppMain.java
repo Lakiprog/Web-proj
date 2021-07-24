@@ -14,13 +14,22 @@ import java.util.Date;
 import com.google.gson.Gson;
 
 import domain.Admin;
+import domain.Karta;
 import domain.Korisnik;
 import domain.Kupac;
+import domain.Komentar;
 import domain.Lokacija;
 import domain.Manifestacija;
 import domain.Prodavac;
 import domain.Uloga;
+import DTO.KarteSortiranjeDTO;
+import DTO.KartaDTO;
+import DTO.KomentarDTO;
+import DTO.KorisnikSortiranjeDTO;
 import DTO.ManifestacijaDTO;
+import DTO.ManifestacijaSortiranjeDTO;
+import handlers.KarteHandler;
+import handlers.KomentariHandler;
 import handlers.KorisnikHandler;
 import handlers.KupciHandler;
 import handlers.LokacijeHandler;
@@ -38,6 +47,8 @@ public class SparkAppMain {
 	private static KorisnikHandler usersHandler = new KorisnikHandler();
 	private static ManifestacijaHandler manifestationHandler = new ManifestacijaHandler();
 	private static LokacijeHandler locationHandler = new LokacijeHandler();
+	private static KarteHandler cardHandler = new KarteHandler();
+	private static KomentariHandler commentHandler = new KomentariHandler();
 	
 	private static Gson gson = new Gson();
 	static Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
@@ -122,6 +133,87 @@ public class SparkAppMain {
 			res.type("application/json");
 
 			return gson.toJson(manifestationsDTO);
+		});
+		
+		post("rest/manifestations/getManifestationsSorted", (req, res) -> {
+			ManifestacijaSortiranjeDTO criteria = gson.fromJson(req.body(), ManifestacijaSortiranjeDTO.class);
+			ArrayList<Manifestacija> manifestations = manifestationHandler.sortiranje(criteria);
+			ArrayList<ManifestacijaDTO> manifestationsDTO = new ArrayList<>();
+			
+			for (Manifestacija m : manifestations) {
+				manifestationsDTO.add(new ManifestacijaDTO(m));
+			}
+
+			res.type("application/json");
+
+			return gson.toJson(manifestationsDTO);
+		});
+		
+		get("rest/users/getUsers", (req, res) -> {
+			ArrayList<Korisnik> users = usersHandler.getKorisnici();
+			//ArrayList<ManifestacijaDTO> manifestationsDTO = new ArrayList<>();
+			
+			//for (Manifestacija m : manifestations) {
+			//	manifestationsDTO.add(new ManifestacijaDTO(m));
+			//}
+
+			res.type("application/json");
+
+			return gson.toJson(users);
+		});
+		
+		post("rest/users/getUsersSorted", (req, res) -> {
+			KorisnikSortiranjeDTO criteria = gson.fromJson(req.body(), KorisnikSortiranjeDTO.class);
+			ArrayList<Korisnik> users = usersHandler.sortiranje(criteria);
+			//ArrayList<ManifestacijaDTO> manifestationsDTO = new ArrayList<>();
+			
+			//for (Manifestacija m : manifestations) {
+			//	manifestationsDTO.add(new ManifestacijaDTO(m));
+			//}
+
+			res.type("application/json");
+
+			return gson.toJson(users);
+		});
+		
+		get("rest/cards/getCards", (req, res) -> {
+			ArrayList<Karta> cards = cardHandler.getKarte();
+			ArrayList<KartaDTO> cardsDTO = new ArrayList<>();
+			
+			for (Karta k : cards) {
+				cardsDTO.add(new KartaDTO(k, usersHandler.poIdKupac(k.getIdKupca())));
+			}
+
+			res.type("application/json");
+
+			return gson.toJson(cardsDTO);
+		});
+		
+		post("rest/cards/getCardsSorted", (req, res) -> {
+			KarteSortiranjeDTO criteria = gson.fromJson(req.body(), KarteSortiranjeDTO.class);
+			ArrayList<Karta> cards = cardHandler.sortiranje(criteria);
+			ArrayList<KartaDTO> cardsDTO = new ArrayList<>();
+			
+			for (Karta k : cards) {
+				cardsDTO.add(new KartaDTO(k, usersHandler.poIdKupac(k.getIdKupca())));
+			}
+
+			res.type("application/json");
+
+			return gson.toJson(cardsDTO);
+		});
+		
+		get("rest/comments/getComments", (req, res) -> {
+			ArrayList<Komentar> comments = commentHandler.getKomentari();
+			ArrayList<KomentarDTO> commentsDTO = new ArrayList<>();
+			
+			for (Komentar k : comments) {
+				commentsDTO.add(new KomentarDTO(k));
+			}
+
+			res.type("application/json");
+
+			return gson.toJson(commentsDTO);
 		});
 		
 		post("/rest/manifestations/createManifestation", (req, res) -> {

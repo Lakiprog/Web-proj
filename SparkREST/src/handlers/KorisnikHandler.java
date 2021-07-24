@@ -1,11 +1,21 @@
 package handlers;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
+import DTO.KorisnikSortiranjeDTO;
 import domain.Admin;
 import domain.Korisnik;
 import domain.Kupac;
 import domain.Prodavac;
+import util.KorisniciPoBodovimaSort;
+import util.KorisniciPoImenuSort;
+import util.KorisniciPoKorisnickomImenuSort;
+import util.KorisniciPoPrezimenuSort;
+import util.ManifestacijePoCeniSort;
+import util.ManifestacijePoDatumuSort;
+import util.ManifestacijePoLokacijiSort;
+import util.ManifestacijePoNazivuSort;
 
 public class KorisnikHandler {
 
@@ -169,5 +179,59 @@ public class KorisnikHandler {
 	
 	public Prodavac poKorisnickomImenuProdavac(String kIme) {
 		return prodavacHandler.poKorisnickomImenu(kIme);
+	}
+	
+	public ArrayList<Korisnik> sortiranje(KorisnikSortiranjeDTO kriterijumi){
+		ArrayList<Korisnik> k = new ArrayList<>();
+		
+		for (Korisnik korisnik : korisnici) {
+			if(korisnik.getIme().contains(kriterijumi.getIme())) {
+				
+				if(korisnik.getPrezime().contains(kriterijumi.getPrezime())) {
+					
+					if(korisnik.getkIme().contains(kriterijumi.getkIme())) {
+						
+						if(kriterijumi.getUloga().equals("SVE") || korisnik.getUloga().toString().equals(kriterijumi.getUloga())) {
+							
+							if(kriterijumi.getTip().equals("SVE")) {
+								k.add(korisnik);
+							}else {
+								if(korisnik instanceof Kupac && ((Kupac) korisnik).getTip().toString().equals(kriterijumi.getTip())) {
+									
+									k.add(korisnik);
+									
+								}
+							}
+							
+						}
+						
+					}
+					
+				}
+				
+			}
+		}
+		
+		switch(kriterijumi.getSortirajPo()) {
+		case "IME":
+			Collections.sort(k, new KorisniciPoImenuSort());
+			break;
+		case "PREZIME":
+			Collections.sort(k, new KorisniciPoPrezimenuSort());
+			break;
+		case "KIME":
+			Collections.sort(k, new KorisniciPoKorisnickomImenuSort());
+			break;
+		case "BODOVI":
+			Collections.sort(k, new KorisniciPoBodovimaSort());
+			break;
+		}
+		
+		if(kriterijumi.getSortiraj().equals("OPADAJUCE")) {
+			Collections.reverse(k);
+		}
+		
+		
+		return k;
 	}
 }

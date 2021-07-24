@@ -2,14 +2,22 @@ package handlers;
 
 import java.io.File;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
+
+import DTO.ManifestacijaSortiranjeDTO;
 import domain.Manifestacija;
+import util.ManifestacijePoCeniSort;
+import util.ManifestacijePoDatumuSort;
+import util.ManifestacijePoLokacijiSort;
+import util.ManifestacijePoNazivuSort;
 
 public class ManifestacijaHandler {
 	
@@ -125,5 +133,63 @@ public class ManifestacijaHandler {
 			}
 		}
 		return null;
+	}
+	
+	public ArrayList<Manifestacija> sortiranje(ManifestacijaSortiranjeDTO kriterijumi) {
+		ArrayList<Manifestacija> m = new ArrayList<>();
+		
+		for (Manifestacija manifestacija : manifestacije) {
+			if(manifestacija.getNaziv().contains(kriterijumi.getNaziv())) {
+				
+				if(manifestacija.getLokacija().getAdresa().toString().contains(kriterijumi.getAdresa())) {
+					
+					if(manifestacija.getCenaRegular() <= kriterijumi.getCenaMax() && manifestacija.getCenaRegular() >= kriterijumi.getCenaMin()) {
+						
+						if(manifestacija.getTip().toString().equals(kriterijumi.getTip()) || kriterijumi.getTip().equals("SVE")) {
+							
+							if(kriterijumi.getDatumOd().equals("") || kriterijumi.getDatumDo().equals("")) {
+								m.add(manifestacija);
+							}else {
+								
+								LocalDateTime pocetak = LocalDateTime.parse(manifestacija.getDatumVremePocetka());
+								LocalDateTime kriterijumOd = LocalDateTime.parse(kriterijumi.getDatumOd() + "T00:00:00");
+								LocalDateTime kriterijumDo = LocalDateTime.parse(kriterijumi.getDatumDo() + "T00:00:00");
+								
+								if(pocetak.isAfter(kriterijumOd) && pocetak.isBefore(kriterijumDo)) {
+									m.add(manifestacija);
+								}
+								
+							}
+							
+							
+						}
+						
+					}
+					
+				}
+				
+			}
+		}
+		
+		switch(kriterijumi.getSortirajPo()) {
+			case "CENA":
+				Collections.sort(m, new ManifestacijePoCeniSort());
+				break;
+			case "DATUM":
+				Collections.sort(m, new ManifestacijePoDatumuSort());
+				break;
+			case "LOKACIJA":
+				Collections.sort(m, new ManifestacijePoLokacijiSort());
+				break;
+			case "NAZIV":
+				Collections.sort(m, new ManifestacijePoNazivuSort());
+				break;
+		}
+		
+		if(kriterijumi.getSortiraj().equals("OPADAJUCE")) {
+			Collections.reverse(m);
+		}
+		
+		return m;
 	}
 }

@@ -54,6 +54,39 @@
         "mesto" : "Novi Sad City"
       },
       "obrisan" : false
+    },
+    "6" : {
+      "id" : 6,
+      "sirina" : 45.2526,
+      "duzina" : 19.830002,
+      "adresa" : {
+        "ulica" : "Cirpanova",
+        "broj" : "51",
+        "mesto" : "Novi Sad"
+      },
+      "obrisan" : false
+    },
+    "7" : {
+      "id" : 7,
+      "sirina" : 45.309013,
+      "duzina" : 19.829477,
+      "adresa" : {
+        "ulica" : "",
+        "broj" : "100",
+        "mesto" : "Novi Sad City"
+      },
+      "obrisan" : false
+    },
+    "8" : {
+      "id" : 8,
+      "sirina" : 45.2526,
+      "duzina" : 19.830002,
+      "adresa" : {
+        "ulica" : "Cirpanova",
+        "broj" : "51",
+        "mesto" : "Novi Sad"
+      },
+      "obrisan" : false
     }
   }
 }
