@@ -113,7 +113,7 @@ public class KarteHandler {
 	
 	public int nextId() {
 		int next = 0;
-		for (Karta Karta : karte) {
+		for (Karta Karta : ucitani.values()) {
 			if(Karta.getId() > next) {
 				next = Karta.getId();
 			}
@@ -124,15 +124,6 @@ public class KarteHandler {
 	
 	public Karta poId(Integer id) {
 		return ucitani.get(id);
-	}
-	
-	public Karta poIdKupca(int id) {
-		for (Karta Karta : karte) {
-			if(Karta.getIdKupca() == id && !Karta.isObrisan()) {
-				return Karta;
-			}
-		}
-		return null;
 	}
 	
 	public ArrayList<Karta> sortiranje(KarteSortiranjeDTO kriterijumi){
@@ -185,6 +176,32 @@ public class KarteHandler {
 		
 		if(kriterijumi.getSortiraj().equals("OPADAJUCE")) {
 			Collections.reverse(k);
+		}
+		
+		return k;
+	}
+	
+	public ArrayList<Karta> kartePoManifestacijama(ArrayList<Integer> ids){
+		ArrayList<Karta> k = new ArrayList<>();
+		
+		for (Integer id : ids) {
+			for (Karta karta : karte) {
+				
+				if(karta.getManifestacija().getId() == id) {
+					k.add(karta);
+				}
+				
+			}
+		}
+		
+		return k;
+	}
+	
+	public ArrayList<Karta> kartePoIdima(ArrayList<Integer> ids){
+		ArrayList<Karta> k = new ArrayList<>();
+		
+		for (Integer id : ids) {
+			k.add(poId(id));
 		}
 		
 		return k;

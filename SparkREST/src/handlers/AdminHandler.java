@@ -106,7 +106,7 @@ public class AdminHandler {
 	
 	public int nextId() {
 		int next = 0;
-		for (Admin admin : admini) {
+		for (Admin admin : ucitani.values()) {
 			if(admin.getId() > next) {
 				next = admin.getId();
 			}

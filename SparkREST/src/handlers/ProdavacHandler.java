@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 import domain.Admin;
+import domain.Kupac;
 import domain.Prodavac;
 
 public class ProdavacHandler {
@@ -107,7 +108,7 @@ public class ProdavacHandler {
 	
 	public int nextId() {
 		int next = 0;
-		for (Prodavac prodavac : prodavci) {
+		for (Prodavac prodavac : ucitani.values()) {
 			if(prodavac.getId() > next) {
 				next = prodavac.getId();
 			}
@@ -117,6 +118,28 @@ public class ProdavacHandler {
 	
 	public Prodavac poId(Integer id) {
 		return ucitani.get(id);
+	}
+	
+	public void blokiraj(int id) {
+		ucitani.get(id).setBlokiran(true);
+		for (Prodavac prodavac : prodavci) {
+			if(prodavac.getId() == id) {
+				prodavac.setBlokiran(true);
+				break;
+			}
+		}
+		sacuvaj();
+	}
+	
+	public void odBlokiraj(int id) {
+		ucitani.get(id).setBlokiran(false);
+		for (Prodavac prodavac : prodavci) {
+			if(prodavac.getId() == id) {
+				prodavac.setBlokiran(false);
+				break;
+			}
+		}
+		sacuvaj();
 	}
 	
 	public Prodavac poKorisnickomImenu(String kIme) {

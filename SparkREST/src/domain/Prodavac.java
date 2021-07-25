@@ -4,14 +4,14 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 public class Prodavac extends Korisnik {
-	private ArrayList<Manifestacija> manifestacije;
+	private ArrayList<Integer> manifestacije = new ArrayList<Integer>();
 	private boolean blokiran;
 
-	public ArrayList<Manifestacija> getManifestacije() {
+	public ArrayList<Integer> getManifestacije() {
 		return manifestacije;
 	}
 
-	public void setManifestacije(ArrayList<Manifestacija> manifestacije) {
+	public void setManifestacije(ArrayList<Integer> manifestacije) {
 		this.manifestacije = manifestacije;
 	}
 	

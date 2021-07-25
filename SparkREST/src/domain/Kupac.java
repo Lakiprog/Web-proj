@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class Kupac extends Korisnik {
 	private TipMedalje tip;
 	private int brBodova, brOtkazivanja;
-	private ArrayList<Karta> karte;
+	private ArrayList<Integer> karte = new ArrayList<Integer>();
 	private boolean blokiran;
 
 	public Kupac() {}
@@ -31,11 +31,11 @@ public class Kupac extends Korisnik {
 		this.brBodova = brBodova;
 	}
 
-	public ArrayList<Karta> getKarte() {
+	public ArrayList<Integer> getKarte() {
 		return karte;
 	}
 
-	public void setKarte(ArrayList<Karta> karte) {
+	public void setKarte(ArrayList<Integer> karte) {
 		this.karte = karte;
 	}
 

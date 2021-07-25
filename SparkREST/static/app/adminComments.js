@@ -26,7 +26,7 @@ Vue.component("adminComments", {
         <td>{{c.manifestacija}}</td>
         <td>{{c.komentar}}</td>
         <td>{{c.ocena}}</td>
-        <td><input type="button" class="btn btn-danger" value="Obrisi" /></td>
+        <td><input type="button" class="btn btn-danger" value="Obrisi" v-on:click="deleteIt(c)"/></td>
     </tr>
 
 </table>
@@ -36,7 +36,14 @@ Vue.component("adminComments", {
 `
 	, 
 	methods : {
-        
+        deleteIt: function(c){
+            axios
+            .post("/rest/comments/delete", c)
+            .then(response => {
+                
+            });
+            this.comments = this.comments.filter(comment => c.id != comment.id);
+        },
 	},
 	mounted () {
         axios

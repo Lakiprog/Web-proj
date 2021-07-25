@@ -10,7 +10,7 @@
       "pol" : "MUSKO",
       "obrisan" : false,
       "uloga" : "PRODAVAC",
-      "manifestacije" : null,
+      "manifestacije" : [ ],
       "blokiran" : false
     },
     "2" : {
@@ -23,8 +23,8 @@
       "pol" : "MUSKO",
       "obrisan" : false,
       "uloga" : "PRODAVAC",
-      "manifestacije" : null,
-      "blokiran" : false
+      "manifestacije" : [ ],
+      "blokiran" : true
     },
     "3" : {
       "id" : 3,
@@ -34,9 +34,9 @@
       "prezime" : "Petrolo",
       "datumRodjenja" : "2021-07-05",
       "pol" : "ZENSKO",
-      "obrisan" : false,
+      "obrisan" : true,
       "uloga" : "PRODAVAC",
-      "manifestacije" : null,
+      "manifestacije" : [ ],
       "blokiran" : false
     }
   }

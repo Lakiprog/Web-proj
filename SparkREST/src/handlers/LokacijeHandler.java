@@ -105,7 +105,7 @@ public class LokacijeHandler {
 	
 	public int nextId() {
 		int next = 0;
-		for (Lokacija lokacija : lokacije) {
+		for (Lokacija lokacija : ucitani.values()) {
 			if(lokacija.getId() > next) {
 				next = lokacija.getId();
 			}

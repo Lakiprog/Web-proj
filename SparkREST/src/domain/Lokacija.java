@@ -85,8 +85,6 @@ public class Lokacija {
 			return false;
 		if (Double.doubleToLongBits(duzina) != Double.doubleToLongBits(other.duzina))
 			return false;
-		if (id != other.id)
-			return false;
 		if (obrisan != other.obrisan)
 			return false;
 		if (Double.doubleToLongBits(sirina) != Double.doubleToLongBits(other.sirina))
