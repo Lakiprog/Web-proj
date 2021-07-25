@@ -13,7 +13,9 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 import DTO.ManifestacijaSortiranjeDTO;
+import domain.Lokacija;
 import domain.Manifestacija;
+import domain.StatusManifestacije;
 import util.ManifestacijePoCeniSort;
 import util.ManifestacijePoDatumuSort;
 import util.ManifestacijePoLokacijiSort;
@@ -113,7 +115,7 @@ public class ManifestacijaHandler {
 	
 	public int nextId() {
 		int next = 0;
-		for (Manifestacija Manifestacija : manifestacije) {
+		for (Manifestacija Manifestacija : ucitani.values()) {
 			if(Manifestacija.getId() > next) {
 				next = Manifestacija.getId();
 			}
@@ -124,6 +126,16 @@ public class ManifestacijaHandler {
 	
 	public Manifestacija poId(Integer id) {
 		return ucitani.get(id);
+	}
+	
+	public void aktiviraj(int id) {
+		ucitani.get(id).setStatus(StatusManifestacije.AKTIVNO);
+		for (Manifestacija manifestacija : manifestacije) {
+			if(manifestacija.getId() == id) {
+				manifestacija.setStatus(StatusManifestacije.AKTIVNO);
+			}
+		}
+		sacuvaj();
 	}
 	
 	public Manifestacija poNazivu(String naziv) {
@@ -191,5 +203,41 @@ public class ManifestacijaHandler {
 		}
 		
 		return m;
+	}
+	
+	public ArrayList<Manifestacija> manifestacijePoIdima(ArrayList<Integer> ids){
+		ArrayList<Manifestacija> m = new ArrayList<>();
+		
+		for (Integer id : ids) {
+			m.add(poId(id));
+		}
+		
+		return m;
+	}
+	
+	public boolean checkBadTimes(String s, String e, Lokacija lokacija) {
+		LocalDateTime start = LocalDateTime.parse(s);
+		LocalDateTime end = LocalDateTime.parse(e);
+		
+		for (Manifestacija manifestacija : manifestacije) {
+			
+			if(manifestacija.getLokacija().equals(lokacija)) {
+				//System.out.println("tu sam");
+				
+				LocalDateTime startOther = LocalDateTime.parse(manifestacija.getDatumVremePocetka());
+				LocalDateTime endOther = LocalDateTime.parse(manifestacija.getDatumVremeKraja());
+				
+				if(start.isBefore(startOther) && end.isAfter(startOther)) {
+					return true;
+				}if(start.isAfter(startOther) && end.isBefore(endOther)) {
+					return true;
+				}if(start.isEqual(startOther) || end.isEqual(endOther) || start.isEqual(endOther) || end.isEqual(startOther)) {
+					return true;
+				}
+				
+			}
+			
+		}
+		return false;
 	}
 }

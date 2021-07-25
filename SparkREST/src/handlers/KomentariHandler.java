@@ -106,7 +106,7 @@ public class KomentariHandler {
 	
 	public int nextId() {
 		int next = 0;
-		for (Komentar Komentar : komentari) {
+		for (Komentar Komentar : ucitani.values()) {
 			if(Komentar.getId() > next) {
 				next = Komentar.getId();
 			}
@@ -119,4 +119,27 @@ public class KomentariHandler {
 		return ucitani.get(id);
 	}
 	
+	public ArrayList<Komentar> komentariPoManifestaciji(int id){
+		ArrayList<Komentar> k = new ArrayList<>();
+		
+		for (Komentar komentar : komentari) {
+			if(komentar.getManifestacija().getId() == id) {
+				k.add(komentar);
+			}
+		}
+		
+		return k;
+	}
+	
+	public ArrayList<Komentar> komentariPoManifestacijama(ArrayList<Integer> ids){
+		ArrayList<Komentar> k = new ArrayList<>();
+		
+		for (Integer id : ids) {
+			for (Komentar komentar : komentariPoManifestaciji(id)) {
+				k.add(komentar);
+			}
+		}
+		
+		return k;
+	}
 }

@@ -114,6 +114,60 @@ public class SparkAppMain {
 			return "success";
 		});
 		
+		post("/rest/users/block", (req, res) -> {
+			Korisnik user = gson.fromJson(req.body(), Korisnik.class);
+			
+			if(user.getUloga().equals(Uloga.KUPAC)) {
+				usersHandler.blockKupac(user.getId());
+			}else if(user.getUloga().equals(Uloga.PRODAVAC)) {
+				usersHandler.blockProdavac(user.getId());
+			}else {
+				
+			}
+			
+			//ArrayList<Korisnik> users = usersHandler.getKorisnici();
+
+			res.type("application/json");
+
+			return "success";
+		});
+		
+		
+		post("/rest/users/unblock", (req, res) -> {
+			Korisnik user = gson.fromJson(req.body(), Korisnik.class);
+			
+			if(user.getUloga().equals(Uloga.KUPAC)) {
+				usersHandler.unblockKupac(user.getId());
+			}else if(user.getUloga().equals(Uloga.PRODAVAC)) {
+				usersHandler.unblockProdavac(user.getId());
+			}else {
+				
+			}
+			//ArrayList<Korisnik> users = usersHandler.getKorisnici();
+
+			res.type("application/json");
+
+			return "success";
+		});
+		
+		post("/rest/users/delete", (req, res) -> {
+			Korisnik user = gson.fromJson(req.body(), Korisnik.class);
+			
+			if(user.getUloga().equals(Uloga.KUPAC)) {
+				usersHandler.deleteKupac(user.getId());
+			}else if(user.getUloga().equals(Uloga.PRODAVAC)) {
+				usersHandler.deleteProdavac(user.getId());
+			}else {
+				usersHandler.deleteAdmin(user.getId());
+			}
+			
+			//ArrayList<Korisnik> users = usersHandler.getKorisnici();
+
+			res.type("application/json");
+
+			return "success";
+		});
+		
 		get("/rest/users/getCurrentUser", (req, res) -> {
 			Korisnik user = (Korisnik) req.session().attribute("currentUser");
 
@@ -216,13 +270,29 @@ public class SparkAppMain {
 			return gson.toJson(commentsDTO);
 		});
 		
+		post("rest/comments/delete", (req, res) -> {
+			Komentar comment = gson.fromJson(req.body(), Komentar.class);
+			commentHandler.brisiKomentarLogicki(comment.getId());
+
+			//ArrayList<Komentar> comments = commentHandler.getKomentari();
+			//ArrayList<KomentarDTO> commentsDTO = new ArrayList<>();
+			
+			//for (Komentar k : comments) {
+			//	commentsDTO.add(new KomentarDTO(k));
+			//}
+
+			res.type("application/json");
+
+			return "success";
+		});
+		
 		post("/rest/manifestations/createManifestation", (req, res) -> {
 			Manifestacija manifestation = gson.fromJson(req.body(), Manifestacija.class);
 			
 			res.type("application/json");
 
-			for (Manifestacija m : manifestationHandler.getManifestacije()) {
-				//TODO provera dal je u isto vreme na istom mestu jos jedna manifestacija, sad nemam zivaca to posle tolko hatea
+			if(manifestationHandler.checkBadTimes(manifestation.getDatumVremePocetka(), manifestation.getDatumVremeKraja(), manifestation.getLokacija())) {
+				return "Vec postoji manifestacija na datoj lokaciji za dato vreme";
 			}
 			
 			//TODO mozda prekopirati sliku u neki nas folder
@@ -241,6 +311,54 @@ public class SparkAppMain {
 			return "success";
 		});
 
+		
+		post("/rest/manifestations/delete", (req, res) -> {
+			Manifestacija manifestation = gson.fromJson(req.body(), Manifestacija.class);
+			
+			res.type("application/json");
+
+			manifestationHandler.brisiManifestacijuLogicki(manifestation.getId());
+			//ArrayList<Manifestacija> manifestations = manifestationHandler.getManifestacije();
+			//ArrayList<ManifestacijaDTO> manifestationsDTO = new ArrayList<>();
+			
+			//for (Manifestacija m : manifestations) {
+			//	manifestationsDTO.add(new ManifestacijaDTO(m));
+			//}
+
+			return "success";
+		});
+		
+		post("/rest/manifestations/update", (req, res) -> {
+			Manifestacija manifestation = gson.fromJson(req.body(), Manifestacija.class);
+			
+			res.type("application/json");
+
+			manifestationHandler.azurirajManifestaciju(manifestation);;
+			//ArrayList<Manifestacija> manifestations = manifestationHandler.getManifestacije();
+			//ArrayList<ManifestacijaDTO> manifestationsDTO = new ArrayList<>();
+			
+			//for (Manifestacija m : manifestations) {
+			//	manifestationsDTO.add(new ManifestacijaDTO(m));
+			//}
+
+			return "success";
+		});
+		
+		post("/rest/manifestations/activate", (req, res) -> {
+			Manifestacija manifestation = gson.fromJson(req.body(), Manifestacija.class);
+			
+			res.type("application/json");
+
+			manifestationHandler.aktiviraj(manifestation.getId());;
+			//ArrayList<Manifestacija> manifestations = manifestationHandler.getManifestacije();
+			//ArrayList<ManifestacijaDTO> manifestationsDTO = new ArrayList<>();
+			
+			//for (Manifestacija m : manifestations) {
+			//	manifestationsDTO.add(new ManifestacijaDTO(m));
+			//}
+
+			return "success";
+		});
 
 		get("/rest/demo/test", (req, res) -> {
 			return "Works";

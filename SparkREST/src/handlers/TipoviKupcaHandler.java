@@ -106,7 +106,7 @@ public class TipoviKupcaHandler {
 	
 	public int nextId() {
 		int next = 0;
-		for (TipKupca tipKupca : tipovi) {
+		for (TipKupca tipKupca : ucitani.values()) {
 			if(tipKupca.getId() > next) {
 				next = tipKupca.getId();
 			}

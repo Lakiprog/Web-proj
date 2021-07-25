@@ -122,8 +122,8 @@ Vue.component("adminManifestations", {
         <td>{{manifestation.adresa}}</td>
         <td v-if="manifestation.status == 'AKTIVNO'" style="color:green;">Aktivno</td>
         <td v-else style="color:red;">Neaktivno</td>
-        <td v-bind:hidden="manifestation.status == 'AKTIVNO'"><input type="button" class="btn btn-primary" value="Aktiviraj"/></td>
-        <td><input type="button" class="btn btn-danger" value="Obrisi"/></td>
+        <td v-bind:hidden="manifestation.status == 'AKTIVNO'"><input type="button" class="btn btn-primary" value="Aktiviraj" v-on:click="activate(manifestation)" /></td>
+        <td><input type="button" class="btn btn-danger" value="Obrisi" v-on:click="deleteIt(manifestation)" /></td>
     </tr>
 
 </table>
@@ -138,6 +138,28 @@ Vue.component("adminManifestations", {
             .post("/rest/manifestations/getManifestationsSorted", this.criteria)
             .then(response => {
                 this.manifestations = response.data;
+            });
+        },
+
+        deleteIt: function(manifestation){
+            axios
+            .post("/rest/manifestations/delete", manifestation)
+            .then(response => {
+                
+            });
+            this.manifestations = this.manifestations.filter(m => m.id != manifestation.id)
+        },
+
+        activate: function(manifestation){
+            axios
+            .post("/rest/manifestations/activate", manifestation)
+            .then(response => {
+                
+            });
+            this.manifestations.forEach(m => {
+                if(manifestation.id = m.id){
+                    m.status = "AKTIVNO";
+                }
             });
         }
 	},

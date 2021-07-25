@@ -4,9 +4,10 @@ import domain.Komentar;
 
 public class KomentarDTO {
 	private String kIme, ime, prezime, manifestacija, komentar;
-	private int ocena;
+	private int ocena, id;
 	
 	public KomentarDTO(Komentar k) {
+		this.id = k.getId();
 		this.kIme = k.getKupac().getkIme();
 		this.ime = k.getKupac().getIme();
 		this.prezime = k.getKupac().getPrezime();
@@ -50,6 +51,14 @@ public class KomentarDTO {
 	}
 	public void setOcena(int ocena) {
 		this.ocena = ocena;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

@@ -115,34 +115,37 @@ public class KorisnikHandler {
 		prodavacHandler.azurirajProdavca(p);
 	}
 	
-	public void deleteKupac(Kupac k) {
+	public void deleteKupac(int id) {
 		for (int i = 0; i < korisnici.size(); i++) {
-			if((korisnici.get(i) instanceof Kupac) && (korisnici.get(i).getId() == k.getId())) {
+			if((korisnici.get(i) instanceof Kupac) && (korisnici.get(i).getId() == id)) {
 				korisnici.get(i).setObrisan(true);
+				korisnici.remove(i);
 				break;
 			}
 		}
-		kupciHandler.brisiKupcaLogicki(k.getId());
+		kupciHandler.brisiKupcaLogicki(id);
 	}
 	
-	public void deleteAdmin(Admin k) {
+	public void deleteAdmin(int id) {
 		for (int i = 0; i < korisnici.size(); i++) {
-			if((korisnici.get(i) instanceof Admin) && (korisnici.get(i).getId() == k.getId())) {
+			if((korisnici.get(i) instanceof Admin) && (korisnici.get(i).getId() == id)) {
 				korisnici.get(i).setObrisan(true);
+				korisnici.remove(i);
 				break;
 			}
 		}
-		adminHandler.brisiAdminaLogicki(k.getId());
+		adminHandler.brisiAdminaLogicki(id);
 	}
 	
-	public void deleteProdavac(Prodavac k) {
+	public void deleteProdavac(int id) {
 		for (int i = 0; i < korisnici.size(); i++) {
-			if((korisnici.get(i) instanceof Prodavac) && (korisnici.get(i).getId() == k.getId())) {
+			if((korisnici.get(i) instanceof Prodavac) && (korisnici.get(i).getId() == id)) {
 				korisnici.get(i).setObrisan(true);
+				korisnici.remove(i);
 				break;
 			}
 		}
-		prodavacHandler.brisiProdavcaLogicki(k.getId());
+		prodavacHandler.brisiProdavcaLogicki(id);
 	}
 	
 	public int nextIdKupac() {
@@ -179,6 +182,22 @@ public class KorisnikHandler {
 	
 	public Prodavac poKorisnickomImenuProdavac(String kIme) {
 		return prodavacHandler.poKorisnickomImenu(kIme);
+	}
+	
+	public void blockKupac(int id) {
+		kupciHandler.blokiraj(id);
+	}
+	
+	public void blockProdavac(int id) {
+		prodavacHandler.blokiraj(id);
+	}
+	
+	public void unblockKupac(int id) {
+		kupciHandler.odBlokiraj(id);
+	}
+	
+	public void unblockProdavac(int id) {
+		prodavacHandler.odBlokiraj(id);
 	}
 	
 	public ArrayList<Korisnik> sortiranje(KorisnikSortiranjeDTO kriterijumi){

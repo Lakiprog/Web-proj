@@ -7,11 +7,12 @@ import domain.TipKarte;
 
 public class KartaDTO {
 	private String kIme, ime, prezime, manifestacija, datumVreme;
-	private int brMesta;
+	private int brMesta, id;
 	private TipKarte tip;
 	private StatusKarte status;
 	
 	public KartaDTO(Karta ka, Kupac k) {
+		this.id = ka.getId();
 		this.kIme = k.getkIme();
 		this.ime = k.getIme();
 		this.prezime = k.getPrezime();
@@ -84,6 +85,14 @@ public class KartaDTO {
 
 	public void setBrMesta(int brMesta) {
 		this.brMesta = brMesta;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
 	}
 	
 	

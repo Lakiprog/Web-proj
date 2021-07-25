@@ -107,7 +107,7 @@ public class KupciHandler {
 	
 	public int nextId() {
 		int next = 0;
-		for (Kupac kupac : kupci) {
+		for (Kupac kupac : ucitani.values()) {
 			if(kupac.getId() > next) {
 				next = kupac.getId();
 			}
@@ -117,6 +117,28 @@ public class KupciHandler {
 	
 	public Kupac poId(Integer id) {
 		return ucitani.get(id);
+	}
+	
+	public void blokiraj(int id) {
+		ucitani.get(id).setBlokiran(true);
+		for (Kupac kupac : kupci) {
+			if(kupac.getId() == id) {
+				kupac.setBlokiran(true);
+				break;
+			}
+		}
+		sacuvaj();
+	}
+	
+	public void odBlokiraj(int id) {
+		ucitani.get(id).setBlokiran(false);
+		for (Kupac kupac : kupci) {
+			if(kupac.getId() == id) {
+				kupac.setBlokiran(false);
+				break;
+			}
+		}
+		sacuvaj();
 	}
 	
 	public Kupac poKorisnickomImenu(String kIme) {
