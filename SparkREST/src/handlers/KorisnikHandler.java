@@ -83,9 +83,9 @@ public class KorisnikHandler {
 	}
 	
 	public void updateKupac(Kupac k) {
-		for (Korisnik korisnik : korisnici) {
-			if((korisnik instanceof Kupac) && (korisnik.getId() == k.getId())) {
-				korisnik = k;
+		for (int i = 0; i < korisnici.size(); i++) {
+			if((korisnici.get(i) instanceof Kupac) && (korisnici.get(i).getId() == k.getId())) {
+				korisnici.set(i, k);
 				break;
 			}
 		}
@@ -93,9 +93,9 @@ public class KorisnikHandler {
 	}
 	
 	public void updateAdmin(Admin a) {
-		for (Korisnik korisnik : korisnici) {
-			if((korisnik instanceof Admin) && (korisnik.getId() == a.getId())) {
-				korisnik = a;
+		for (int i = 0; i < korisnici.size(); i++) {
+			if((korisnici.get(i) instanceof Admin) && (korisnici.get(i).getId() == a.getId())) {
+				korisnici.set(i, a);
 				break;
 			}
 		}
@@ -103,9 +103,9 @@ public class KorisnikHandler {
 	}
 	
 	public void updateProdavac(Prodavac p) {
-		for (Korisnik korisnik : korisnici) {
-			if((korisnik instanceof Prodavac) && (korisnik.getId() == p.getId())) {
-				korisnik = p;
+		for (int i = 0; i < korisnici.size(); i++) {
+			if((korisnici.get(i) instanceof Prodavac) && (korisnici.get(i).getId() == p.getId())) {
+				korisnici.set(i, p);
 				break;
 			}
 		}

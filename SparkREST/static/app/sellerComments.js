@@ -1,6 +1,7 @@
 Vue.component("sellerComments", {
 	data: function () {
 		    return {
+                comments: []
 		    }
 	},
 	template: ` 
@@ -19,23 +20,15 @@ Vue.component("sellerComments", {
         <th></th>
     </tr>
 
-    <tr>
-        <td>markuza</td>
-        <td>Petar Markovic</td>
-        <td>Primer Koncert Ramba</td>
-        <td>bruh</td>
-        <td>5</td>
-        <td><input type="button" class="btn btn-primary" value="Odobri" /></td>
+    <tr v-for="c in this.comments">
+        <td>{{c.kIme}}</td>
+        <td>{{c.ime}} {{c.prezime}}</td>
+        <td>{{c.manifestacija}}</td>
+        <td>{{c.komentar}}</td>
+        <td>{{c.ocena}}</td>
+        <td><input v-bind:hidden="c.odobren" type="button" class="btn btn-primary" value="Odobri" v-on:click="odobri(c)" /></td>
     </tr>
 
-    <tr>
-        <td>markuza</td>
-        <td>Petar Markovic</td>
-        <td>Primer Koncert Ramba</td>
-        <td>premalo FAPa</td>
-        <td>4</td>
-        <td></td>
-    </tr>
 </table>
 
     </div>
@@ -43,8 +36,27 @@ Vue.component("sellerComments", {
 `
 	, 
 	methods : {
-        
+        odobri: function(c){
+            axios
+            .post("/rest/comments/odobri", c)
+            .then(response => {
+                
+            });
+            c.odobren = true;
+        }
 	},
 	mounted () {
+        axios
+        .get("/rest/users/getCurrentUser")
+        .then(response => {
+            if (response.data) {
+                this.korisnik = response.data;
+            }
+        });
+        axios
+        .get("/rest/comments/getCommentsProdavac")
+        .then(response => {
+            this.comments = response.data;
+        });
     }
 });

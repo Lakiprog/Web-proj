@@ -1,6 +1,8 @@
 Vue.component("buyerCards", {
 	data: function () {
 		    return {
+                cards: [],
+                criteria: {naziv : "", datumOd : "", datumDo: "", cenaMin: 0, cenaMax: 10000, tip: "SVE", status: "SVE", sortirajPo: "NAZIV", sortiraj: "RASTUCE"}
 		    }
 	},
 	template: ` 
@@ -104,7 +106,6 @@ Vue.component("buyerCards", {
     <table class="table table-hover table-dark">
     <tr>
         <th>Manifestacija</th>
-        <th>Tip Manifestacije</th>
         <th>Tip Karte</th>
 		<th>Broj mesta</th>
 		<th>Datum</th>
@@ -112,24 +113,17 @@ Vue.component("buyerCards", {
         <th></th>
     </tr>
 
-    <tr>
-        <td>Primer Koncert Ramba</td>
-        <td>Koncert</td>
-        <td>Regular</td>
-        <td>1000</td>
-        <td>2021.10.10</td>
-        <td style="color:green;">Rezervisano</td>
-        <td><input type="button" class="btn btn-danger" value="Odustani"/></td>
+    <tr v-for="c in this.cards">
+        <td>{{c.manifestacija}}</td>
+        <td>{{c.tip}}</td>
+        <td>{{c.brMesta}}</td>
+        <td>{{c.manifestacija}}</td>
+        <td>{{c.datumVreme}}</td>
+        <td v-if="c.status == 'REZERVISANA'" style="color:green;">Rezervisana</td>
+        <td v-else style="color:red;">Odustanak</td>
+        <td><input v-bind:hidden="c.status != 'REZERVISANA'" type="button" class="btn btn-danger" value="Odustani" v-on:click="odustani(c)" /></td>
     </tr>
 
-    <tr>
-        <td>Dombos Fest</td>
-        <td>Festival</td>
-        <td>VIP</td>
-        <td>10000</td>
-        <td>2021.08.08</td>
-        <td style="color:red;">Odustano</td>
-    </tr>
 </table>
 
     </div>
@@ -137,8 +131,27 @@ Vue.component("buyerCards", {
 `
 	, 
 	methods : {
-        
+        odustani: function(c){
+            axios
+            .post("/rest/cards/odustani", c)
+            .then(response => {
+                
+            });
+            c.status = "ODUSTANAK";
+        }
 	},
 	mounted () {
+        axios
+        .get("/rest/users/getCurrentUser")
+        .then(response => {
+            if (response.data) {
+                this.korisnik = response.data;
+            }
+        });
+        axios
+        .get("/rest/cards/getCardsKupac")
+        .then(response => {
+            this.cards = response.data;
+        });
     }
 });

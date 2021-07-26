@@ -21,6 +21,7 @@ import domain.Komentar;
 import domain.Lokacija;
 import domain.Manifestacija;
 import domain.Prodavac;
+import domain.StatusKarte;
 import domain.Uloga;
 import DTO.KarteSortiranjeDTO;
 import DTO.KartaDTO;
@@ -128,6 +129,11 @@ public class SparkAppMain {
 				}
 			}
 			
+			Korisnik u = (Korisnik) req.session().attribute("currentUser");
+			u.setkIme(user.getkIme());
+			u.setLozinka(user.getLozinka());
+			req.session().attribute("currentUser", u);
+			
 			usersHandler.updateAdmin(user);
 			
 			return "success";
@@ -146,6 +152,11 @@ public class SparkAppMain {
 				}
 			}
 			
+			Korisnik u = (Korisnik) req.session().attribute("currentUser");
+			u.setkIme(user.getkIme());
+			u.setLozinka(user.getLozinka());
+			req.session().attribute("currentUser", u);
+			
 			usersHandler.updateKupac(user);
 			
 			return "success";
@@ -163,6 +174,11 @@ public class SparkAppMain {
 					}
 				}
 			}
+			
+			Korisnik u = (Korisnik) req.session().attribute("currentUser");
+			u.setkIme(user.getkIme());
+			u.setLozinka(user.getLozinka());
+			req.session().attribute("currentUser", u);
 			
 			usersHandler.updateProdavac(user);
 			
@@ -243,6 +259,112 @@ public class SparkAppMain {
 			}
 
 			return gson.toJson(user);
+		});
+		
+		get("rest/manifestations/getManifestationsProdavac", (req, res) -> {
+			Korisnik user = (Korisnik) req.session().attribute("currentUser");
+			Prodavac p = null;
+			
+			for (Korisnik korisnik : usersHandler.getKorisnici()) {
+				if((user.getId() == korisnik.getId()) && user.getUloga().equals(korisnik.getUloga())) {
+					p = (Prodavac) korisnik;
+					break;
+				}
+			}
+			
+			ArrayList<Manifestacija> manifestations = manifestationHandler.manifestacijePoIdima(p.getManifestacije());
+			ArrayList<ManifestacijaDTO> manifestationsDTO = new ArrayList<>();
+			
+			for (Manifestacija m : manifestations) {
+				manifestationsDTO.add(new ManifestacijaDTO(m));
+			}
+
+			res.type("application/json");
+
+			return gson.toJson(manifestationsDTO);
+		});
+		
+		get("rest/cards/getCardsProdavac", (req, res) -> {
+			Korisnik user = (Korisnik) req.session().attribute("currentUser");
+			Prodavac p = null;
+			
+			for (Korisnik korisnik : usersHandler.getKorisnici()) {
+				if((user.getId() == korisnik.getId()) && user.getUloga().equals(korisnik.getUloga())) {
+					p = (Prodavac) korisnik;
+					break;
+				}
+			}
+			
+			ArrayList<Karta> cards = cardHandler.kartePoManifestacijama(p.getManifestacije());
+			ArrayList<KartaDTO> cardsDTO = new ArrayList<>();
+			
+			for (Karta k : cards) {
+				cardsDTO.add(new KartaDTO(k, usersHandler.poIdKupac(k.getIdKupca())));
+			}
+
+			res.type("application/json");
+
+			return gson.toJson(cardsDTO);
+		});
+		
+		get("rest/cards/getCardsKupac", (req, res) -> {
+			Korisnik user = (Korisnik) req.session().attribute("currentUser");
+			Kupac p = null;
+			
+			for (Korisnik korisnik : usersHandler.getKorisnici()) {
+				if((user.getId() == korisnik.getId()) && user.getUloga().equals(korisnik.getUloga())) {
+					p = (Kupac) korisnik;
+					break;
+				}
+			}
+			
+			ArrayList<Karta> cards = cardHandler.kartePoIdima(p.getKarte());
+			ArrayList<KartaDTO> cardsDTO = new ArrayList<>();
+			
+			for (Karta k : cards) {
+				cardsDTO.add(new KartaDTO(k, usersHandler.poIdKupac(k.getIdKupca())));
+			}
+
+			res.type("application/json");
+
+			return gson.toJson(cardsDTO);
+		});
+		
+		post("rest/cards/odustani", (req, res) -> {
+			KartaDTO c = gson.fromJson(req.body(), KartaDTO.class);
+			Karta card = cardHandler.poId(c.getId());
+			
+			card.setStatus(StatusKarte.ODUSTANAK);
+			cardHandler.azurirajKartu(card);
+			
+			res.type("application/json");
+
+			return "success";
+		});
+		
+		get("rest/comments/getCommentsProdavac", (req, res) -> {
+			Korisnik user = (Korisnik) req.session().attribute("currentUser");
+			Prodavac p = null;
+
+			res.type("application/json");
+			
+			for (Korisnik korisnik : usersHandler.getKorisnici()) {
+				if((user.getId() == korisnik.getId()) && user.getUloga().equals(korisnik.getUloga())) {
+					p = (Prodavac) korisnik;
+					break;
+				}
+			}
+			
+			ArrayList<Komentar> comments = commentHandler.komentariPoManifestacijama(p.getManifestacije());
+			ArrayList<KomentarDTO> commentsDTO = new ArrayList<>();
+			
+			for (Komentar k : comments) {
+				commentsDTO.add(new KomentarDTO(k));
+			}
+
+			res.type("application/json");
+
+			return gson.toJson(commentsDTO);
 		});
 
 		get("rest/manifestations/getManifestations", (req, res) -> {
@@ -340,8 +462,26 @@ public class SparkAppMain {
 		});
 		
 		post("rest/comments/delete", (req, res) -> {
-			Komentar comment = gson.fromJson(req.body(), Komentar.class);
+			KomentarDTO comment = gson.fromJson(req.body(), KomentarDTO.class);
 			commentHandler.brisiKomentarLogicki(comment.getId());
+
+			//ArrayList<Komentar> comments = commentHandler.getKomentari();
+			//ArrayList<KomentarDTO> commentsDTO = new ArrayList<>();
+			
+			//for (Komentar k : comments) {
+			//	commentsDTO.add(new KomentarDTO(k));
+			//}
+
+			res.type("application/json");
+
+			return "success";
+		});
+		
+		post("rest/comments/odobri", (req, res) -> {
+			KomentarDTO comment = gson.fromJson(req.body(), KomentarDTO.class);
+			Komentar c = commentHandler.poId(comment.getId());
+			c.setOdobren(true);
+			commentHandler.azurirajKomentar(c);
 
 			//ArrayList<Komentar> comments = commentHandler.getKomentari();
 			//ArrayList<KomentarDTO> commentsDTO = new ArrayList<>();

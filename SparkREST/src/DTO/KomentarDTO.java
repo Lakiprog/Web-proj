@@ -5,6 +5,7 @@ import domain.Komentar;
 public class KomentarDTO {
 	private String kIme, ime, prezime, manifestacija, komentar;
 	private int ocena, id;
+	private boolean odobren;
 	
 	public KomentarDTO(Komentar k) {
 		this.id = k.getId();
@@ -14,6 +15,7 @@ public class KomentarDTO {
 		this.manifestacija = k.getManifestacija().getNaziv();
 		this.komentar = k.getKomentar();
 		this.ocena = k.getOcena();
+		this.odobren = k.isOdobren();
 	}
 	
 	public String getkIme() {
@@ -59,6 +61,14 @@ public class KomentarDTO {
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public boolean isOdobren() {
+		return odobren;
+	}
+
+	public void setOdobren(boolean odobren) {
+		this.odobren = odobren;
 	}
 	
 	

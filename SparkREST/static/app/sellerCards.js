@@ -1,6 +1,8 @@
 Vue.component("sellerCards", {
 	data: function () {
 		    return {
+                cards: [],
+                criteria: {naziv : "", datumOd : "", datumDo: "", cenaMin: 0, cenaMax: 10000, tip: "SVE", status: "SVE", sortirajPo: "NAZIV", sortiraj: "RASTUCE"}
 		    }
 	},
 	template: ` 
@@ -24,7 +26,7 @@ Vue.component("sellerCards", {
         <div class="card text-white bg-dark mb-3 w-75">
 
             <div class="card-body">
-                <form action="" method="GET">
+                
                     <div class="form-row">
                         <div class="form-group col-md-2">
                             <label for="naziv">Naziv:</label>
@@ -91,9 +93,9 @@ Vue.component("sellerCards", {
                     </div>
             
                     <div>
-                        <input type="submit" name = "filtriraj" id = "filtriraj" value="Filtriraj" class="btn btn-primary">
+                        <input type="button" name = "filtriraj" id = "filtriraj" value="Filtriraj" class="btn btn-primary" v-on:click="filter()">
                     </div>
-                </form>
+                
             </div>
           </div>
 
@@ -112,25 +114,17 @@ Vue.component("sellerCards", {
         <th>Status</th>
     </tr>
 
-    <tr>
-        <td>markuza</td>
-        <td>Petar Markovic</td>
-        <td>Koncert</td>
-        <td>1000</td>
-        <td>Primer Koncert Ramba</td>
-        <td>2021.10.10</td>
-        <td style="color:green;">Rezervisano</td>
+    <tr v-for="c in this.cards">
+        <td>{{c.kIme}}</td>
+        <td>{{c.ime}} {{c.prezime}}</td>
+        <td>{{c.tip}}</td>
+        <td>{{c.brMesta}}</td>
+        <td>{{c.manifestacija}}</td>
+        <td>{{c.datumVreme}}</td>
+        <td v-if="c.status == 'REZERVISANA'" style="color:green;">Rezervisana</td>
+        <td v-else style="color:red;">Odustanak</td>
     </tr>
 
-    <tr>
-        <td>markuza</td>
-        <td>Petar Markovic</td>
-        <td>Festival</td>
-        <td>10000</td>
-        <td>Dombos Fest</td>
-        <td>2021.08.08</td>
-        <td style="color:red;">Odustano</td>
-    </tr>
 </table>
 
     </div>
@@ -138,8 +132,22 @@ Vue.component("sellerCards", {
 `
 	, 
 	methods : {
-        
+        filter: function(){
+            
+        }
 	},
 	mounted () {
+        axios
+        .get("/rest/users/getCurrentUser")
+        .then(response => {
+            if (response.data) {
+                this.korisnik = response.data;
+            }
+        });
+        axios
+        .get("/rest/cards/getCardsProdavac")
+        .then(response => {
+            this.cards = response.data;
+        });
     }
 });
