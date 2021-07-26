@@ -37,7 +37,7 @@ var app = new Vue({
     router,
     el: '#webRezervacija',
     data: {
-        korisnik: {uloga: "GOST"},
+        korisnik: {uloga: "GOST", id: 0},
     },
     mounted () {
         axios
@@ -55,7 +55,7 @@ var app = new Vue({
                 .get("/rest/users/logUserOut")
                 .then(function(resp) {
                     if (resp.data == "success") {
-                        self.korisnik = { zaposlenjeKorisnika: "GOST" };
+                        self.korisnik = { zaposlenjeKorisnika: "GOST", id: 0 };
                         self.$router.push({ name: "Login" });
                         self.$root.$emit('loggingUserOut', self.korisnik);
                     }

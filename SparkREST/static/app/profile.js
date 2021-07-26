@@ -1,10 +1,9 @@
 Vue.component("profile", {
 	data: function () {
 		    return {
-                updated : {kIme: this.korisnik.kIme, ime: this.korisnik.ime, prezime: this.korisnik.prezime, 
-                    datumRodjenja: this.korisnik.datumRodjenja, pol : this.korisnik.pol, lozinka : this.korisnik.lozinka},
+                user: {},
                 novaLozinka : "",
-                novaLozinkaPonovo : ""
+                novaLozinkaOpet : ""
 		    }
 	},
 	template: ` 
@@ -22,27 +21,27 @@ Vue.component("profile", {
             
                 <div class="form-group">
                     <label for="kIme">Korisnicko ime:</label>
-                    <input type="text" name = "kIme" v-model="updated.kIme" id = "kIme" class="form-control  form-control-sm" required>
+                    <input type="text" name = "kIme" v-model="user.kIme" id = "kIme" class="form-control  form-control-sm" required>
                 </div>
                 
                 <div class="form-group">
                     <label for="ime">Ime:</label>
-                    <input type="text" name = "ime" v-model="updated.ime" id = "ime" class="form-control  form-control-sm" required>
+                    <input type="text" name = "ime" v-model="user.ime" id = "ime" class="form-control  form-control-sm" required>
                 </div>
         
                 <div class="form-group">
                     <label for="prezime">Prezime:</label>
-                    <input type="text" name = "prezime" v-model="updated.prezime" id = "prezime" class="form-control  form-control-sm" required>
+                    <input type="text" name = "prezime" v-model="user.prezime" id = "prezime" class="form-control  form-control-sm" required>
                 </div>
         
                 <div class="form-group">
                     <label for="datumRodjenja">Datum rodjenja:</label>
-                    <input type="date" name = "datumRodjenja" v-model="updated.datumRodjenja" id = "datumRodjenja" class="form-control  form-control-sm" required>
+                    <input type="date" name = "datumRodjenja" v-model="user.datumRodjenja" id = "datumRodjenja" class="form-control  form-control-sm" required>
                 </div>
         
                 <div class="form-group">
                     <label for="pol">Pol:</label>
-                    <select name="pol" v-model="updated.pol" id="pol" class="form-control  form-control-sm">
+                    <select name="pol" v-model="user.pol" id="pol" class="form-control  form-control-sm">
                         <option value="MUSKO">Musko</option>
                         <option value="ZENSKO">Zensko</option>
                     </select>
@@ -50,11 +49,11 @@ Vue.component("profile", {
         
                 <div class="form-group">
                     <label for="lozinka">Trenutna lozinka:</label>
-                    <input type="text" name = "lozinka" v-model="updated.lozinka" id = "lozinka" class="form-control-plaintext" readonly>
+                    <input  type="text" name = "lozinka" v-model="user.lozinka" id = "lozinkaProfil" class="form-control-plaintext text-light" readonly>
                 </div>
         
                 <div>
-                    <input type="button" name = "azuriraj" id = "azuriraj" value="Azurirajte podatke" class="btn btn-primary">
+                    <input type="button" name = "azuriraj" id = "azuriraj" value="Azurirajte podatke" class="btn btn-primary" v-on:click="update()">
                 </div>
             
         </div>
@@ -71,12 +70,12 @@ Vue.component("profile", {
                 </div>
         
                 <div class="form-group">
-                    <label for="lozinkaOpet">Nova lozinka ponovo (lozinke se moraju podudarati):</label>
+                    <label for="lozinkaOpet">Nova lozinka ponovo:</label>
                     <input type="password" name = "lozinkaOpet" v-model="novaLozinkaOpet" id = "lozinkaOpet" class="form-control  form-control-sm" required>
                 </div>
         
                 <div>
-                    <input type="button" name = "azurirajLozinku" id = "azurirajLozinku" value="Azurirajte lozinku" class="btn btn-primary">
+                    <input type="button" name = "azurirajLozinku" id = "azurirajLozinku" value="Azurirajte lozinku" class="btn btn-primary" v-on:click="updatePassword()">
                 </div>
 
         </div>
@@ -88,7 +87,61 @@ Vue.component("profile", {
     `
 	, 
 	methods : {
-        
+        update: function(){
+            let uloga = "";
+            if(this.user.uloga == "KUPAC"){
+                uloga = "Kupac"
+            }else if(this.user.uloga == "PRODAVAC"){
+                uloga = "Prodavac";
+            }else{
+                uloga = "Admin";
+            }
+
+            axios
+            .post("/rest/users/update"+uloga, this.user)
+            .then(response => {
+                if(response.data == "success"){
+                    toast("Uspesno ste izmenili profil")
+                }else{
+                    toast(response.data);
+                }
+            });
+        },
+        updatePassword: function(){
+            if(this.novaLozinka != this.novaLozinkaOpet){
+                toast("Lozinke moraju biti iste")
+            }else{
+                axios
+                .get("/rest/users/getCurrentUserInfo")
+                .then(response => {
+                    if (response.data) {
+                        response.data.lozinka = this.novaLozinka;
+
+                        let uloga = "";
+                        if(this.user.uloga == "KUPAC"){
+                            uloga = "Kupac"
+                        }else if(this.user.uloga == "PRODAVAC"){
+                            uloga = "Prodavac";
+                        }else{
+                            uloga = "Admin";
+                        }
+
+                        axios
+                        .post("/rest/users/update"+uloga, response.data)
+                        .then(response2 => {
+                            if(response2.data == "success"){
+                                toast("Uspesno ste izmenili lozinku")
+                                this.user.lozinka = response.data.lozinka;
+                                this.novaLozinka = "";
+                                this.novaLozinkaOpet = "";
+                            }else{
+                                toast(response2.data);
+                            }
+                        });
+                    }
+                });
+            }
+        }
 	},
 	mounted() {
         axios
@@ -96,6 +149,13 @@ Vue.component("profile", {
         .then(response => {
             if (response.data) {
                 this.korisnik = response.data;
+            }
+        });
+        axios
+        .get("/rest/users/getCurrentUserInfo")
+        .then(response => {
+            if (response.data) {
+                this.user = response.data;
             }
         });
     }

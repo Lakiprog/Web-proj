@@ -85,8 +85,7 @@ public class KorisnikHandler {
 	public void updateKupac(Kupac k) {
 		for (Korisnik korisnik : korisnici) {
 			if((korisnik instanceof Kupac) && (korisnik.getId() == k.getId())) {
-				Kupac kupac = (Kupac) korisnik;
-				kupac = k;
+				korisnik = k;
 				break;
 			}
 		}
@@ -96,8 +95,7 @@ public class KorisnikHandler {
 	public void updateAdmin(Admin a) {
 		for (Korisnik korisnik : korisnici) {
 			if((korisnik instanceof Admin) && (korisnik.getId() == a.getId())) {
-				Admin admin = (Admin) korisnik;
-				admin = a;
+				korisnik = a;
 				break;
 			}
 		}
@@ -107,8 +105,7 @@ public class KorisnikHandler {
 	public void updateProdavac(Prodavac p) {
 		for (Korisnik korisnik : korisnici) {
 			if((korisnik instanceof Prodavac) && (korisnik.getId() == p.getId())) {
-				Prodavac prodavac = (Prodavac) korisnik;
-				prodavac = p;
+				korisnik = p;
 				break;
 			}
 		}
