@@ -6,7 +6,7 @@
       "lozinka" : "admin",
       "ime" : "admin",
       "prezime" : "admin",
-      "datumRodjenja" : "1999.12.08",
+      "datumRodjenja" : "1999-12-08",
       "pol" : "MUSKO",
       "obrisan" : false,
       "uloga" : "ADMIN"

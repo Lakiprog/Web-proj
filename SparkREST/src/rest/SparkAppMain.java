@@ -68,6 +68,7 @@ public class SparkAppMain {
 			for (Korisnik temp_user : usersHandler.getKorisnici()) {
 				if (user.equals(temp_user)) {
 					user.setUloga(temp_user.getUloga());
+					user.setId(temp_user.getId());
 					req.session().attribute("currentUser", user);
 					return "success";
 				}
@@ -111,6 +112,60 @@ public class SparkAppMain {
 		get("/rest/users/logUserOut", (req, res) -> {
 			req.session().invalidate();
 
+			return "success";
+		});
+		
+		post("/rest/users/updateAdmin", (req, res) -> {
+			Admin user = gson.fromJson(req.body(), Admin.class);
+			
+			res.type("application/json");
+
+			for (Korisnik temp_user : usersHandler.getKorisnici()) {
+				if (user.getkIme().equals(temp_user.getkIme())) {
+					if((user.getId() != temp_user.getId()) || (!user.getUloga().equals(temp_user.getUloga()))) {
+						return "Uneto korisnicko ime vec postoji";
+					}
+				}
+			}
+			
+			usersHandler.updateAdmin(user);
+			
+			return "success";
+		});
+		
+		post("/rest/users/updateKupac", (req, res) -> {
+			Kupac user = gson.fromJson(req.body(), Kupac.class);
+			
+			res.type("application/json");
+
+			for (Korisnik temp_user : usersHandler.getKorisnici()) {
+				if (user.getkIme().equals(temp_user.getkIme())) {
+					if((user.getId() != temp_user.getId()) || (!user.getUloga().equals(temp_user.getUloga()))) {
+						return "Uneto korisnicko ime vec postoji";
+					}
+				}
+			}
+			
+			usersHandler.updateKupac(user);
+			
+			return "success";
+		});
+		
+		post("/rest/users/updateProdavac", (req, res) -> {
+			Prodavac user = gson.fromJson(req.body(), Prodavac.class);
+			
+			res.type("application/json");
+
+			for (Korisnik temp_user : usersHandler.getKorisnici()) {
+				if (user.getkIme().equals(temp_user.getkIme())) {
+					if((user.getId() != temp_user.getId()) || (!user.getUloga().equals(temp_user.getUloga()))) {
+						return "Uneto korisnicko ime vec postoji";
+					}
+				}
+			}
+			
+			usersHandler.updateProdavac(user);
+			
 			return "success";
 		});
 		
@@ -172,6 +227,20 @@ public class SparkAppMain {
 			Korisnik user = (Korisnik) req.session().attribute("currentUser");
 
 			res.type("application/json");
+
+			return gson.toJson(user);
+		});
+		
+		get("/rest/users/getCurrentUserInfo", (req, res) -> {
+			Korisnik user = (Korisnik) req.session().attribute("currentUser");
+
+			res.type("application/json");
+			
+			for (Korisnik korisnik : usersHandler.getKorisnici()) {
+				if((user.getId() == korisnik.getId()) && user.getUloga().equals(korisnik.getUloga())) {
+					return gson.toJson(korisnik);
+				}
+			}
 
 			return gson.toJson(user);
 		});
