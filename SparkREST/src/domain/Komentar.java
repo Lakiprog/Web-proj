@@ -6,7 +6,7 @@ public class Komentar {
 	private Manifestacija manifestacija;
 	private String komentar;
 	private int ocena;
-	private boolean obrisan;
+	private boolean obrisan, odobren;
 
 	public Komentar(int id, Kupac kupac, Manifestacija manifestacija, String komentar, int ocena) {
 		super();
@@ -68,4 +68,13 @@ public class Komentar {
 	public Komentar() {
 	}
 
+	public boolean isOdobren() {
+		return odobren;
+	}
+
+	public void setOdobren(boolean odobren) {
+		this.odobren = odobren;
+	}
+	
+	
 }

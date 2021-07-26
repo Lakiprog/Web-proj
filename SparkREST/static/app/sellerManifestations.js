@@ -1,6 +1,7 @@
 Vue.component("sellerManifestations", {
 	data: function () {
 		    return {
+                manifestations: []
 		    }
 	},
 	template: ` 
@@ -21,25 +22,15 @@ Vue.component("sellerManifestations", {
         <th></th>
     </tr>
 
-    <tr>
-        <td>Primer Koncert Ramba</td>
-        <td>Koncert</td>
-        <td>2021.10.10</td>
-        <td>1000</td>
-        <td>300</td>
-        <td>Telep</td>
-        <td style="color:green;">Aktivno</td>
-        <td><input type="button" class="btn btn-primary" value="Azuriraj"/></td>
-    </tr>
-
-    <tr>
-        <td>Primer Dombos fest</td>
-        <td>Festival</td>
-        <td>2021.07.08</td>
-        <td>10000</td>
-        <td>10</td>
-        <td>Mali idjos</td>
-        <td style="color:red;">Neaktivno</td>
+    <tr v-for="manifestation in manifestations" >
+        <td>{{manifestation.naziv}}</td>
+        <td>{{manifestation.tip}}</td>
+        <td>{{manifestation.datumVremePocetka}}-{{manifestation.datumVremeKraja}}</td>
+        <td>{{manifestation.brMesta}}</td>
+        <td>{{manifestation.cenaRegular}}</td>
+        <td>{{manifestation.adresa}}</td>
+        <td v-if="manifestation.status == 'AKTIVNO'" style="color:green;">Aktivno</td>
+        <td v-else style="color:red;">Neaktivno</td>
         <td><input type="button" class="btn btn-primary" value="Azuriraj"/></td>
     </tr>
 </table>
@@ -52,5 +43,17 @@ Vue.component("sellerManifestations", {
         
 	},
 	mounted () {
+        axios
+        .get("/rest/users/getCurrentUser")
+        .then(response => {
+            if (response.data) {
+                this.korisnik = response.data;
+            }
+        });
+        axios
+        .get("/rest/manifestations/getManifestationsProdavac")
+        .then(response => {
+            this.manifestations = response.data;
+        });
     }
 });
