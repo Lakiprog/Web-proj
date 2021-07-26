@@ -54,9 +54,9 @@ public class KupciHandler {
 	
 	public void azurirajKupca(Kupac k) {
 		ucitani.put(k.getId(), k);
-		for (Kupac kupac : kupci) {
-			if(k.getId() == kupac.getId()){
-				kupac = k;
+		for (int i = 0; i < kupci.size(); i++) {
+			if(k.getId() == kupci.get(i).getId()){
+				kupci.set(i, k);
 			}
 		}
 		sacuvaj();

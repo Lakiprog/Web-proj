@@ -51,11 +51,11 @@ public class AdminHandler {
 		sacuvaj();
 	}
 	
-	public void azurirajAdmina(Admin k) {
-		ucitani.put(k.getId(), k);
-		for (Admin admin : admini) {
-			if(k.getId() == admin.getId()){
-				admin = k;
+	public void azurirajAdmina(Admin a) {
+		ucitani.put(a.getId(), a);
+		for (int i = 0; i < admini.size(); i++) {
+			if(a.getId() == admini.get(i).getId()){
+				admini.set(i, a);
 			}
 		}
 		sacuvaj();

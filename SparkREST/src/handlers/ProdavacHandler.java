@@ -55,9 +55,9 @@ public class ProdavacHandler {
 	
 	public void azurirajProdavca(Prodavac p) {
 		ucitani.put(p.getId(), p);
-		for (Prodavac prodavac : prodavci) {
-			if(p.getId() == prodavac.getId()){
-				prodavac = p;
+		for (int i = 0; i < prodavci.size(); i++) {
+			if(p.getId() == prodavci.get(i).getId()){
+				prodavci.set(i, p);
 			}
 		}
 		sacuvaj();
