@@ -119,7 +119,7 @@ Vue.component("home-page", {
                         <p class="card-text">{{manifestation.adresa}}</p>
                         <p class="card-text">Cena karte vec od: {{manifestation.cenaRegular}}RSD</p>
                         <p class="card-text">{{(manifestation.sumaOcena / manifestation.brojOcena).toFixed(2)}}</p>
-                        <a href="#" class="btn btn-primary">Detalji</a>
+                        <input type="button" class="btn btn-primary" value="Detalji" v-on:click="viewManifestation(manifestation)"/>
                     </div>
                 </div>
             </div>
@@ -155,7 +155,10 @@ Vue.component("home-page", {
             .then(response => {
                 this.manifestations = response.data;
             });
-        }
+        },
+        viewManifestation(m) {
+            this.$router.push({ name: "ManifestationDetails", params: {id: m.id}});
+        },
 	},
 	mounted() {
         axios

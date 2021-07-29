@@ -379,6 +379,25 @@ public class SparkAppMain {
 
 			return gson.toJson(manifestationsDTO);
 		});
+
+		get("rest/manifestations/manifestation/:id", (req, res) -> {
+			int temp_id = Integer.parseInt(req.params("id"));
+			ArrayList<Manifestacija> manifestations = manifestationHandler.getManifestacije();
+			Manifestacija temp_manifestation = null;
+			
+			for (Manifestacija m : manifestations) {
+				if (m.getId() == temp_id) {
+					temp_manifestation = m;
+				}
+			}
+
+			if (temp_manifestation == null) 
+				return null;
+
+			res.type("application/json");
+
+			return gson.toJson(new ManifestacijaDTO(temp_manifestation));
+		});
 		
 		post("rest/manifestations/getManifestationsSorted", (req, res) -> {
 			ManifestacijaSortiranjeDTO criteria = gson.fromJson(req.body(), ManifestacijaSortiranjeDTO.class);

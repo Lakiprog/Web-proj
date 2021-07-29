@@ -1,4 +1,5 @@
-const Home = { template: '<home-page></home-page>'};
+const Home = { template: '<home-page></home-page>' };
+const ManifestationDetails = { template: '<manifestation-details></manifestation-details>' };
 const Registration = { template: '<registration></registration>' };
 const Login = { template: '<login></login>' };
 const Profile = { template: '<profile></profile>'};
@@ -17,6 +18,7 @@ const router = new VueRouter({
     mode: 'hash',
     routes: [
         { path: '/', component: Home, name: "Home" },
+        { path: '/manifestation/:id', component: ManifestationDetails, name: "ManifestationDetails" },
         { path: '/register', component: Registration },
         { path: '/login', component: Login, name: "Login" },
         { path: '/profile', component: Profile },
@@ -40,12 +42,16 @@ var app = new Vue({
         korisnik: {uloga: "GOST", id: 0},
     },
     mounted () {
+        let self = this;
         axios
         .get("/rest/users/getCurrentUser")
         .then(response => {
             if (response.data) {
-                this.korisnik = response.data;
+                self.korisnik = response.data;
             }
+        });
+        this.$root.$on('sendingUser', (response) => {
+            this.korisnik = response;
         });
     },
     methods: {

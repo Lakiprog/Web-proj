@@ -1,6 +1,8 @@
-Vue.component("create-manifestation", {
+Vue.component("manifestation-details", {
 	data: function () {
 		    return {
+                manifestation: {},
+                user: {},
 		    }
 	},
 	template: ` 
@@ -9,7 +11,7 @@ Vue.component("create-manifestation", {
 
     <br><br>
 
-    <h2 align=center>Koncert Ramba Primer</h2>
+    <h2 align=center>{{manifestation.naziv}}</h2>
 
     <br>
     
@@ -18,31 +20,31 @@ Vue.component("create-manifestation", {
         <div class="card-body">
             
             <div id="informacije">
-                <p>Prosecna ocena: 5</p>
+                <p>Prosecna ocena: {{(manifestation.sumaOcena / manifestation.brojOcena).toFixed(2)}}</p>
 
-                <p>Broj Mesta: 1000</p>
+                <p>Broj Mesta: {{manifestation.brMesta}}</p>
                 
                 <p>Broj preostalih karata: 1000</p>
 
                 <p>Cene:</p>
-                <p class="utabovano">Regular - 300 RSD</p>
-                <p class="utabovano">Fan Pit - 600 RSD</p>
-                <p class="utabovano">VIP - 1200 RSD</p>
+                <p class="utabovano">Regular - {{manifestation.cenaRegular}}RSD</p>
+                <p class="utabovano">Fan Pit - {{manifestation.cenaRegular * 2}}RSD</p>
+                <p class="utabovano">VIP - {{manifestation.cenaRegular * 4}}RSD</p>
 
-                <p>Datum i vreme odrzavanja: 2021.10.10 18:00</p>
+                <p>Datum i vreme odrzavanja: {{manifestation.datumVremePocetka}}  -  {{manifestation.datumVremeKraja}}</p>
 
-                <p>Tip manifestacije: Koncert</p>
+                <p>Tip manifestacije: {{manifestation.tip}}</p>
 
-                <p>Lokacija (mapa): telep</p>
+                <div id="map" class="map"></div>
 
-                <p>Status manifestacije: <span id="aktivno">Aktivno</span></p>
+                <p>Status manifestacije: <span id="aktivno">{{manifestation.status}}</span></p>
         
                 <div>
-                    <input type="submit" name = "rezervisi" id = "rezervisi" value="Rezervisi kartu" class="btn btn-primary" v-bind:hidden="korisnik.uloga != 'KUPAC'">
+                    <input type="submit" name = "rezervisi" id = "rezervisi" value="Rezervisi kartu" class="btn btn-primary"v-bind:hidden="user.uloga != 'KUPAC'">
                 </div>
             </div>
 
-            <img src="./css/rambo.jpeg" alt="Rambo Koncert Primer" id="slikaManifestacije">
+            <img v-bind:src="manifestation.posterLink" v-bind:alt="manifestation.naziv" id="slikaManifestacije">
                 
         </div>
 
@@ -59,8 +61,52 @@ Vue.component("create-manifestation", {
     `
 	, 
 	methods : {
-        
+        showMap: function(){
+            let self = this;
+            var map = new ol.Map({
+                target: 'map',
+                layers: [
+                  new ol.layer.Tile({
+                    source: new ol.source.OSM()
+                  })
+                ],
+                view: new ol.View({
+                  center: ol.proj.fromLonLat([self.manifestation.geoDuzina, self.manifestation.geoSirina]),
+                  zoom: 16
+                })
+              });
+             var layer = new ol.layer.Vector({
+                 source: new ol.source.Vector({
+                     features: [
+                         new ol.Feature({
+                             geometry: new ol.geom.Point(ol.proj.fromLonLat([self.manifestation.geoDuzina, self.manifestation.geoSirina]))
+                         })
+                     ]
+                 })
+             });
+             map.addLayer(layer);
+        },
 	},
 	mounted () {
+        axios
+        .get("/rest/users/getCurrentUser")
+        .then(response => {
+            if (response.data) {
+                this.korisnik = response.data;
+                this.user = response.data;
+            }
+        });
+        axios
+        .get("rest/manifestations/manifestation/" + this.$route.params.id)
+        .then(response => {
+            if (!response.data) {
+                this.$router.push({ name: "Home" });
+            } else {
+                this.manifestation = response.data;
+                this.manifestation.datumVremePocetka = this.manifestation.datumVremePocetka.replace('T', ' ');
+                this.manifestation.datumVremeKraja = this.manifestation.datumVremeKraja.replace('T', ' ');
+                this.showMap();
+            }
+        });
     }
 });
