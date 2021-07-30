@@ -2,7 +2,11 @@ Vue.component("home-page", {
 	data: function () {
 		    return {
                 manifestations: [],
-                criteria: {naziv : "", adresa: "", datumOd : "", datumDo: "", cenaMin: 0, cenaMax: 10000, tip: "SVE", sortirajPo: "NAZIV", sortiraj: "RASTUCE"}
+                currentPageManifestations: [],
+                criteria: {naziv : "", adresa: "", datumOd : "", datumDo: "", cenaMin: 0, cenaMax: 10000, tip: "SVE", sortirajPo: "NAZIV", sortiraj: "RASTUCE"},
+                pagenum: 1,
+                numberOfPages: 0,
+                pages: [],
 		    }
 	},
 	template: ` 
@@ -111,7 +115,7 @@ Vue.component("home-page", {
             
             <div class="row">
 
-                <div v-for="manifestation in manifestations" class="card" style="width: 20rem; display: inline;">
+                <div v-for="manifestation of currentPageManifestations" class="card" style="width: 20rem; display: inline;">
                     <img class="card-img-top" v-bind:src="manifestation.posterLink" alt="Rambo car">
                     <div class="card-body">
                         <h5 class="card-title">{{manifestation.naziv}}</h5>
@@ -124,18 +128,12 @@ Vue.component("home-page", {
                 </div>
             </div>
 
-            <div v-bind:hidden="manifestations.length < 6">
+            <br><br>
+
+            <div v-bind:hidden="pages == 1">
                 <nav aria-label="Paginacija rezultata">
-                <ul class="pagination justify-content-center">
-                <li class="page-item disabled">
-                <a class="page-link" href="#" tabindex="-1">Prethodni</a>
-                </li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item">
-                <a class="page-link" href="#">Sledeci</a>
-                </li>
+                <ul v-for="num in pages" class="pagination justify-content-center">
+                <li class="page-item"><input type="button" class="page-link" v-bind:value="num" v-on:click="loadPage(num)"/></li>
                 </ul>
                 </nav>
             </div>
@@ -149,6 +147,14 @@ Vue.component("home-page", {
 `
 	, 
 	methods : {
+        loadPage: function(pageNumber) {
+            this.pagenum = pageNumber;
+
+            var startIndex = (this.pagenum - 1) * 5;
+            var endIndex = ((startIndex + 5) > (this.manifestations.length - 1)) ? this.manifestations.length : startIndex + 5;
+
+            this.currentPageManifestations = this.manifestations.slice(startIndex, endIndex);
+        },
         filter: function(){
             axios
             .post("/rest/manifestations/getManifestationsSorted", this.criteria)
@@ -172,7 +178,19 @@ Vue.component("home-page", {
         .get("/rest/manifestations/getManifestations")
         .then(response => {
             this.manifestations = response.data;
-            this.manifestations.shift();
+            //this.manifestations.shift();
+
+            this.numberOfPages = parseInt(this.manifestations.length / 5);
+            this.numberOfPages += (this.manifestations.length % 5 == 0) ? 0 : 1;
+
+            this.pages = [...Array(this.numberOfPages + 1).keys()];
+            this.pages.shift();
+
+            if (this.pages < 6) {
+                this.currentPageManifestations = this.manifestations;
+            } else {
+                this.currentPageManifestations = this.manifestations.slice(0, 5);
+            }
         });
     }
 });
