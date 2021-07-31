@@ -18,6 +18,7 @@
         "obrisan" : false
       },
       "brMesta" : 1000,
+      "brSlobodnihMesta" : 940,
       "cenaRegular" : 500.0,
       "status" : "AKTIVNO",
       "tip" : "KONCERT",
@@ -29,8 +30,8 @@
       "id" : 2,
       "naziv" : "Dombos Festival",
       "posterLink" : "./posters/dombos.jpg",
-      "datumVremePocetka" : "2021-09-17T03:30",
-      "datumVremeKraja" : "2021-09-19T03:30",
+      "datumVremePocetka" : "2021-06-17T03:30",
+      "datumVremeKraja" : "2021-06-19T03:30",
       "lokacija" : {
         "id" : 2,
         "sirina" : 45.241965,
@@ -43,12 +44,13 @@
         "obrisan" : false
       },
       "brMesta" : 10000,
+      "brSlobodnihMesta" : 940,
       "cenaRegular" : 10.0,
       "status" : "AKTIVNO",
       "tip" : "FESTIVAL",
       "obrisan" : false,
-      "brojOcena" : 3,
-      "sumaOcena" : 7
+      "brojOcena" : 5,
+      "sumaOcena" : 15
     },
     "3" : {
       "id" : 3,
@@ -68,6 +70,7 @@
         "obrisan" : false
       },
       "brMesta" : 10000,
+      "brSlobodnihMesta" : 940,
       "cenaRegular" : 500.0,
       "status" : "AKTIVNO",
       "tip" : "FESTIVAL",
@@ -93,6 +96,7 @@
         "obrisan" : false
       },
       "brMesta" : 5,
+      "brSlobodnihMesta" : 4,
       "cenaRegular" : 5.0,
       "status" : "AKTIVNO",
       "tip" : "FESTIVAL",
@@ -143,6 +147,7 @@
         "obrisan" : false
       },
       "brMesta" : 1212,
+      "brSlobodnihMesta" : 950,
       "cenaRegular" : 12.0,
       "status" : "AKTIVNO",
       "tip" : "FESTIVAL",

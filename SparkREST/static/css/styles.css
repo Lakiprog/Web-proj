@@ -55,6 +55,13 @@ h2{
       vertical-align: top;
 }
 
+.star-rating {
+    line-height:32px;
+    font-size:1.25em;
+  }
+  
+  .star-rating .fa-star{color: gold;}
+
 #registruj{
     margin-left: 30px;
 }

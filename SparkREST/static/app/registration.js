@@ -76,7 +76,7 @@ Vue.component("registration", {
                         $.toast("Uspesno ste se registrovali.");
                         this.$router.push({ name: "Home" });
                     } else {
-                    $.toast(response.data);
+                        $.toast(response.data);
                     }
                 });
             }else{

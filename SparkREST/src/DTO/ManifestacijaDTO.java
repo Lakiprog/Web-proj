@@ -14,6 +14,7 @@ public class ManifestacijaDTO {
 	private double geoSirina;
 	private double geoDuzina;
 	private int brMesta;
+	private int brSlobodnihMesta;
 	private double cenaRegular;
 	private StatusManifestacije status;
 	private TipManifestacije tip;
@@ -33,6 +34,7 @@ public class ManifestacijaDTO {
 		this.geoSirina = m.getLokacija().getSirina();
 		this.geoDuzina = m.getLokacija().getDuzina();
 		this.brMesta = m.getBrMesta();
+		this.brSlobodnihMesta = m.getBrSlobodnihMesta();
 		this.cenaRegular = m.getCenaRegular();
 		this.status = m.getStatus();
 		this.tip = m.getTip();
@@ -159,6 +161,14 @@ public class ManifestacijaDTO {
 
 	public void setSumaOcena(int sumaOcena) {
 		this.sumaOcena = sumaOcena;
+	}
+
+	public int getBrSlobodnihMesta() {
+		return brSlobodnihMesta;
+	}
+
+	public void setBrSlobodnihMesta(int brSlobodnihMesta) {
+		this.brSlobodnihMesta = brSlobodnihMesta;
 	}
 
 }
