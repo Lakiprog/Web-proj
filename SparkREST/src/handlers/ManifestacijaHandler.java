@@ -147,10 +147,14 @@ public class ManifestacijaHandler {
 		return null;
 	}
 	
-	public ArrayList<Manifestacija> sortiranje(ManifestacijaSortiranjeDTO kriterijumi) {
+	public ArrayList<Manifestacija> sortiranje(ManifestacijaSortiranjeDTO kriterijumi, ArrayList<Manifestacija> ms) {
 		ArrayList<Manifestacija> m = new ArrayList<>();
 		
-		for (Manifestacija manifestacija : manifestacije) {
+		if(ms == null) {
+			ms = manifestacije;
+		}
+		
+		for (Manifestacija manifestacija : ms) {
 			if(manifestacija.getNaziv().contains(kriterijumi.getNaziv())) {
 				
 				if(manifestacija.getLokacija().getAdresa().toString().contains(kriterijumi.getAdresa())) {

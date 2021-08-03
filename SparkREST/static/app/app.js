@@ -64,6 +64,7 @@ var app = new Vue({
                         self.korisnik = { zaposlenjeKorisnika: "GOST", id: 0 };
                         self.$router.push({ name: "Login" });
                         self.$root.$emit('loggingUserOut', self.korisnik);
+                        self.$router.go();
                     }
                 });
         },

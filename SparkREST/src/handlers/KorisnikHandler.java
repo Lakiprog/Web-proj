@@ -197,10 +197,14 @@ public class KorisnikHandler {
 		prodavacHandler.odBlokiraj(id);
 	}
 	
-	public ArrayList<Korisnik> sortiranje(KorisnikSortiranjeDTO kriterijumi){
+	public ArrayList<Korisnik> sortiranje(KorisnikSortiranjeDTO kriterijumi, ArrayList<Korisnik> ks){
 		ArrayList<Korisnik> k = new ArrayList<>();
 		
-		for (Korisnik korisnik : korisnici) {
+		if(ks == null) {
+			ks = korisnici;
+		}
+		
+		for (Korisnik korisnik : ks) {
 			if(korisnik.getIme().contains(kriterijumi.getIme())) {
 				
 				if(korisnik.getPrezime().contains(kriterijumi.getPrezime())) {

@@ -323,6 +323,31 @@ public class SparkAppMain {
 			return gson.toJson(manifestationsDTO);
 		});
 		
+		
+		post("/rest/manifestations/filterManifestationsProdavac", (req, res) -> {
+			Korisnik user = (Korisnik) req.session().attribute("currentUser");
+			ManifestacijaSortiranjeDTO criteria = gson.fromJson(req.body(), ManifestacijaSortiranjeDTO.class);
+			Prodavac p = null;
+			
+			for (Korisnik korisnik : usersHandler.getKorisnici()) {
+				if((user.getId() == korisnik.getId()) && user.getUloga().equals(korisnik.getUloga())) {
+					p = (Prodavac) korisnik;
+					break;
+				}
+			}
+			
+			ArrayList<Manifestacija> manifestations = manifestationHandler.sortiranje(criteria, manifestationHandler.manifestacijePoIdima(p.getManifestacije()));
+			ArrayList<ManifestacijaDTO> manifestationsDTO = new ArrayList<>();
+			
+			for (Manifestacija m : manifestations) {
+				manifestationsDTO.add(new ManifestacijaDTO(m));
+			}
+
+			res.type("application/json");
+
+			return gson.toJson(manifestationsDTO);
+		});
+		
 		get("/rest/cards/getCardsProdavac", (req, res) -> {
 			Korisnik user = (Korisnik) req.session().attribute("currentUser");
 			Prodavac p = null;
@@ -346,6 +371,30 @@ public class SparkAppMain {
 			return gson.toJson(cardsDTO);
 		});
 		
+		post("/rest/cards/filterCardsProdavac", (req, res) -> {
+			Korisnik user = (Korisnik) req.session().attribute("currentUser");
+			KarteSortiranjeDTO criteria = gson.fromJson(req.body(), KarteSortiranjeDTO.class);
+			Prodavac p = null;
+			
+			for (Korisnik korisnik : usersHandler.getKorisnici()) {
+				if((user.getId() == korisnik.getId()) && user.getUloga().equals(korisnik.getUloga())) {
+					p = (Prodavac) korisnik;
+					break;
+				}
+			}
+			
+			ArrayList<Karta> cards = cardHandler.sortiranje(criteria, cardHandler.kartePoManifestacijama(p.getManifestacije()));
+			ArrayList<KartaDTO> cardsDTO = new ArrayList<>();
+			
+			for (Karta k : cards) {
+				cardsDTO.add(new KartaDTO(k, usersHandler.poIdKupac(k.getIdKupca())));
+			}
+
+			res.type("application/json");
+
+			return gson.toJson(cardsDTO);
+		});
+		
 		get("/rest/cards/getCardsKupac", (req, res) -> {
 			Korisnik user = (Korisnik) req.session().attribute("currentUser");
 			Kupac p = null;
@@ -358,6 +407,30 @@ public class SparkAppMain {
 			}
 			
 			ArrayList<Karta> cards = cardHandler.kartePoIdima(p.getKarte());
+			ArrayList<KartaDTO> cardsDTO = new ArrayList<>();
+			
+			for (Karta k : cards) {
+				cardsDTO.add(new KartaDTO(k, usersHandler.poIdKupac(k.getIdKupca())));
+			}
+
+			res.type("application/json");
+
+			return gson.toJson(cardsDTO);
+		});
+		
+		post("/rest/cards/filterCardsKupac", (req, res) -> {
+			Korisnik user = (Korisnik) req.session().attribute("currentUser");
+			KarteSortiranjeDTO criteria = gson.fromJson(req.body(), KarteSortiranjeDTO.class);
+			Kupac p = null;
+			
+			for (Korisnik korisnik : usersHandler.getKorisnici()) {
+				if((user.getId() == korisnik.getId()) && user.getUloga().equals(korisnik.getUloga())) {
+					p = (Kupac) korisnik;
+					break;
+				}
+			}
+			
+			ArrayList<Karta> cards = cardHandler.sortiranje(criteria, cardHandler.kartePoIdima(p.getKarte()));
 			ArrayList<KartaDTO> cardsDTO = new ArrayList<>();
 			
 			for (Karta k : cards) {
@@ -439,7 +512,7 @@ public class SparkAppMain {
 		
 		post("/rest/manifestations/getManifestationsSorted", (req, res) -> {
 			ManifestacijaSortiranjeDTO criteria = gson.fromJson(req.body(), ManifestacijaSortiranjeDTO.class);
-			ArrayList<Manifestacija> manifestations = manifestationHandler.sortiranje(criteria);
+			ArrayList<Manifestacija> manifestations = manifestationHandler.sortiranje(criteria, null);
 			ArrayList<ManifestacijaDTO> manifestationsDTO = new ArrayList<>();
 			
 			for (Manifestacija m : manifestations) {
@@ -466,7 +539,7 @@ public class SparkAppMain {
 		
 		post("/rest/users/getUsersSorted", (req, res) -> {
 			KorisnikSortiranjeDTO criteria = gson.fromJson(req.body(), KorisnikSortiranjeDTO.class);
-			ArrayList<Korisnik> users = usersHandler.sortiranje(criteria);
+			ArrayList<Korisnik> users = usersHandler.sortiranje(criteria, null);
 			//ArrayList<ManifestacijaDTO> manifestationsDTO = new ArrayList<>();
 			
 			//for (Manifestacija m : manifestations) {
@@ -510,7 +583,7 @@ public class SparkAppMain {
 		
 		post("/rest/cards/getCardsSorted", (req, res) -> {
 			KarteSortiranjeDTO criteria = gson.fromJson(req.body(), KarteSortiranjeDTO.class);
-			ArrayList<Karta> cards = cardHandler.sortiranje(criteria);
+			ArrayList<Karta> cards = cardHandler.sortiranje(criteria, null);
 			ArrayList<KartaDTO> cardsDTO = new ArrayList<>();
 			
 			for (Karta k : cards) {

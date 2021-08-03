@@ -45,7 +45,7 @@ Vue.component("manifestation-details", {
 
                 <p>Tip manifestacije: {{manifestation.tip}}</p>
 
-                <div id="map" class="map"></div>
+                <div id="map" class="map" style="width:400px;"></div>
 
                 <br><br>
 

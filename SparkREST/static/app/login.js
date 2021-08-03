@@ -52,6 +52,8 @@ Vue.component("login", {
                     });
                     $.toast("Uspesno ste se prijavili.");
                     this.$router.push({ name: "Home" });
+                    this.$router.go();
+                    update();
                 } else {
                    $. toast({text : response.data, position : "mid-center", icon: "error"});
                 }

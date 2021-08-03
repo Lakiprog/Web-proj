@@ -132,7 +132,7 @@ Vue.component("home-page", {
 
             <div v-bind:hidden="pages == 1">
                 <nav aria-label="Paginacija rezultata">
-                <ul v-for="num in pages" class="pagination justify-content-center">
+                <ul v-for="num in pages" class="pagination justify-content-center" style="display:inline-block;margin:3px;">
                 <li class="page-item"><input type="button" class="page-link" v-bind:value="num" v-on:click="loadPage(num)"/></li>
                 </ul>
                 </nav>
@@ -160,6 +160,18 @@ Vue.component("home-page", {
             .post("/rest/manifestations/getManifestationsSorted", this.criteria)
             .then(response => {
                 this.manifestations = response.data;
+
+                this.numberOfPages = parseInt(this.manifestations.length / 5);
+                this.numberOfPages += (this.manifestations.length % 5 == 0) ? 0 : 1;
+
+                this.pages = [...Array(this.numberOfPages + 1).keys()];
+                this.pages.shift();
+
+                if (this.pages < 6) {
+                    this.currentPageManifestations = this.manifestations;
+                } else {
+                    this.currentPageManifestations = this.manifestations.slice(0, 5);
+                }
             });
         },
         viewManifestation(m) {
