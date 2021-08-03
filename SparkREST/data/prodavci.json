@@ -24,7 +24,7 @@
       "obrisan" : false,
       "uloga" : "PRODAVAC",
       "manifestacije" : [1, 2, 3],
-      "blokiran" : true
+      "blokiran" : false
     },
     "3" : {
       "id" : 3,

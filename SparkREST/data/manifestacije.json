@@ -155,6 +155,32 @@
       "obrisan" : false,
       "brojOcena" : 3,
       "sumaOcena" : 7
+    },
+    "7" : {
+      "id" : 7,
+      "naziv" : "Neaktivna",
+      "posterLink" : "C:\\fakepath\\patients.png",
+      "datumVremePocetka" : "2021-09-04T00:40",
+      "datumVremeKraja" : "2021-09-11T00:40",
+      "lokacija" : {
+        "id" : 0,
+        "sirina" : 45.2526,
+        "duzina" : 19.830002,
+        "adresa" : {
+          "ulica" : "Cirpanova",
+          "broj" : "51",
+          "mesto" : "Novi Sad"
+        },
+        "obrisan" : false
+      },
+      "brMesta" : 10,
+      "brSlobodnihMesta" : 10,
+      "cenaRegular" : 15.0,
+      "status" : "NEAKTIVNO",
+      "tip" : "KONCERT",
+      "obrisan" : false,
+      "brojOcena" : 0,
+      "sumaOcena" : 0
     }
   }
 }

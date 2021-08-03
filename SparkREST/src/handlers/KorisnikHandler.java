@@ -213,15 +213,22 @@ public class KorisnikHandler {
 						
 						if(kriterijumi.getUloga().equals("SVE") || korisnik.getUloga().toString().equals(kriterijumi.getUloga())) {
 							
-							if(kriterijumi.getTip().equals("SVE")) {
-								k.add(korisnik);
-							}else {
-								if(korisnik instanceof Kupac && ((Kupac) korisnik).getTip().toString().equals(kriterijumi.getTip())) {
-									
+							
+							if((kriterijumi.getSumnjivost().equals("SVE")) || (kriterijumi.getSumnjivost().equals("SUMNJIV") && korisnik instanceof Kupac  && ((Kupac) korisnik).getBrOtkazivanja() > 5 )
+									|| (kriterijumi.getSumnjivost().equals("NESUMNJIV") && korisnik instanceof Kupac  && ((Kupac) korisnik).getBrOtkazivanja() <= 5 )) {
+								
+								if(kriterijumi.getTip().equals("SVE")) {
 									k.add(korisnik);
-									
-								}
+								}else {
+									if(korisnik instanceof Kupac && ((Kupac) korisnik).getTip().toString().equals(kriterijumi.getTip())) {
+										
+										k.add(korisnik);
+										
+									}
+								}	
+								
 							}
+							
 							
 						}
 						

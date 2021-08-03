@@ -107,8 +107,8 @@ Vue.component("buyerCards", {
     <tr>
         <th>Manifestacija</th>
         <th>Tip Karte</th>
-		<th>Broj mesta</th>
-		<th>Datum</th>
+		<th>Datum Manifestacije</th>
+        <th>Cena</th>
         <th>Status</th>
         <th></th>
     </tr>
@@ -116,8 +116,8 @@ Vue.component("buyerCards", {
     <tr v-for="c in this.cards">
         <td>{{c.manifestacija}}</td>
         <td>{{c.tip}}</td>
-        <td>{{c.brMesta}}</td>
         <td>{{c.datumVreme}}</td>
+        <td>{{c.cena}}</td>
         <td v-if="c.status == 'REZERVISANA'" style="color:green;">Rezervisana</td>
         <td v-else style="color:red;">Odustanak</td>
         <td><input v-bind:hidden="c.status != 'REZERVISANA'" type="button" class="btn btn-danger" value="Odustani" v-on:click="odustani(c)" /></td>

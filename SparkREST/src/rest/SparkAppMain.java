@@ -107,6 +107,27 @@ public class SparkAppMain {
 
 			for (Korisnik temp_user : usersHandler.getKorisnici()) {
 				if (user.equals(temp_user)) {
+					
+					if(!(temp_user instanceof Admin)) {
+						
+						if(temp_user instanceof Kupac){
+							Kupac k = (Kupac) temp_user;
+							
+							if(k.isBlokiran()) {
+								return "Jedan admin je Vas banovao!";
+							}
+							
+						}else {
+							
+							Prodavac p = (Prodavac) temp_user;
+							
+							if(p.isBlokiran()) {
+								return "Jedan admin je Vas banovao!";
+							}
+						}
+						
+					}
+					
 					user.setUloga(temp_user.getUloga());
 					user.setId(temp_user.getId());
 					req.session().attribute("currentUser", user);
@@ -478,6 +499,17 @@ public class SparkAppMain {
 		post("/rest/cards/odustani", (req, res) -> {
 			KartaDTO c = gson.fromJson(req.body(), KartaDTO.class);
 			Karta card = cardHandler.poId(c.getId());
+			Kupac kupac = usersHandler.poIdKupac(card.getIdKupca());
+			LocalDateTime start = LocalDateTime.parse(card.getManifestacija().getDatumVremePocetka());
+			LocalDateTime now = LocalDateTime.now();
+			
+			if(now.isAfter(start.minusDays(7))) {
+				return "Prekasno je vec da odustanete!";
+			}
+			
+			kupac.setBrOtkazivanja(kupac.getBrOtkazivanja()+1);
+			kupac.setBrBodova(kupac.getBrBodova() - (int) Math.round(card.getCena()/1000*133*4));
+			usersHandler.updateKupac(kupac);
 			
 			card.setStatus(StatusKarte.ODUSTANAK);
 			cardHandler.azurirajKartu(card);

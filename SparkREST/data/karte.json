@@ -451,7 +451,7 @@
         "sumaOcena" : 7
       },
       "cena" : 1500.0,
-      "status" : "REZERVISANA",
+      "status" : "ODUSTANAK",
       "tip" : "REGULAR",
       "obrisan" : false
     },
