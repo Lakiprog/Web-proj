@@ -163,17 +163,22 @@ public class ManifestacijaHandler {
 						
 						if(manifestacija.getTip().toString().equals(kriterijumi.getTip()) || kriterijumi.getTip().equals("SVE")) {
 							
-							if(kriterijumi.getDatumOd().equals("") || kriterijumi.getDatumDo().equals("")) {
-								m.add(manifestacija);
-							}else {
+							if((kriterijumi.getRasprodate().equals("SVE")) || (kriterijumi.getRasprodate().equals("RASPRODATE") && manifestacija.getBrSlobodnihMesta() == 0)
+									|| (kriterijumi.getRasprodate().equals("NERASPRODATE") && manifestacija.getBrSlobodnihMesta() > 0)) {
 								
-								LocalDateTime pocetak = LocalDateTime.parse(manifestacija.getDatumVremePocetka());
-								LocalDateTime kriterijumOd = LocalDateTime.parse(kriterijumi.getDatumOd() + "T00:00:00");
-								LocalDateTime kriterijumDo = LocalDateTime.parse(kriterijumi.getDatumDo() + "T00:00:00");
-								
-								if(pocetak.isAfter(kriterijumOd) && pocetak.isBefore(kriterijumDo)) {
+								if(kriterijumi.getDatumOd().equals("") || kriterijumi.getDatumDo().equals("")) {
 									m.add(manifestacija);
-								}
+								}else {
+									
+									LocalDateTime pocetak = LocalDateTime.parse(manifestacija.getDatumVremePocetka());
+									LocalDateTime kriterijumOd = LocalDateTime.parse(kriterijumi.getDatumOd() + "T00:00:00");
+									LocalDateTime kriterijumDo = LocalDateTime.parse(kriterijumi.getDatumDo() + "T00:00:00");
+									
+									if(pocetak.isAfter(kriterijumOd) && pocetak.isBefore(kriterijumDo)) {
+										m.add(manifestacija);
+									}
+									
+								}	
 								
 							}
 							

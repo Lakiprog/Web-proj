@@ -547,7 +547,7 @@
           "obrisan" : false
         },
         "brMesta" : 10000,
-        "brSlobodnihMesta" : 940,
+        "brSlobodnihMesta" : 936,
         "cenaRegular" : 10.0,
         "status" : "AKTIVNO",
         "tip" : "FESTIVAL",
@@ -582,7 +582,7 @@
           "obrisan" : false
         },
         "brMesta" : 10000,
-        "brSlobodnihMesta" : 940,
+        "brSlobodnihMesta" : 936,
         "cenaRegular" : 10.0,
         "status" : "AKTIVNO",
         "tip" : "FESTIVAL",
@@ -617,7 +617,7 @@
           "obrisan" : false
         },
         "brMesta" : 10000,
-        "brSlobodnihMesta" : 940,
+        "brSlobodnihMesta" : 936,
         "cenaRegular" : 10.0,
         "status" : "AKTIVNO",
         "tip" : "FESTIVAL",
@@ -652,7 +652,7 @@
           "obrisan" : false
         },
         "brMesta" : 10000,
-        "brSlobodnihMesta" : 940,
+        "brSlobodnihMesta" : 936,
         "cenaRegular" : 10.0,
         "status" : "AKTIVNO",
         "tip" : "FESTIVAL",
@@ -663,6 +663,76 @@
       "cena" : 80.0,
       "status" : "REZERVISANA",
       "tip" : "FANPIT",
+      "obrisan" : false
+    },
+    "20" : {
+      "datumVreme" : "2021-08-03T18:48:45.832131600",
+      "id" : 20,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 3,
+        "naziv" : "Ludilo",
+        "posterLink" : "./posters/rambo.jpeg",
+        "datumVremePocetka" : "2021-07-30T15:54",
+        "datumVremeKraja" : "2021-09-17T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 10000,
+        "brSlobodnihMesta" : 940,
+        "cenaRegular" : 500.0,
+        "status" : "AKTIVNO",
+        "tip" : "FESTIVAL",
+        "obrisan" : false,
+        "brojOcena" : 3,
+        "sumaOcena" : 7
+      },
+      "cena" : 4000.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "21" : {
+      "datumVreme" : "2021-08-03T18:48:45.835134100",
+      "id" : 21,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 3,
+        "naziv" : "Ludilo",
+        "posterLink" : "./posters/rambo.jpeg",
+        "datumVremePocetka" : "2021-07-30T15:54",
+        "datumVremeKraja" : "2021-09-17T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 10000,
+        "brSlobodnihMesta" : 940,
+        "cenaRegular" : 500.0,
+        "status" : "AKTIVNO",
+        "tip" : "FESTIVAL",
+        "obrisan" : false,
+        "brojOcena" : 3,
+        "sumaOcena" : 7
+      },
+      "cena" : 4000.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
       "obrisan" : false
     }
   }

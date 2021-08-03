@@ -11,6 +11,7 @@ const AdminComments = { template: '<adminComments></adminComments>' };
 const CreateManifestation = { template: '<create-manifestation></create-manifestation>' };
 const SellerManifestations = { template: '<sellerManifestations></sellerManifestations>' };
 const SellerCards = { template: '<sellerCards></sellerCards>' };
+const SellerBuyers = { template: '<sellerBuyers></sellerBuyers>' };
 const SellerComments = { template: '<sellerComments></sellerComments>' };
 const BuyerCards = { template: '<buyerCards></buyerCards>' };
 
@@ -31,6 +32,7 @@ const router = new VueRouter({
         { path: '/sellerManifestations', component: SellerManifestations },
         { path: '/sellerCards', component: SellerCards },
         { path: '/sellerComments', component: SellerComments },
+        { path: '/sellerBuyers', component: SellerBuyers },
         { path: '/buyerCards', component: BuyerCards },
     ]
 });

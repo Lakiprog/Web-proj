@@ -323,6 +323,39 @@ public class SparkAppMain {
 			return gson.toJson(manifestationsDTO);
 		});
 		
+		get("/rest/users/getBuyersProdavac", (req, res) -> {
+			Korisnik user = (Korisnik) req.session().attribute("currentUser");
+			Prodavac p = null;
+			
+			for (Korisnik korisnik : usersHandler.getKorisnici()) {
+				if((user.getId() == korisnik.getId()) && user.getUloga().equals(korisnik.getUloga())) {
+					p = (Prodavac) korisnik;
+					break;
+				}
+			}
+			
+			ArrayList<Kupac> buyers = new ArrayList<>();
+			
+			for (Karta karta : cardHandler.kartePoManifestacijama(p.getManifestacije())) {
+				boolean ima = false;
+				
+				for (Kupac kupac : buyers) {
+					if((karta.getIdKupca() == kupac.getId())) {
+						ima = true;
+						break;
+					}
+				}
+				
+				if(!ima) {
+					buyers.add(usersHandler.poIdKupac(karta.getIdKupca()));
+				}
+			}
+
+			res.type("application/json");
+
+			return gson.toJson(buyers);
+		});
+		
 		
 		post("/rest/manifestations/filterManifestationsProdavac", (req, res) -> {
 			Korisnik user = (Korisnik) req.session().attribute("currentUser");
@@ -794,6 +827,7 @@ public class SparkAppMain {
 			//TODO mozda prekopirati sliku u neki nas folder
 			
 			manifestation.setId(manifestationHandler.nextId());
+			manifestation.setBrSlobodnihMesta(manifestation.getBrMesta());
 			manifestationHandler.dodajManifestaciju(manifestation);
 			
 			for (Lokacija location : locationHandler.getLokacije()) {

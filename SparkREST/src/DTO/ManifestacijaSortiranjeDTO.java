@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import domain.TipManifestacije;
 
 public class ManifestacijaSortiranjeDTO {
-	private String naziv, adresa, sortiraj, sortirajPo, tip, datumOd, datumDo;
+	private String naziv, adresa, sortiraj, sortirajPo, tip, datumOd, datumDo, rasprodate;
 	private int cenaMin, cenaMax;
 	
 	
@@ -16,7 +16,7 @@ public class ManifestacijaSortiranjeDTO {
 	
 	
 	public ManifestacijaSortiranjeDTO(String naziv, String adresa, String sortiraj, String sortirajPo,
-			String datumOd, String datumDo, int cenaMin, int cenaMax, String tip) {
+			String datumOd, String datumDo, int cenaMin, int cenaMax, String tip, String rasprodate) {
 		super();
 		this.naziv = naziv;
 		this.adresa = adresa;
@@ -27,6 +27,19 @@ public class ManifestacijaSortiranjeDTO {
 		this.cenaMin = cenaMin;
 		this.cenaMax = cenaMax;
 		this.tip = tip;
+		this.rasprodate = rasprodate;
+	}
+
+	
+
+	public String getRasprodate() {
+		return rasprodate;
+	}
+
+
+
+	public void setRasprodate(String rasprodate) {
+		this.rasprodate = rasprodate;
 	}
 
 

@@ -3,7 +3,7 @@ Vue.component("home-page", {
 		    return {
                 manifestations: [],
                 currentPageManifestations: [],
-                criteria: {naziv : "", adresa: "", datumOd : "", datumDo: "", cenaMin: 0, cenaMax: 10000, tip: "SVE", sortirajPo: "NAZIV", sortiraj: "RASTUCE"},
+                criteria: {naziv : "", adresa: "", datumOd : "", datumDo: "", cenaMin: 0, cenaMax: 10000, tip: "SVE", sortirajPo: "NAZIV", sortiraj: "RASTUCE", rasprodate: "SVE"},
                 pagenum: 1,
                 numberOfPages: 0,
                 pages: [],
@@ -55,6 +55,15 @@ Vue.component("home-page", {
                         <div class="form-group col-md-2">
                             <label for="do">Do:</label>
                             <input type="date" name = "do" v-model="criteria.datumDo" id = "do" class="form-control">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="rasprodate">Karte su/nisu rasprodate:</label>
+                            <select name="rasprodate" v-model="criteria.rasprodate" id="rasprodate" class="form-control">
+                                <option value="SVE">Sve</option>
+                                <option value="NERASPRODATE">Nerasprodate</option>
+                                <option value="RASPRODATE">Rasprodate</option>
+                            </select>
                         </div>
                     </div>
 
