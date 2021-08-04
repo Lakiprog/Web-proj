@@ -125,13 +125,13 @@ Vue.component("sellerManifestations", {
     <tr v-for="manifestation in manifestations" >
         <td>{{manifestation.naziv}}</td>
         <td>{{manifestation.tip}}</td>
-        <td>{{manifestation.datumVremePocetka}} - {{manifestation.datumVremeKraja}}</td>
+        <td>{{manifestation.datumVremePocetka.replace('T', ' ')}} - {{manifestation.datumVremeKraja.replace('T', ' ')}}</td>
         <td>{{manifestation.brMesta}}</td>
         <td>{{manifestation.cenaRegular}}</td>
         <td>{{manifestation.adresa}}</td>
         <td v-if="manifestation.status == 'AKTIVNO'" style="color:green;">Aktivno</td>
         <td v-else style="color:red;">Neaktivno</td>
-        <td><input type="button" class="btn btn-primary" value="Azuriraj"/></td>
+        <td><input type="button" class="btn btn-primary" value="Azuriraj" v-on:click="edit(manifestation)"/></td>
     </tr>
 </table>
 
@@ -147,7 +147,9 @@ Vue.component("sellerManifestations", {
                 this.manifestations = response.data;
             });
         },
-        
+        edit: function(m){
+            this.$router.push({ name: "EditManifestation", params: {id: m.id}});
+        }
 	},
 	mounted () {
         axios

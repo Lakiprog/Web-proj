@@ -119,7 +119,7 @@ Vue.component("adminCards", {
         <td>{{c.ime}} {{c.prezime}}</td>
         <td>{{c.tip}}</td>
         <td>{{c.manifestacija}}</td>
-        <td>{{c.datumVreme}}</td>
+        <td>{{c.datumVreme.replace('T', ' ')}}</td>
         <td>{{c.cena}}</td>
         <td v-if="c.status == 'REZERVISANA'" style="color:green;">Rezervisana</td>
         <td v-else style="color:red;">Odustanak</td>

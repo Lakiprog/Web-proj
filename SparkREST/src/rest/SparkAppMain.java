@@ -852,7 +852,7 @@ public class SparkAppMain {
 			
 			res.type("application/json");
 
-			if(manifestationHandler.checkBadTimes(manifestation.getDatumVremePocetka(), manifestation.getDatumVremeKraja(), manifestation.getLokacija())) {
+			if(manifestationHandler.checkBadTimes(manifestation.getDatumVremePocetka(), manifestation.getDatumVremeKraja(), manifestation.getLokacija(), -1)) {
 				return "Vec postoji manifestacija na datoj lokaciji za dato vreme";
 			}
 			
@@ -861,6 +861,40 @@ public class SparkAppMain {
 			manifestation.setId(manifestationHandler.nextId());
 			manifestation.setBrSlobodnihMesta(manifestation.getBrMesta());
 			manifestationHandler.dodajManifestaciju(manifestation);
+			
+			Korisnik u = (Korisnik) req.session().attribute("currentUser");
+			
+			Prodavac p = usersHandler.poIdProdavac(u.getId());
+			p.addManifestacija(manifestation.getId());
+			usersHandler.updateProdavac(p);
+			
+			for (Lokacija location : locationHandler.getLokacije()) {
+				if(location.equals(manifestation.getLokacija())) {
+					return "success";
+				}
+			}
+			
+			manifestation.getLokacija().setId(locationHandler.nextId());
+			locationHandler.dodajLokaciju(manifestation.getLokacija());
+			return "success";
+		});
+		
+		post("/rest/manifestations/editManifestation", (req, res) -> {
+			Manifestacija manifestation = gson.fromJson(req.body(), Manifestacija.class);
+			
+			res.type("application/json");
+
+			if(manifestationHandler.checkBadTimes(manifestation.getDatumVremePocetka(), manifestation.getDatumVremeKraja(), manifestation.getLokacija(), manifestation.getId())) {
+				return "Vec postoji manifestacija na datoj lokaciji za dato vreme";
+			}
+			
+			//TODO mozda prekopirati sliku u neki nas folder
+			
+			if(manifestation.getPosterLink().equals("")) {
+				manifestation.setPosterLink(manifestationHandler.poId(manifestation.getId()).getPosterLink());
+			}
+			
+			manifestationHandler.azurirajManifestaciju(manifestation);
 			
 			for (Lokacija location : locationHandler.getLokacije()) {
 				if(location.equals(manifestation.getLokacija())) {

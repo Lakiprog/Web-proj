@@ -1,5 +1,6 @@
 const Home = { template: '<home-page></home-page>' };
 const ManifestationDetails = { template: '<manifestation-details></manifestation-details>' };
+const EditManifestation = { template: '<edit-manifestation></edit-manifestation>' };
 const Registration = { template: '<registration></registration>' };
 const Login = { template: '<login></login>' };
 const Profile = { template: '<profile></profile>'};
@@ -20,6 +21,7 @@ const router = new VueRouter({
     routes: [
         { path: '/', component: Home, name: "Home" },
         { path: '/manifestation/:id', component: ManifestationDetails, name: "ManifestationDetails" },
+        { path: '/editManifestation/:id', component: EditManifestation, name: "EditManifestation" },
         { path: '/register', component: Registration },
         { path: '/login', component: Login, name: "Login" },
         { path: '/profile', component: Profile },
@@ -29,7 +31,7 @@ const router = new VueRouter({
         { path: '/adminUsers', component: AdminUsers },
         { path: '/adminComments', component: AdminComments },
         { path: '/createManifestation', component: CreateManifestation },
-        { path: '/sellerManifestations', component: SellerManifestations },
+        { path: '/sellerManifestations', component: SellerManifestations, name: "SellerManifestations"},
         { path: '/sellerCards', component: SellerCards },
         { path: '/sellerComments', component: SellerComments },
         { path: '/sellerBuyers', component: SellerBuyers },

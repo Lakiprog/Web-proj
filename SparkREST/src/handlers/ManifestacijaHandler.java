@@ -62,9 +62,9 @@ public class ManifestacijaHandler {
 	
 	public void azurirajManifestaciju(Manifestacija m) {
 		ucitani.put(m.getId(), m);
-		for (Manifestacija manifestacija : manifestacije) {
-			if(m.getId() == manifestacija.getId()){
-				manifestacija = m;
+		for (int i = 0; i < manifestacije.size();i++) {
+			if(m.getId() == manifestacije.get(i).getId()){
+				manifestacije.set(i, m);
 			}
 		}
 		sacuvaj();
@@ -224,11 +224,15 @@ public class ManifestacijaHandler {
 		return m;
 	}
 	
-	public boolean checkBadTimes(String s, String e, Lokacija lokacija) {
+	public boolean checkBadTimes(String s, String e, Lokacija lokacija, int id) {
 		LocalDateTime start = LocalDateTime.parse(s);
 		LocalDateTime end = LocalDateTime.parse(e);
 		
 		for (Manifestacija manifestacija : manifestacije) {
+			
+			if(manifestacija.getId() == id) {
+				continue;
+			}
 			
 			if(manifestacija.getLokacija().equals(lokacija)) {
 				//System.out.println("tu sam");

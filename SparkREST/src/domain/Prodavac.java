@@ -15,6 +15,10 @@ public class Prodavac extends Korisnik {
 		this.manifestacije = manifestacije;
 	}
 	
+	public void addManifestacija(int m) {
+		manifestacije.add(m);
+	}
+	
 	public Prodavac() {
 		
 	}

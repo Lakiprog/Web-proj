@@ -116,7 +116,7 @@ Vue.component("buyerCards", {
     <tr v-for="c in this.cards">
         <td>{{c.manifestacija}}</td>
         <td>{{c.tip}}</td>
-        <td>{{c.datumVreme}}</td>
+        <td>{{c.datumVreme.replace('T', ' ')}}</td>
         <td>{{c.cena}}</td>
         <td v-if="c.status == 'REZERVISANA'" style="color:green;">Rezervisana</td>
         <td v-else style="color:red;">Odustanak</td>

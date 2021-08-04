@@ -54,18 +54,18 @@
     },
     "3" : {
       "id" : 3,
-      "naziv" : "Ludilo",
+      "naziv" : "LudiloXXX",
       "posterLink" : "./posters/rambo.jpeg",
       "datumVremePocetka" : "2021-07-30T15:54",
       "datumVremeKraja" : "2021-09-17T03:30",
       "lokacija" : {
-        "id" : 2,
-        "sirina" : 45.241965,
-        "duzina" : 19.807804,
+        "id" : 0,
+        "sirina" : 45.239679,
+        "duzina" : 19.804357,
         "adresa" : {
-          "ulica" : "Koste Abrasevica",
-          "broj" : "40",
-          "mesto" : "Novi Sad City"
+          "ulica" : "Kruzna",
+          "broj" : "16",
+          "mesto" : "Novi Sad City "
         },
         "obrisan" : false
       },
@@ -178,6 +178,32 @@
       "cenaRegular" : 15.0,
       "status" : "NEAKTIVNO",
       "tip" : "KONCERT",
+      "obrisan" : false,
+      "brojOcena" : 0,
+      "sumaOcena" : 0
+    },
+    "8" : {
+      "id" : 8,
+      "naziv" : "Saka zulu predstava",
+      "posterLink" : "C:\\fakepath\\ludilo.jpg",
+      "datumVremePocetka" : "2021-09-10T08:28",
+      "datumVremeKraja" : "2021-09-21T08:28",
+      "lokacija" : {
+        "id" : 0,
+        "sirina" : 45.387555,
+        "duzina" : 19.877348,
+        "adresa" : {
+          "ulica" : "Partizanska",
+          "broj" : "",
+          "mesto" : "Temerin Municipality"
+        },
+        "obrisan" : false
+      },
+      "brMesta" : 700,
+      "brSlobodnihMesta" : 700,
+      "cenaRegular" : 100.0,
+      "status" : "NEAKTIVNO",
+      "tip" : "POZORISTE",
       "obrisan" : false,
       "brojOcena" : 0,
       "sumaOcena" : 0
