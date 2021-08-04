@@ -49,8 +49,8 @@ Vue.component("manifestation-details", {
 
                 <br><br>
 
-                <p v-if="manifestation.status == 'AKTIVNO'">Status manifestacije: <span style="color:green;">{{manifestation.status}}<span></p>
-                <p v-else>Status manifestacije: <span style="color:red;">{{manifestation.status}}<span></p>
+                <p v-if="manifestation.status == 'AKTIVNO'">Status manifestacije: <span style="color:green;">{{manifestation.status}}</span></p>
+                <p v-else>Status manifestacije: <span style="color:red;">{{manifestation.status}}</span></p>
         
                 <div>
                     <input type="button" name="rezervisi1" id="rezervisi1" value="Rezervisite kartu" class="btn btn-primary" v-bind:hidden="user.uloga != 'KUPAC' || selected || manifestation.status == 'NEAKTIVNO'" v-on:click="reserve()"/>

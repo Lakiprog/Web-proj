@@ -168,7 +168,19 @@ Vue.component("home-page", {
             axios
             .post("/rest/manifestations/getManifestationsSorted", this.criteria)
             .then(response => {
-                this.manifestations = response.data;
+                this.manifestations = response.data.sort((a, b)=>{
+                    first = Date.parse(a.datumVremePocetka);
+                    if(first < Date.now()){
+                        first += 100*(Date.now() - first) + Date.now();
+                    }
+    
+                    second = Date.parse(b.datumVremePocetka);
+                    if(second < Date.now()){
+                        second += 100*(Date.now() - second) + Date.now();
+                    }
+    
+                    return  first - second; 
+                });
 
                 this.numberOfPages = parseInt(this.manifestations.length / 5);
                 this.numberOfPages += (this.manifestations.length % 5 == 0) ? 0 : 1;
@@ -198,7 +210,19 @@ Vue.component("home-page", {
         axios
         .get("/rest/manifestations/getManifestations")
         .then(response => {
-            this.manifestations = response.data;
+            this.manifestations = response.data.sort((a, b)=>{
+                first = Date.parse(a.datumVremePocetka);
+                if(first < Date.now()){
+                    first += 100*(Date.now() - first) + Date.now();
+                }
+
+                second = Date.parse(b.datumVremePocetka);
+                if(second < Date.now()){
+                    second += 100*(Date.now() - second) + Date.now();
+                }
+
+                return  first - second; 
+            });
             //this.manifestations.shift();
 
             this.numberOfPages = parseInt(this.manifestations.length / 5);
