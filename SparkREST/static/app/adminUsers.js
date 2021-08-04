@@ -70,7 +70,6 @@ Vue.component("adminUsers", {
                         <label for="tip">Tip:</label>
                         <select name="tip" v-model="criteria.tip" id="tip" class="form-control">
                             <option value="SVE">Sve</option>
-                            <option value="NIKAKVA">Nikakav</option>
                             <option value="BRONZANI">Bronzani</option>
                             <option value="SREBRNI">Srebrni</option>
                             <option value="ZLATNI">Zlatni</option>

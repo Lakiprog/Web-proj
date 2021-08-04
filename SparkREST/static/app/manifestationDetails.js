@@ -30,7 +30,8 @@ Vue.component("manifestation-details", {
         <div class="card-body">
             
             <div id="informacije">
-                <p>Prosecna ocena: {{(manifestation.sumaOcena / manifestation.brojOcena).toFixed(2)}}</p>
+                <p  v-if="manifestation.brojOcena > 0" class="card-text">Prosecna ocena: {{(manifestation.sumaOcena / manifestation.brojOcena).toFixed(2)}}</p>
+                <p  v-else>Prosecna ocena: 0</p>
 
                 <p>Broj Mesta: {{manifestation.brMesta}}</p>
                 

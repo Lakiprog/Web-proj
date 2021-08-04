@@ -11,7 +11,6 @@ import java.io.File;
 import java.security.Key;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
 
 import com.google.gson.Gson;
 
@@ -40,15 +39,12 @@ import handlers.KupciHandler;
 import handlers.LokacijeHandler;
 import handlers.ManifestacijaHandler;
 import handlers.WsHandler;
-import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.Jws;
-import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
-import spark.Session;
 
 public class SparkAppMain {
 
+	
 	private static final int SILVER_POINTS = 3000;
 	private static final int GOLD_POINTS = 4000;
 
@@ -149,6 +145,7 @@ public class SparkAppMain {
 				}
 			}
 			
+			user.setTip(TipMedalje.BRONZANI);
 			user.setId(usersHandler.nextIdKupac());
 			usersHandler.addKupac(user);
 			return "success";
@@ -509,6 +506,15 @@ public class SparkAppMain {
 			
 			kupac.setBrOtkazivanja(kupac.getBrOtkazivanja()+1);
 			kupac.setBrBodova(kupac.getBrBodova() - (int) Math.round(card.getCena()/1000*133*4));
+			
+			if(kupac.getBrBodova() >= GOLD_POINTS) {
+				kupac.setTip(TipMedalje.ZLATNI);
+			}else if(kupac.getBrBodova() >= SILVER_POINTS) {
+				kupac.setTip(TipMedalje.SREBRNI);
+			}else {
+				kupac.setTip(TipMedalje.BRONZANI);
+			}
+				
 			usersHandler.updateKupac(kupac);
 			
 			card.setStatus(StatusKarte.ODUSTANAK);

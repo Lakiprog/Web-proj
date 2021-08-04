@@ -124,14 +124,15 @@ Vue.component("home-page", {
             
             <div class="row">
 
-                <div v-for="manifestation of currentPageManifestations" class="card" style="width: 20rem; display: inline;">
-                    <img class="card-img-top" v-bind:src="manifestation.posterLink" alt="Rambo car">
+                <div v-for="manifestation of currentPageManifestations" class="card" style="width: 20rem; display: inline; height: 28rem;">
+                    <img class="card-img-top" v-bind:src="manifestation.posterLink" alt="Slika nemoze da se ucita">
                     <div class="card-body">
                         <h5 class="card-title">{{manifestation.naziv}}</h5>
-                        <p class="card-text">{{manifestation.datumVreme}}</p>
+                        <p class="card-text">{{manifestation.datumVremePocetka.replace('T', ' ')}} - {{manifestation.datumVremeKraja.replace('T', ' ')}}</p>
                         <p class="card-text">{{manifestation.adresa}}</p>
                         <p class="card-text">Cena karte vec od: {{manifestation.cenaRegular}}RSD</p>
-                        <p class="card-text">{{(manifestation.sumaOcena / manifestation.brojOcena).toFixed(2)}}</p>
+                        <p  v-if="manifestation.brojOcena > 0" class="card-text">{{(manifestation.sumaOcena / manifestation.brojOcena).toFixed(2)}}</p>
+                        <p  v-else>0</p>
                         <input type="button" class="btn btn-primary" value="Detalji" v-on:click="viewManifestation(manifestation)"/>
                     </div>
                 </div>
