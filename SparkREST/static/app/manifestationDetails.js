@@ -54,7 +54,7 @@ Vue.component("manifestation-details", {
                 <p v-else>Status manifestacije: <span style="color:red;">{{manifestation.status}}</span></p>
         
                 <div>
-                    <input type="button" name="rezervisi1" id="rezervisi1" value="Rezervisite kartu" class="btn btn-primary" v-bind:hidden="user.uloga != 'KUPAC' || selected || manifestation.status == 'NEAKTIVNO'" v-on:click="reserve()"/>
+                    <input type="button" name="rezervisi1" id="rezervisi1" value="Rezervisite kartu" class="btn btn-primary" v-bind:hidden="user.uloga != 'KUPAC' || selected || manifestation.status == 'NEAKTIVNO' || (new Date(manifestation.datumVremePocetka) < new Date())" v-on:click="reserve()"/>
                 </div>
 
                 <br>
@@ -106,7 +106,7 @@ Vue.component("manifestation-details", {
         <div v-bind:hidden="comments.length == 0">
         <label class="list-group-item text-white bg-dark border-primary">Komentari: </label>
         <ul class="list-group list-group-flush" v-for="comm in comments">
-            <li class="list-group-item text-white bg-dark border-light">Ocena: {{comm.ocena}}<br/>{{comm.kIme}}: {{comm.komentar}}</li>
+            <li v-bind:hidden="user.uloga == 'KUPAC' && !comm.odobren"class="list-group-item text-white bg-dark border-light">Ocena: {{comm.ocena}}<br/>{{comm.kIme}}: {{comm.komentar}}</li>
         </ul>
         </div>
 
@@ -188,6 +188,7 @@ Vue.component("manifestation-details", {
                     toast("Doslo je do greske.");
                 }
             });
+            this.selected = false;
         },
         showMap: function(){
             let self = this;
