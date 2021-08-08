@@ -123,7 +123,7 @@ public class KomentariHandler {
 		ArrayList<Komentar> k = new ArrayList<>();
 		
 		for (Komentar komentar : komentari) {
-			if(komentar.getManifestacija().getId() == id) {
+			if(komentar.getIdManifestacija() == id) {
 				k.add(komentar);
 			}
 		}

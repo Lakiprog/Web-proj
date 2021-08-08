@@ -126,7 +126,7 @@ public class KarteHandler {
 		return ucitani.get(id);
 	}
 	
-	public ArrayList<Karta> sortiranje(KarteSortiranjeDTO kriterijumi, ArrayList<Karta> ks){
+	public ArrayList<Karta> sortiranje(KarteSortiranjeDTO kriterijumi, ArrayList<Karta> ks, ManifestacijaHandler mH){
 		ArrayList<Karta> k = new ArrayList<>();
 		
 		if(ks == null) {
@@ -134,7 +134,7 @@ public class KarteHandler {
 		}
 		
 		for (Karta karta : ks) {
-			if(karta.getManifestacija().getNaziv().contains(kriterijumi.getNaziv())) {
+			if(mH.poId(karta.getIdManifestacije()).getNaziv().contains(kriterijumi.getNaziv())) {
 				
 				if(kriterijumi.getTip().equals("SVE") || karta.getTip().toString().equals(kriterijumi.getTip())) {
 					
@@ -191,7 +191,7 @@ public class KarteHandler {
 		for (Integer id : ids) {
 			for (Karta karta : karte) {
 				
-				if(karta.getManifestacija().getId() == id) {
+				if(karta.getIdManifestacije() == id) {
 					k.add(karta);
 				}
 				

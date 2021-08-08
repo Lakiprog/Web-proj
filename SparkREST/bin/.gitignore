@@ -1,5 +1,5 @@
-/handlers/
-/domain/
-/rest/
 /DTO/
+/domain/
+/handlers/
+/rest/
 /util/

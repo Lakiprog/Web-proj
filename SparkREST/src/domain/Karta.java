@@ -4,8 +4,7 @@ import java.time.LocalDateTime;
 
 public class Karta {
 	private String datumVreme;
-	private int id, idKupca;
-	private Manifestacija manifestacija;
+	private int id, idKupca, idManifestacije;
 	private double cena;
 	private StatusKarte status;
 	private TipKarte tip;
@@ -23,13 +22,13 @@ public class Karta {
 		
 	}
 
-	public Karta(int id, String datumVreme, int idKupca, Manifestacija manifestacija,
+	public Karta(int id, String datumVreme, int idKupca, int manifestacija,
 			double cena, StatusKarte status, TipKarte tip) {
 		super();
 		this.id = id;
 		this.datumVreme = datumVreme;
 		this.idKupca = idKupca;
-		this.manifestacija = manifestacija;
+		this.idManifestacije = manifestacija;
 		this.cena = cena;
 		this.status = status;
 		this.tip = tip;
@@ -41,12 +40,15 @@ public class Karta {
 	public void setDatumVreme(String datumVreme) {
 		this.datumVreme = datumVreme;
 	}
-	public Manifestacija getManifestacija() {
-		return manifestacija;
+	
+	public int getIdManifestacije() {
+		return idManifestacije;
 	}
-	public void setManifestacija(Manifestacija manifestacija) {
-		this.manifestacija = manifestacija;
+
+	public void setIdManifestacije(int idManifestacije) {
+		this.idManifestacije = idManifestacije;
 	}
+
 	public double getCena() {
 		return cena;
 	}
@@ -82,15 +84,5 @@ public class Karta {
 
 	public void setIdKupca(int idKupca) {
 		this.idKupca = idKupca;
-	}
-
-	public void setCenaForTip() {
-		if(tip == TipKarte.FANPIT) {
-			cena = manifestacija.getCenaRegular() * 2;
-		}else if(tip == TipKarte.VIP) {
-			cena = manifestacija.getCenaRegular() * 4;
-		}else {
-			cena = manifestacija.getCenaRegular();
-		}
 	}
 }

@@ -24,12 +24,12 @@
       "prezime" : "Jarak",
       "datumRodjenja" : "1999-10-20",
       "pol" : "MUSKO",
-      "obrisan" : true,
+      "obrisan" : false,
       "uloga" : "KUPAC",
       "tip" : "BRONZANI",
-      "brBodova" : 0,
+      "brBodova" : 924,
       "brOtkazivanja" : 0,
-      "karte" : [ ],
+      "karte" : [ 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35 ],
       "blokiran" : false
     },
     "3" : {

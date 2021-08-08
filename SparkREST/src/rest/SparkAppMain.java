@@ -414,7 +414,7 @@ public class SparkAppMain {
 			ArrayList<KartaDTO> cardsDTO = new ArrayList<>();
 			
 			for (Karta k : cards) {
-				cardsDTO.add(new KartaDTO(k, usersHandler.poIdKupac(k.getIdKupca())));
+				cardsDTO.add(new KartaDTO(k, usersHandler.poIdKupac(k.getIdKupca()), manifestationHandler.poId(k.getIdManifestacije())));
 			}
 
 			res.type("application/json");
@@ -434,11 +434,11 @@ public class SparkAppMain {
 				}
 			}
 			
-			ArrayList<Karta> cards = cardHandler.sortiranje(criteria, cardHandler.kartePoManifestacijama(p.getManifestacije()));
+			ArrayList<Karta> cards = cardHandler.sortiranje(criteria, cardHandler.kartePoManifestacijama(p.getManifestacije()), manifestationHandler);
 			ArrayList<KartaDTO> cardsDTO = new ArrayList<>();
 			
 			for (Karta k : cards) {
-				cardsDTO.add(new KartaDTO(k, usersHandler.poIdKupac(k.getIdKupca())));
+				cardsDTO.add(new KartaDTO(k, usersHandler.poIdKupac(k.getIdKupca()), manifestationHandler.poId(k.getIdManifestacije())));
 			}
 
 			res.type("application/json");
@@ -461,7 +461,7 @@ public class SparkAppMain {
 			ArrayList<KartaDTO> cardsDTO = new ArrayList<>();
 			
 			for (Karta k : cards) {
-				cardsDTO.add(new KartaDTO(k, usersHandler.poIdKupac(k.getIdKupca())));
+				cardsDTO.add(new KartaDTO(k, usersHandler.poIdKupac(k.getIdKupca()), manifestationHandler.poId(k.getIdManifestacije())));
 			}
 
 			res.type("application/json");
@@ -481,11 +481,11 @@ public class SparkAppMain {
 				}
 			}
 			
-			ArrayList<Karta> cards = cardHandler.sortiranje(criteria, cardHandler.kartePoIdima(p.getKarte()));
+			ArrayList<Karta> cards = cardHandler.sortiranje(criteria, cardHandler.kartePoIdima(p.getKarte()), manifestationHandler);
 			ArrayList<KartaDTO> cardsDTO = new ArrayList<>();
 			
 			for (Karta k : cards) {
-				cardsDTO.add(new KartaDTO(k, usersHandler.poIdKupac(k.getIdKupca())));
+				cardsDTO.add(new KartaDTO(k, usersHandler.poIdKupac(k.getIdKupca()), manifestationHandler.poId(k.getIdManifestacije())));
 			}
 
 			res.type("application/json");
@@ -497,7 +497,7 @@ public class SparkAppMain {
 			KartaDTO c = gson.fromJson(req.body(), KartaDTO.class);
 			Karta card = cardHandler.poId(c.getId());
 			Kupac kupac = usersHandler.poIdKupac(card.getIdKupca());
-			LocalDateTime start = LocalDateTime.parse(card.getManifestacija().getDatumVremePocetka());
+			LocalDateTime start = LocalDateTime.parse(manifestationHandler.poId(card.getIdManifestacije()).getDatumVremePocetka());
 			LocalDateTime now = LocalDateTime.now();
 			
 			if(now.isAfter(start.minusDays(7))) {
@@ -542,7 +542,7 @@ public class SparkAppMain {
 			ArrayList<KomentarDTO> commentsDTO = new ArrayList<>();
 			
 			for (Komentar k : comments) {
-				commentsDTO.add(new KomentarDTO(k));
+				commentsDTO.add(new KomentarDTO(k, usersHandler.poIdKupac(k.getIdKupac()), manifestationHandler.poId(k.getIdManifestacija())));
 			}
 
 			res.type("application/json");
@@ -644,7 +644,7 @@ public class SparkAppMain {
 			ArrayList<KartaDTO> cardsDTO = new ArrayList<>();
 			
 			for (Karta k : cards) {
-				cardsDTO.add(new KartaDTO(k, usersHandler.poIdKupac(k.getIdKupca())));
+				cardsDTO.add(new KartaDTO(k, usersHandler.poIdKupac(k.getIdKupca()), manifestationHandler.poId(k.getIdManifestacije())));
 			}
 
 			res.type("application/json");
@@ -654,11 +654,11 @@ public class SparkAppMain {
 		
 		post("/rest/cards/getCardsSorted", (req, res) -> {
 			KarteSortiranjeDTO criteria = gson.fromJson(req.body(), KarteSortiranjeDTO.class);
-			ArrayList<Karta> cards = cardHandler.sortiranje(criteria, null);
+			ArrayList<Karta> cards = cardHandler.sortiranje(criteria, null, manifestationHandler);
 			ArrayList<KartaDTO> cardsDTO = new ArrayList<>();
 			
 			for (Karta k : cards) {
-				cardsDTO.add(new KartaDTO(k, usersHandler.poIdKupac(k.getIdKupca())));
+				cardsDTO.add(new KartaDTO(k, usersHandler.poIdKupac(k.getIdKupca()), manifestationHandler.poId(k.getIdManifestacije())));
 			}
 
 			res.type("application/json");
@@ -708,7 +708,7 @@ public class SparkAppMain {
 				cardPrice = getDiscountedPrice(temp_customer, cardPrice);
 
 			for (int i = 0; i < number_of_cards; ++i) {
-				Karta new_card = new Karta(cardHandler.nextId(), LocalDateTime.now().toString(), temp_customer.getId(), temp_manifestation, cardPrice, StatusKarte.REZERVISANA, card_type);
+				Karta new_card = new Karta(cardHandler.nextId(), LocalDateTime.now().toString(), temp_customer.getId(), temp_manifestation.getId(), cardPrice, StatusKarte.REZERVISANA, card_type);
 
 				temp_customer.getKarte().add(new_card.getId());
 				cardHandler.dodajKartu(new_card);
@@ -730,7 +730,7 @@ public class SparkAppMain {
 			ArrayList<KomentarDTO> commentsDTO = new ArrayList<>();
 			
 			for (Komentar k : comments) {
-				commentsDTO.add(new KomentarDTO(k));
+				commentsDTO.add(new KomentarDTO(k, usersHandler.poIdKupac(k.getIdKupac()), manifestationHandler.poId(k.getIdManifestacija())));
 			}
 
 			res.type("application/json");
@@ -745,8 +745,8 @@ public class SparkAppMain {
 			ArrayList<KomentarDTO> commentsDTO = new ArrayList<>();
 			
 			for (Komentar k : comments) {
-				if (k.getManifestacija().getId() == manifId) {
-					commentsDTO.add(new KomentarDTO(k));
+				if (k.getIdManifestacija() == manifId) {
+					commentsDTO.add(new KomentarDTO(k, usersHandler.poIdKupac(k.getIdKupac()), manifestationHandler.poId(k.getIdManifestacija())));
 				}
 			}
 
@@ -799,12 +799,12 @@ public class SparkAppMain {
 			res.type("application/json");
 
 			for (Komentar k : comments) {
-				if (k.getKupac().getId() == userId && k.getManifestacija().getId() == manifId)
+				if (k.getIdKupac() == userId && k.getIdManifestacija() == manifId)
 					return false;
 			}
 
 			for (Karta k : tickets) {
-				if (k.getManifestacija().getId() == manifId && k.getIdKupca() == userId && k.getStatus() == StatusKarte.REZERVISANA) {
+				if (k.getIdManifestacije() == manifId && k.getIdKupca() == userId && k.getStatus() == StatusKarte.REZERVISANA) {
 					return true;
 				}
 			}
@@ -846,7 +846,7 @@ public class SparkAppMain {
 
 			manifestationHandler.azurirajManifestaciju(temp_manif);
 			
-			commentHandler.dodajKomentar(new Komentar(commentHandler.nextId(), temp_cust, temp_manif, comment_body, grade));
+			commentHandler.dodajKomentar(new Komentar(commentHandler.nextId(), temp_cust.getId(), temp_manif.getId(), comment_body, grade));
 
 			res.type("application/json");
 

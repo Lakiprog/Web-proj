@@ -2,47 +2,8 @@
   "komentari" : {
     "1" : {
       "id" : 1,
-      "kupac" : {
-        "id" : 1,
-        "kIme" : "markuzic",
-        "lozinka" : "markuzaRage",
-        "ime" : "Petar",
-        "prezime" : "Markovic",
-        "datumRodjenja" : "1999.10.10",
-        "pol" : "ZENSKO",
-        "obrisan" : false,
-        "uloga" : "KUPAC",
-        "tip" : null,
-        "brBodova" : 0,
-        "brOtkazivanja" : 0,
-        "karte" : null,
-        "blokiran" : false
-      },
-      "manifestacija" : {
-        "id" : 1,
-        "naziv" : "Koncert Ramba Amadeusa",
-        "posterLink" : "./posters/rambo.jpeg",
-        "datumVremePocetka" : "2021-09-10T03:30",
-        "datumVremeKraja" : "2021-09-17T03:30",
-        "lokacija" : {
-          "id" : 2,
-          "sirina" : 45.241965,
-          "duzina" : 19.807804,
-          "adresa" : {
-            "ulica" : "Koste Abrasevica",
-            "broj" : "40",
-            "mesto" : "Novi Sad City"
-          },
-          "obrisan" : false
-        },
-        "brMesta" : 1000,
-        "cenaRegular" : 500.0,
-        "status" : "AKTIVNO",
-        "tip" : "KONCERT",
-        "obrisan" : false,
-        "brojOcena" : 3,
-        "sumaOcena" : 7
-      },
+      "idKupac" : 1,
+      "idManifestacija" : 1,
       "komentar" : "bruh",
       "ocena" : 3,
       "obrisan" : false,
@@ -50,47 +11,8 @@
     },
     "2" : {
       "id" : 2,
-      "kupac" : {
-        "id" : 1,
-        "kIme" : "markuzic",
-        "lozinka" : "markuzaRage",
-        "ime" : "Petar",
-        "prezime" : "Markovic",
-        "datumRodjenja" : "1999-10-10",
-        "pol" : "ZENSKO",
-        "obrisan" : false,
-        "uloga" : "KUPAC",
-        "tip" : "BRONZANI",
-        "brBodova" : 0,
-        "brOtkazivanja" : 0,
-        "karte" : [ ],
-        "blokiran" : false
-      },
-      "manifestacija" : {
-        "id" : 2,
-        "naziv" : "Dombos Festival",
-        "posterLink" : "./posters/dombos.jpg",
-        "datumVremePocetka" : "2021-06-17T03:30",
-        "datumVremeKraja" : "2021-06-19T03:30",
-        "lokacija" : {
-          "id" : 2,
-          "sirina" : 45.241965,
-          "duzina" : 19.807804,
-          "adresa" : {
-            "ulica" : "Koste Abrasevica",
-            "broj" : "40",
-            "mesto" : "Novi Sad City"
-          },
-          "obrisan" : false
-        },
-        "brMesta" : 10000,
-        "cenaRegular" : 10.0,
-        "status" : "AKTIVNO",
-        "tip" : "FESTIVAL",
-        "obrisan" : false,
-        "brojOcena" : 5,
-        "sumaOcena" : 15
-      },
+      "idKupac" : 1,
+      "idManifestacija" : 2,
       "komentar" : "dobra zurka",
       "ocena" : 4,
       "obrisan" : false,

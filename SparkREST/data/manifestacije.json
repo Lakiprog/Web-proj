@@ -18,7 +18,7 @@
         "obrisan" : false
       },
       "brMesta" : 1000,
-      "brSlobodnihMesta" : 937,
+      "brSlobodnihMesta" : 931,
       "cenaRegular" : 500.0,
       "status" : "AKTIVNO",
       "tip" : "KONCERT",
@@ -70,7 +70,7 @@
         "obrisan" : false
       },
       "brMesta" : 10000,
-      "brSlobodnihMesta" : 938,
+      "brSlobodnihMesta" : 930,
       "cenaRegular" : 500.0,
       "status" : "AKTIVNO",
       "tip" : "FESTIVAL",
