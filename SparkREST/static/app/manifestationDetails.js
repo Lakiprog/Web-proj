@@ -106,7 +106,7 @@ Vue.component("manifestation-details", {
         <div v-bind:hidden="comments.length == 0">
         <label class="list-group-item text-white bg-dark border-primary">Komentari: </label>
         <ul class="list-group list-group-flush" v-for="comm in comments">
-            <li v-bind:hidden="user.uloga == 'KUPAC' && !comm.odobren"class="list-group-item text-white bg-dark border-light">Ocena: {{comm.ocena}}<br/>{{comm.kIme}}: {{comm.komentar}}</li>
+            <li v-bind:hidden="(user.uloga == 'KUPAC' || user.uloga == 'GOST') && !comm.odobren"class="list-group-item text-white bg-dark border-light">Ocena: {{comm.ocena}}<br/>{{comm.kIme}}: {{comm.komentar}}</li>
         </ul>
         </div>
 
