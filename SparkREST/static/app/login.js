@@ -37,10 +37,12 @@ Vue.component("login", {
 	, 
 	methods : {
         logUserIn: function() {
+            let self = this;
             axios
             .post("/rest/users/logUserIn", this.user)
             .then(response => {
                 if (response.data == "success") {
+                    self.$root.$emit('sendingUser', response.data);
                     axios
                     .get("/rest/users/getCurrentUser")
                     .then(response => {
@@ -50,6 +52,8 @@ Vue.component("login", {
                     });
                     $.toast("Uspesno ste se prijavili.");
                     this.$router.push({ name: "Home" });
+                    this.$router.go();
+                    update();
                 } else {
                    $. toast({text : response.data, position : "mid-center", icon: "error"});
                 }
@@ -63,6 +67,10 @@ Vue.component("login", {
             if (response.data) {
                 this.korisnik = response.data;
             }
+        });
+
+        this.$root.$on('sendingUser', (data) => {
+            this.user = data;
         });
     }
 });

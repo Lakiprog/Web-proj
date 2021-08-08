@@ -2,7 +2,7 @@ Vue.component("adminManifestations", {
 	data: function () {
 		    return {
                 manifestations: [],
-                criteria: {naziv : "", adresa: "", datumOd : "", datumDo: "", cenaMin: 0, cenaMax: 10000, tip: "SVE", sortirajPo: "NAZIV", sortiraj: "RASTUCE"}
+                criteria: {naziv : "", adresa: "", datumOd : "", datumDo: "", cenaMin: 0, cenaMax: 10000, tip: "SVE", sortirajPo: "NAZIV", sortiraj: "RASTUCE", rasprodate: "SVE"}
 		    }
 	},
 	template: ` 
@@ -46,6 +46,15 @@ Vue.component("adminManifestations", {
                         <div class="form-group col-md-2">
                             <label for="do">Do:</label>
                             <input type="date" name = "do" v-model="criteria.datumDo" id = "do" class="form-control">
+                        </div>
+
+                        <div class="form-group col-md-2">
+                            <label for="rasprodate">Karte su/nisu rasprodate:</label>
+                            <select name="rasprodate" v-model="criteria.rasprodate" id="rasprodate" class="form-control">
+                                <option value="SVE">Sve</option>
+                                <option value="NERASPRODATE">Nerasprodate</option>
+                                <option value="RASPRODATE">Rasprodate</option>
+                            </select>
                         </div>
                     </div>
 
@@ -116,7 +125,7 @@ Vue.component("adminManifestations", {
     <tr v-for="manifestation in manifestations" >
         <td>{{manifestation.naziv}}</td>
         <td>{{manifestation.tip}}</td>
-        <td>{{manifestation.datumVremePocetka}}-{{manifestation.datumVremeKraja}}</td>
+        <td>{{manifestation.datumVremePocetka.replace('T', ' ')}} - {{manifestation.datumVremeKraja.replace('T', ' ')}}</td>
         <td>{{manifestation.brMesta}}</td>
         <td>{{manifestation.cenaRegular}}</td>
         <td>{{manifestation.adresa}}</td>

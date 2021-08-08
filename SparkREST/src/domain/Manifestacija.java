@@ -8,6 +8,7 @@ public class Manifestacija {
 	private String datumVremeKraja;
 	private Lokacija lokacija;
 	private int brMesta;
+	private int brSlobodnihMesta;
 	private double cenaRegular;
 	private StatusManifestacije status;
 	private TipManifestacije tip;
@@ -21,13 +22,14 @@ public class Manifestacija {
 	
 	
 	public Manifestacija(int id, String naziv, String datumVremePocetka, String datumVremeKraja, String posterLink, Lokacija lokacija, int brMesta,
-			double cenaRegular, StatusManifestacije status, TipManifestacije tip, int brojOcena, int sumaOcena) {
+			int brSlobodnihMesta, double cenaRegular, StatusManifestacije status, TipManifestacije tip, int brojOcena, int sumaOcena) {
 		super();
 		this.naziv = naziv;
 		this.setDatumVremePocetka(datumVremePocetka);
 		this.posterLink = posterLink;
 		this.lokacija = lokacija;
 		this.brMesta = brMesta;
+		this.setBrSlobodnihMesta(brSlobodnihMesta);
 		this.cenaRegular = cenaRegular;
 		this.status = status;
 		this.tip = tip;
@@ -133,6 +135,16 @@ public class Manifestacija {
 
 	public void setSumaOcena(int sumaOcena) {
 		this.sumaOcena = sumaOcena;
+	}
+
+
+	public int getBrSlobodnihMesta() {
+		return brSlobodnihMesta;
+	}
+
+
+	public void setBrSlobodnihMesta(int brSlobodnihMesta) {
+		this.brSlobodnihMesta = brSlobodnihMesta;
 	}
 	
 	

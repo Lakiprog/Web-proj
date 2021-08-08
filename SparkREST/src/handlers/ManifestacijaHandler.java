@@ -62,9 +62,9 @@ public class ManifestacijaHandler {
 	
 	public void azurirajManifestaciju(Manifestacija m) {
 		ucitani.put(m.getId(), m);
-		for (Manifestacija manifestacija : manifestacije) {
-			if(m.getId() == manifestacija.getId()){
-				manifestacija = m;
+		for (int i = 0; i < manifestacije.size();i++) {
+			if(m.getId() == manifestacije.get(i).getId()){
+				manifestacije.set(i, m);
 			}
 		}
 		sacuvaj();
@@ -147,10 +147,14 @@ public class ManifestacijaHandler {
 		return null;
 	}
 	
-	public ArrayList<Manifestacija> sortiranje(ManifestacijaSortiranjeDTO kriterijumi) {
+	public ArrayList<Manifestacija> sortiranje(ManifestacijaSortiranjeDTO kriterijumi, ArrayList<Manifestacija> ms) {
 		ArrayList<Manifestacija> m = new ArrayList<>();
 		
-		for (Manifestacija manifestacija : manifestacije) {
+		if(ms == null) {
+			ms = manifestacije;
+		}
+		
+		for (Manifestacija manifestacija : ms) {
 			if(manifestacija.getNaziv().contains(kriterijumi.getNaziv())) {
 				
 				if(manifestacija.getLokacija().getAdresa().toString().contains(kriterijumi.getAdresa())) {
@@ -159,17 +163,22 @@ public class ManifestacijaHandler {
 						
 						if(manifestacija.getTip().toString().equals(kriterijumi.getTip()) || kriterijumi.getTip().equals("SVE")) {
 							
-							if(kriterijumi.getDatumOd().equals("") || kriterijumi.getDatumDo().equals("")) {
-								m.add(manifestacija);
-							}else {
+							if((kriterijumi.getRasprodate().equals("SVE")) || (kriterijumi.getRasprodate().equals("RASPRODATE") && manifestacija.getBrSlobodnihMesta() == 0)
+									|| (kriterijumi.getRasprodate().equals("NERASPRODATE") && manifestacija.getBrSlobodnihMesta() > 0)) {
 								
-								LocalDateTime pocetak = LocalDateTime.parse(manifestacija.getDatumVremePocetka());
-								LocalDateTime kriterijumOd = LocalDateTime.parse(kriterijumi.getDatumOd() + "T00:00:00");
-								LocalDateTime kriterijumDo = LocalDateTime.parse(kriterijumi.getDatumDo() + "T00:00:00");
-								
-								if(pocetak.isAfter(kriterijumOd) && pocetak.isBefore(kriterijumDo)) {
+								if(kriterijumi.getDatumOd().equals("") || kriterijumi.getDatumDo().equals("")) {
 									m.add(manifestacija);
-								}
+								}else {
+									
+									LocalDateTime pocetak = LocalDateTime.parse(manifestacija.getDatumVremePocetka());
+									LocalDateTime kriterijumOd = LocalDateTime.parse(kriterijumi.getDatumOd() + "T00:00:00");
+									LocalDateTime kriterijumDo = LocalDateTime.parse(kriterijumi.getDatumDo() + "T00:00:00");
+									
+									if(pocetak.isAfter(kriterijumOd) && pocetak.isBefore(kriterijumDo)) {
+										m.add(manifestacija);
+									}
+									
+								}	
 								
 							}
 							
@@ -215,11 +224,15 @@ public class ManifestacijaHandler {
 		return m;
 	}
 	
-	public boolean checkBadTimes(String s, String e, Lokacija lokacija) {
+	public boolean checkBadTimes(String s, String e, Lokacija lokacija, int id) {
 		LocalDateTime start = LocalDateTime.parse(s);
 		LocalDateTime end = LocalDateTime.parse(e);
 		
 		for (Manifestacija manifestacija : manifestacije) {
+			
+			if(manifestacija.getId() == id) {
+				continue;
+			}
 			
 			if(manifestacija.getLokacija().equals(lokacija)) {
 				//System.out.println("tu sam");

@@ -1,7 +1,7 @@
 package DTO;
 
 public class KorisnikSortiranjeDTO {
-	private String ime, prezime, kIme, uloga, tip, sortirajPo, sortiraj;
+	private String ime, prezime, kIme, uloga, tip, sortirajPo, sortiraj, sumnjivost;
 	
 	
 
@@ -10,7 +10,7 @@ public class KorisnikSortiranjeDTO {
 	}
 
 	public KorisnikSortiranjeDTO(String ime, String prezime, String kIme, String uloga, String tip, String sortirajPo,
-			String sortiraj) {
+			String sortiraj, String sumnjivost) {
 		super();
 		this.ime = ime;
 		this.prezime = prezime;
@@ -19,6 +19,17 @@ public class KorisnikSortiranjeDTO {
 		this.tip = tip;
 		this.sortirajPo = sortirajPo;
 		this.sortiraj = sortiraj;
+		this.sumnjivost = sumnjivost;
+	}
+	
+	
+
+	public String getSumnjivost() {
+		return sumnjivost;
+	}
+
+	public void setSumnjivost(String sumnjivost) {
+		this.sumnjivost = sumnjivost;
 	}
 
 	public String getIme() {

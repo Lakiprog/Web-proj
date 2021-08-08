@@ -26,39 +26,39 @@ Vue.component("buyerCards", {
         <div class="card text-white bg-dark mb-3 w-75">
 
             <div class="card-body">
-                <form action="" method="GET">
+                
                     <div class="form-row">
                         <div class="form-group col-md-2">
                             <label for="naziv">Naziv:</label>
-                            <input type="text" name = "naziv" id = "naziv" class="form-control">
+                            <input type="text" name = "naziv" v-model="criteria.naziv" id = "naziv" class="form-control">
                         </div>
                 
                         <div class="form-group col-md-2">
                             <label for="od">Od:</label>
-                            <input type="date" name = "od" id = "od" class="form-control">
+                            <input type="date" name = "od" v-model="criteria.datumOd" id = "od" class="form-control">
                         </div>
                 
                         <div class="form-group col-md-2">
                             <label for="do">Do:</label>
-                            <input type="date" name = "do" id = "do" class="form-control">
+                            <input type="date" name = "do" v-model="criteria.datumDo" id = "do" class="form-control">
                         </div>
 
                         <div class="form-group col-md-1">
                             <label for="tip">Tip:</label>
-                            <select name="tip" id="tip" class="form-control">
+                            <select name="tip" v-model="criteria.tip" id="tip" class="form-control">
                                 <option value="SVE">Sve</option>
                                 <option value="REGULAR">Regular</option>
-                                <option value="FAN_PIT">Fan Pit</option>
+                                <option value="FANPIT">Fan Pit</option>
                                 <option value="VIP">VIP</option>
                             </select>
                         </div>
 
                         <div class="form-group col-md-1">
                             <label for="status">Status:</label>
-                            <select name="status" id="status" class="form-control">
+                            <select name="status" v-model="criteria.status" id="status" class="form-control">
                                 <option value="SVE">Sve</option>
-                                <option value="REZERVISANO">Rezervisana</option>
-                                <option value="ODUSTANO">Odustano</option>
+                                <option value="REZERVISANA">Rezervisana</option>
+                                <option value="ODUSTANAK">Odustanak</option>
                             </select>
                         </div>
                     </div>
@@ -66,17 +66,17 @@ Vue.component("buyerCards", {
                     <div class="form-row">
                         <div class="form-group col-md-2">
                             <label for="minimum">Cena minimum:</label>
-                            <input type="number" name = "minimum" id = "minimum" class="form-control" min="0" value="0">
+                            <input type="number" name = "minimum" v-model="criteria.cenaMin" id = "minimum" class="form-control" min="0" value="0">
                         </div>
                 
                         <div class="form-group col-md-2">
                             <label for="maximum">Cena maximum:</label>
-                            <input type="number" name = "maximum" id = "maximum" class="form-control" min="0" value="1000000">
+                            <input type="number" name = "maximum" v-model="criteria.cenaMax" id = "maximum" class="form-control" min="0" value="1000000">
                         </div>
         
                         <div class="form-group col-md-2">
                             <label for="sortiranjePo">Sortiraj po:</label>
-                            <select name="sortiranjePo" id="sortiranjePo" class="form-control">
+                            <select name="sortiranjePo" v-model="criteria.sortirajPo" id="sortiranjePo" class="form-control">
                                 <option value="NAZIV">Naziv</option>
                                 <option value="DATUM">Datum</option>
                                 <option value="CENA">Cena</option>
@@ -85,7 +85,7 @@ Vue.component("buyerCards", {
         
                         <div class="form-group col-md-2">
                             <label for="nacinSortiranja">Sortiraj:</label>
-                            <select name="nacinSortiranja" id="nacinSortiranja" class="form-control">
+                            <select name="nacinSortiranja" v-model="criteria.sortiraj" id="nacinSortiranja" class="form-control">
                                 <option value="RASTUCE">Rastuce</option>
                                 <option value="OPADAJUCE">Opadajuce</option>
                             </select>
@@ -93,9 +93,9 @@ Vue.component("buyerCards", {
                     </div>
             
                     <div>
-                        <input type="submit" name = "filtriraj" id = "filtriraj" value="Filtriraj" class="btn btn-primary">
+                        <input type="button" name = "filtriraj" id = "filtriraj" value="Filtriraj" class="btn btn-primary" v-on:click="filter()">
                     </div>
-                </form>
+                
             </div>
           </div>
 
@@ -107,8 +107,8 @@ Vue.component("buyerCards", {
     <tr>
         <th>Manifestacija</th>
         <th>Tip Karte</th>
-		<th>Broj mesta</th>
-		<th>Datum</th>
+		<th>Datum Manifestacije</th>
+        <th>Cena</th>
         <th>Status</th>
         <th></th>
     </tr>
@@ -116,9 +116,8 @@ Vue.component("buyerCards", {
     <tr v-for="c in this.cards">
         <td>{{c.manifestacija}}</td>
         <td>{{c.tip}}</td>
-        <td>{{c.brMesta}}</td>
-        <td>{{c.manifestacija}}</td>
-        <td>{{c.datumVreme}}</td>
+        <td>{{c.datumVreme.replace('T', ' ')}}</td>
+        <td>{{c.cena}}</td>
         <td v-if="c.status == 'REZERVISANA'" style="color:green;">Rezervisana</td>
         <td v-else style="color:red;">Odustanak</td>
         <td><input v-bind:hidden="c.status != 'REZERVISANA'" type="button" class="btn btn-danger" value="Odustani" v-on:click="odustani(c)" /></td>
@@ -138,6 +137,13 @@ Vue.component("buyerCards", {
                 
             });
             c.status = "ODUSTANAK";
+        },
+        filter: function(){
+            axios
+            .post("/rest/cards/filterCardsKupac", this.criteria)
+            .then(response => {
+                this.cards = response.data;
+            });
         }
 	},
 	mounted () {

@@ -126,10 +126,14 @@ public class KarteHandler {
 		return ucitani.get(id);
 	}
 	
-	public ArrayList<Karta> sortiranje(KarteSortiranjeDTO kriterijumi){
+	public ArrayList<Karta> sortiranje(KarteSortiranjeDTO kriterijumi, ArrayList<Karta> ks){
 		ArrayList<Karta> k = new ArrayList<>();
 		
-		for (Karta karta : karte) {
+		if(ks == null) {
+			ks = karte;
+		}
+		
+		for (Karta karta : ks) {
 			if(karta.getManifestacija().getNaziv().contains(kriterijumi.getNaziv())) {
 				
 				if(kriterijumi.getTip().equals("SVE") || karta.getTip().toString().equals(kriterijumi.getTip())) {

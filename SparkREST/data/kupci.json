@@ -10,10 +10,10 @@
       "pol" : "ZENSKO",
       "obrisan" : false,
       "uloga" : "KUPAC",
-      "tip" : "NIKAKVA",
-      "brBodova" : 0,
-      "brOtkazivanja" : 0,
-      "karte" : [ ],
+      "tip" : "BRONZANI",
+      "brBodova" : -60,
+      "brOtkazivanja" : 1,
+      "karte" : [ 13, 14, 15, 16, 17, 18, 19, 20, 21 ],
       "blokiran" : false
     },
     "2" : {
@@ -26,7 +26,7 @@
       "pol" : "MUSKO",
       "obrisan" : true,
       "uloga" : "KUPAC",
-      "tip" : "NIKAKVA",
+      "tip" : "BRONZANI",
       "brBodova" : 0,
       "brOtkazivanja" : 0,
       "karte" : [ ],
@@ -42,10 +42,10 @@
       "pol" : "MUSKO",
       "obrisan" : false,
       "uloga" : "KUPAC",
-      "tip" : "NIKAKVA",
+      "tip" : "BRONZANI",
       "brBodova" : 0,
       "brOtkazivanja" : 0,
-      "karte" : [1 ],
+      "karte" : [ 1 ],
       "blokiran" : true
     },
     "4" : {

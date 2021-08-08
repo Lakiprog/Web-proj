@@ -18,6 +18,7 @@
         "obrisan" : false
       },
       "brMesta" : 1000,
+      "brSlobodnihMesta" : 937,
       "cenaRegular" : 500.0,
       "status" : "AKTIVNO",
       "tip" : "KONCERT",
@@ -29,8 +30,8 @@
       "id" : 2,
       "naziv" : "Dombos Festival",
       "posterLink" : "./posters/dombos.jpg",
-      "datumVremePocetka" : "2021-09-17T03:30",
-      "datumVremeKraja" : "2021-09-19T03:30",
+      "datumVremePocetka" : "2021-06-17T03:30",
+      "datumVremeKraja" : "2021-06-19T03:30",
       "lokacija" : {
         "id" : 2,
         "sirina" : 45.241965,
@@ -43,31 +44,33 @@
         "obrisan" : false
       },
       "brMesta" : 10000,
+      "brSlobodnihMesta" : 936,
       "cenaRegular" : 10.0,
       "status" : "AKTIVNO",
       "tip" : "FESTIVAL",
       "obrisan" : false,
-      "brojOcena" : 3,
-      "sumaOcena" : 7
+      "brojOcena" : 5,
+      "sumaOcena" : 15
     },
     "3" : {
       "id" : 3,
-      "naziv" : "Ludilo",
+      "naziv" : "LudiloXXX",
       "posterLink" : "./posters/rambo.jpeg",
       "datumVremePocetka" : "2021-07-30T15:54",
       "datumVremeKraja" : "2021-09-17T03:30",
       "lokacija" : {
-        "id" : 2,
-        "sirina" : 45.241965,
-        "duzina" : 19.807804,
+        "id" : 0,
+        "sirina" : 45.239679,
+        "duzina" : 19.804357,
         "adresa" : {
-          "ulica" : "Koste Abrasevica",
-          "broj" : "40",
-          "mesto" : "Novi Sad City"
+          "ulica" : "Kruzna",
+          "broj" : "16",
+          "mesto" : "Novi Sad City "
         },
         "obrisan" : false
       },
       "brMesta" : 10000,
+      "brSlobodnihMesta" : 938,
       "cenaRegular" : 500.0,
       "status" : "AKTIVNO",
       "tip" : "FESTIVAL",
@@ -93,6 +96,7 @@
         "obrisan" : false
       },
       "brMesta" : 5,
+      "brSlobodnihMesta" : 4,
       "cenaRegular" : 5.0,
       "status" : "AKTIVNO",
       "tip" : "FESTIVAL",
@@ -118,6 +122,7 @@
         "obrisan" : false
       },
       "brMesta" : 1212,
+      "brSlobodnihMesta" : 0,
       "cenaRegular" : 12.0,
       "status" : "NEAKTIVNO",
       "tip" : "KONCERT",
@@ -143,12 +148,65 @@
         "obrisan" : false
       },
       "brMesta" : 1212,
+      "brSlobodnihMesta" : 950,
       "cenaRegular" : 12.0,
       "status" : "AKTIVNO",
       "tip" : "FESTIVAL",
       "obrisan" : false,
       "brojOcena" : 3,
       "sumaOcena" : 7
+    },
+    "7" : {
+      "id" : 7,
+      "naziv" : "Neaktivna",
+      "posterLink" : "C:\\fakepath\\patients.png",
+      "datumVremePocetka" : "2021-09-04T00:40",
+      "datumVremeKraja" : "2021-09-11T00:40",
+      "lokacija" : {
+        "id" : 0,
+        "sirina" : 45.2526,
+        "duzina" : 19.830002,
+        "adresa" : {
+          "ulica" : "Cirpanova",
+          "broj" : "51",
+          "mesto" : "Novi Sad"
+        },
+        "obrisan" : false
+      },
+      "brMesta" : 10,
+      "brSlobodnihMesta" : 10,
+      "cenaRegular" : 15.0,
+      "status" : "NEAKTIVNO",
+      "tip" : "KONCERT",
+      "obrisan" : false,
+      "brojOcena" : 0,
+      "sumaOcena" : 0
+    },
+    "8" : {
+      "id" : 8,
+      "naziv" : "Saka zulu predstava",
+      "posterLink" : "C:\\fakepath\\ludilo.jpg",
+      "datumVremePocetka" : "2021-09-10T08:28",
+      "datumVremeKraja" : "2021-09-21T08:28",
+      "lokacija" : {
+        "id" : 0,
+        "sirina" : 45.387555,
+        "duzina" : 19.877348,
+        "adresa" : {
+          "ulica" : "Partizanska",
+          "broj" : "",
+          "mesto" : "Temerin Municipality"
+        },
+        "obrisan" : false
+      },
+      "brMesta" : 700,
+      "brSlobodnihMesta" : 700,
+      "cenaRegular" : 100.0,
+      "status" : "NEAKTIVNO",
+      "tip" : "POZORISTE",
+      "obrisan" : false,
+      "brojOcena" : 0,
+      "sumaOcena" : 0
     }
   }
 }

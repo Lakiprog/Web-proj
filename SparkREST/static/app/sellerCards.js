@@ -30,35 +30,35 @@ Vue.component("sellerCards", {
                     <div class="form-row">
                         <div class="form-group col-md-2">
                             <label for="naziv">Naziv:</label>
-                            <input type="text" name = "naziv" id = "naziv" class="form-control">
+                            <input type="text" name = "naziv" v-model="criteria.naziv" id = "naziv" class="form-control">
                         </div>
                 
                         <div class="form-group col-md-2">
                             <label for="od">Od:</label>
-                            <input type="date" name = "od" id = "od" class="form-control">
+                            <input type="date" name = "od" v-model="criteria.datumOd" id = "od" class="form-control">
                         </div>
                 
                         <div class="form-group col-md-2">
                             <label for="do">Do:</label>
-                            <input type="date" name = "do" id = "do" class="form-control">
+                            <input type="date" name = "do" v-model="criteria.datumDo" id = "do" class="form-control">
                         </div>
 
                         <div class="form-group col-md-1">
                             <label for="tip">Tip:</label>
-                            <select name="tip" id="tip" class="form-control">
+                            <select name="tip" v-model="criteria.tip" id="tip" class="form-control">
                                 <option value="SVE">Sve</option>
                                 <option value="REGULAR">Regular</option>
-                                <option value="FAN_PIT">Fan Pit</option>
+                                <option value="FANPIT">Fan Pit</option>
                                 <option value="VIP">VIP</option>
                             </select>
                         </div>
 
                         <div class="form-group col-md-1">
                             <label for="status">Status:</label>
-                            <select name="status" id="status" class="form-control">
+                            <select name="status" v-model="criteria.status" id="status" class="form-control">
                                 <option value="SVE">Sve</option>
-                                <option value="REZERVISANO">Rezervisana</option>
-                                <option value="ODUSTANO">Odustano</option>
+                                <option value="REZERVISANA">Rezervisana</option>
+                                <option value="ODUSTANAK">Odustanak</option>
                             </select>
                         </div>
                     </div>
@@ -66,17 +66,17 @@ Vue.component("sellerCards", {
                     <div class="form-row">
                         <div class="form-group col-md-2">
                             <label for="minimum">Cena minimum:</label>
-                            <input type="number" name = "minimum" id = "minimum" class="form-control" min="0" value="0">
+                            <input type="number" name = "minimum" v-model="criteria.cenaMin" id = "minimum" class="form-control" min="0" value="0">
                         </div>
                 
                         <div class="form-group col-md-2">
                             <label for="maximum">Cena maximum:</label>
-                            <input type="number" name = "maximum" id = "maximum" class="form-control" min="0" value="1000000">
+                            <input type="number" name = "maximum" v-model="criteria.cenaMax" id = "maximum" class="form-control" min="0" value="1000000">
                         </div>
         
                         <div class="form-group col-md-2">
                             <label for="sortiranjePo">Sortiraj po:</label>
-                            <select name="sortiranjePo" id="sortiranjePo" class="form-control">
+                            <select name="sortiranjePo" v-model="criteria.sortirajPo" id="sortiranjePo" class="form-control">
                                 <option value="NAZIV">Naziv</option>
                                 <option value="DATUM">Datum</option>
                                 <option value="CENA">Cena</option>
@@ -85,7 +85,7 @@ Vue.component("sellerCards", {
         
                         <div class="form-group col-md-2">
                             <label for="nacinSortiranja">Sortiraj:</label>
-                            <select name="nacinSortiranja" id="nacinSortiranja" class="form-control">
+                            <select name="nacinSortiranja" v-model="criteria.sortiraj" id="nacinSortiranja" class="form-control">
                                 <option value="RASTUCE">Rastuce</option>
                                 <option value="OPADAJUCE">Opadajuce</option>
                             </select>
@@ -108,9 +108,9 @@ Vue.component("sellerCards", {
         <th>K.Ime Kupca</th>
         <th>Ime i prezime</th>
         <th>Tip</th>
-		<th>Broj mesta</th>
 		<th>Manifestacija</th>
-		<th>Datum</th>
+		<th>Datum Manifestacije</th>
+        <th>Cena</th>
         <th>Status</th>
     </tr>
 
@@ -118,9 +118,9 @@ Vue.component("sellerCards", {
         <td>{{c.kIme}}</td>
         <td>{{c.ime}} {{c.prezime}}</td>
         <td>{{c.tip}}</td>
-        <td>{{c.brMesta}}</td>
         <td>{{c.manifestacija}}</td>
-        <td>{{c.datumVreme}}</td>
+        <td>{{c.datumVreme.replace('T', ' ')}}</td>
+        <td>{{c.cena}}</td>
         <td v-if="c.status == 'REZERVISANA'" style="color:green;">Rezervisana</td>
         <td v-else style="color:red;">Odustanak</td>
     </tr>
@@ -133,7 +133,11 @@ Vue.component("sellerCards", {
 	, 
 	methods : {
         filter: function(){
-            
+            axios
+            .post("/rest/cards/filterCardsProdavac", this.criteria)
+            .then(response => {
+                this.cards = response.data;
+            });
         }
 	},
 	mounted () {

@@ -108,9 +108,9 @@ Vue.component("adminCards", {
         <th>K.Ime Kupca</th>
         <th>Ime i prezime</th>
         <th>Tip</th>
-		<th>Broj mesta</th>
 		<th>Manifestacija</th>
-		<th>Datum</th>
+		<th>Datum Manifestacije</th>
+        <th>Cena</th>
         <th>Status</th>
     </tr>
 
@@ -118,9 +118,9 @@ Vue.component("adminCards", {
         <td>{{c.kIme}}</td>
         <td>{{c.ime}} {{c.prezime}}</td>
         <td>{{c.tip}}</td>
-        <td>{{c.brMesta}}</td>
         <td>{{c.manifestacija}}</td>
-        <td>{{c.datumVreme}}</td>
+        <td>{{c.datumVreme.replace('T', ' ')}}</td>
+        <td>{{c.cena}}</td>
         <td v-if="c.status == 'REZERVISANA'" style="color:green;">Rezervisana</td>
         <td v-else style="color:red;">Odustanak</td>
     </tr>

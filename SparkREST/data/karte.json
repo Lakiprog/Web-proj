@@ -22,6 +22,7 @@
           "obrisan" : false
         },
         "brMesta" : 1000,
+        "brSlobodnihMesta" : 0,
         "cenaRegular" : 500.0,
         "status" : "AKTIVNO",
         "tip" : "KONCERT",
@@ -56,6 +57,7 @@
           "obrisan" : false
         },
         "brMesta" : 1000,
+        "brSlobodnihMesta" : 0,
         "cenaRegular" : 500.0,
         "status" : "AKTIVNO",
         "tip" : "KONCERT",
@@ -66,6 +68,671 @@
       "cena" : 300.0,
       "status" : "REZERVISANA",
       "tip" : "FANPIT",
+      "obrisan" : false
+    },
+    "3" : {
+      "datumVreme" : "2021-07-31T16:49:00.590992100",
+      "id" : 3,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 1,
+        "naziv" : "Koncert Ramba Amadeusa",
+        "posterLink" : "./posters/rambo.jpeg",
+        "datumVremePocetka" : "2021-09-10T03:30",
+        "datumVremeKraja" : "2021-09-17T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 1000,
+        "brSlobodnihMesta" : 0,
+        "cenaRegular" : 500.0,
+        "status" : "AKTIVNO",
+        "tip" : "KONCERT",
+        "obrisan" : false,
+        "brojOcena" : 3,
+        "sumaOcena" : 7
+      },
+      "cena" : 1000.0,
+      "status" : "REZERVISANA",
+      "tip" : "FANPIT",
+      "obrisan" : false
+    },
+    "4" : {
+      "datumVreme" : "2021-07-31T17:11:48.516678200",
+      "id" : 4,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 1,
+        "naziv" : "Koncert Ramba Amadeusa",
+        "posterLink" : "./posters/rambo.jpeg",
+        "datumVremePocetka" : "2021-09-10T03:30",
+        "datumVremeKraja" : "2021-09-17T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 1000,
+        "brSlobodnihMesta" : 0,
+        "cenaRegular" : 500.0,
+        "status" : "AKTIVNO",
+        "tip" : "KONCERT",
+        "obrisan" : false,
+        "brojOcena" : 3,
+        "sumaOcena" : 7
+      },
+      "cena" : 500.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "5" : {
+      "datumVreme" : "2021-07-31T19:04:09.517871",
+      "id" : 5,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 1,
+        "naziv" : "Koncert Ramba Amadeusa",
+        "posterLink" : "./posters/rambo.jpeg",
+        "datumVremePocetka" : "2021-09-10T03:30",
+        "datumVremeKraja" : "2021-09-17T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 1000,
+        "brSlobodnihMesta" : 0,
+        "cenaRegular" : 500.0,
+        "status" : "AKTIVNO",
+        "tip" : "KONCERT",
+        "obrisan" : false,
+        "brojOcena" : 3,
+        "sumaOcena" : 7
+      },
+      "cena" : 3000.0,
+      "status" : "REZERVISANA",
+      "tip" : "FANPIT",
+      "obrisan" : false
+    },
+    "6" : {
+      "datumVreme" : "2021-07-31T19:04:09.529881800",
+      "id" : 6,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 1,
+        "naziv" : "Koncert Ramba Amadeusa",
+        "posterLink" : "./posters/rambo.jpeg",
+        "datumVremePocetka" : "2021-09-10T03:30",
+        "datumVremeKraja" : "2021-09-17T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 1000,
+        "brSlobodnihMesta" : 0,
+        "cenaRegular" : 500.0,
+        "status" : "AKTIVNO",
+        "tip" : "KONCERT",
+        "obrisan" : false,
+        "brojOcena" : 3,
+        "sumaOcena" : 7
+      },
+      "cena" : 3000.0,
+      "status" : "REZERVISANA",
+      "tip" : "FANPIT",
+      "obrisan" : false
+    },
+    "7" : {
+      "datumVreme" : "2021-07-31T19:04:09.532885100",
+      "id" : 7,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 1,
+        "naziv" : "Koncert Ramba Amadeusa",
+        "posterLink" : "./posters/rambo.jpeg",
+        "datumVremePocetka" : "2021-09-10T03:30",
+        "datumVremeKraja" : "2021-09-17T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 1000,
+        "brSlobodnihMesta" : 0,
+        "cenaRegular" : 500.0,
+        "status" : "AKTIVNO",
+        "tip" : "KONCERT",
+        "obrisan" : false,
+        "brojOcena" : 3,
+        "sumaOcena" : 7
+      },
+      "cena" : 3000.0,
+      "status" : "REZERVISANA",
+      "tip" : "FANPIT",
+      "obrisan" : false
+    },
+    "8" : {
+      "datumVreme" : "2021-07-31T19:05:08.929820",
+      "id" : 8,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 1,
+        "naziv" : "Koncert Ramba Amadeusa",
+        "posterLink" : "./posters/rambo.jpeg",
+        "datumVremePocetka" : "2021-09-10T03:30",
+        "datumVremeKraja" : "2021-09-17T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 1000,
+        "brSlobodnihMesta" : 0,
+        "cenaRegular" : 500.0,
+        "status" : "AKTIVNO",
+        "tip" : "KONCERT",
+        "obrisan" : false,
+        "brojOcena" : 3,
+        "sumaOcena" : 7
+      },
+      "cena" : 3000.0,
+      "status" : "REZERVISANA",
+      "tip" : "FANPIT",
+      "obrisan" : false
+    },
+    "9" : {
+      "datumVreme" : "2021-07-31T19:05:08.931822500",
+      "id" : 9,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 1,
+        "naziv" : "Koncert Ramba Amadeusa",
+        "posterLink" : "./posters/rambo.jpeg",
+        "datumVremePocetka" : "2021-09-10T03:30",
+        "datumVremeKraja" : "2021-09-17T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 1000,
+        "brSlobodnihMesta" : 0,
+        "cenaRegular" : 500.0,
+        "status" : "AKTIVNO",
+        "tip" : "KONCERT",
+        "obrisan" : false,
+        "brojOcena" : 3,
+        "sumaOcena" : 7
+      },
+      "cena" : 3000.0,
+      "status" : "REZERVISANA",
+      "tip" : "FANPIT",
+      "obrisan" : false
+    },
+    "10" : {
+      "datumVreme" : "2021-07-31T19:05:08.934825100",
+      "id" : 10,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 1,
+        "naziv" : "Koncert Ramba Amadeusa",
+        "posterLink" : "./posters/rambo.jpeg",
+        "datumVremePocetka" : "2021-09-10T03:30",
+        "datumVremeKraja" : "2021-09-17T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 1000,
+        "brSlobodnihMesta" : 0,
+        "cenaRegular" : 500.0,
+        "status" : "AKTIVNO",
+        "tip" : "KONCERT",
+        "obrisan" : false,
+        "brojOcena" : 3,
+        "sumaOcena" : 7
+      },
+      "cena" : 3000.0,
+      "status" : "REZERVISANA",
+      "tip" : "FANPIT",
+      "obrisan" : false
+    },
+    "11" : {
+      "datumVreme" : "2021-07-31T22:15:54.385512300",
+      "id" : 11,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 2,
+        "naziv" : "Dombos Festival",
+        "posterLink" : "./posters/dombos.jpg",
+        "datumVremePocetka" : "2021-06-17T03:30",
+        "datumVremeKraja" : "2021-06-19T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 10000,
+        "brSlobodnihMesta" : 0,
+        "cenaRegular" : 10.0,
+        "status" : "AKTIVNO",
+        "tip" : "FESTIVAL",
+        "obrisan" : false,
+        "brojOcena" : 3,
+        "sumaOcena" : 7
+      },
+      "cena" : 40.0,
+      "status" : "REZERVISANA",
+      "tip" : "FANPIT",
+      "obrisan" : false
+    },
+    "12" : {
+      "datumVreme" : "2021-07-31T22:15:54.398515800",
+      "id" : 12,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 2,
+        "naziv" : "Dombos Festival",
+        "posterLink" : "./posters/dombos.jpg",
+        "datumVremePocetka" : "2021-06-17T03:30",
+        "datumVremeKraja" : "2021-06-19T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 10000,
+        "brSlobodnihMesta" : 0,
+        "cenaRegular" : 10.0,
+        "status" : "AKTIVNO",
+        "tip" : "FESTIVAL",
+        "obrisan" : false,
+        "brojOcena" : 3,
+        "sumaOcena" : 7
+      },
+      "cena" : 40.0,
+      "status" : "REZERVISANA",
+      "tip" : "FANPIT",
+      "obrisan" : false
+    },
+    "13" : {
+      "datumVreme" : "2021-08-03T18:08:18.408118800",
+      "id" : 13,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 1,
+        "naziv" : "Koncert Ramba Amadeusa",
+        "posterLink" : "./posters/rambo.jpeg",
+        "datumVremePocetka" : "2021-09-10T03:30",
+        "datumVremeKraja" : "2021-09-17T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 1000,
+        "brSlobodnihMesta" : 937,
+        "cenaRegular" : 500.0,
+        "status" : "AKTIVNO",
+        "tip" : "KONCERT",
+        "obrisan" : false,
+        "brojOcena" : 3,
+        "sumaOcena" : 7
+      },
+      "cena" : 1500.0,
+      "status" : "ODUSTANAK",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "14" : {
+      "datumVreme" : "2021-08-03T18:08:18.424133900",
+      "id" : 14,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 1,
+        "naziv" : "Koncert Ramba Amadeusa",
+        "posterLink" : "./posters/rambo.jpeg",
+        "datumVremePocetka" : "2021-09-10T03:30",
+        "datumVremeKraja" : "2021-09-17T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 1000,
+        "brSlobodnihMesta" : 937,
+        "cenaRegular" : 500.0,
+        "status" : "AKTIVNO",
+        "tip" : "KONCERT",
+        "obrisan" : false,
+        "brojOcena" : 3,
+        "sumaOcena" : 7
+      },
+      "cena" : 1500.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "15" : {
+      "datumVreme" : "2021-08-03T18:08:18.431139700",
+      "id" : 15,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 1,
+        "naziv" : "Koncert Ramba Amadeusa",
+        "posterLink" : "./posters/rambo.jpeg",
+        "datumVremePocetka" : "2021-09-10T03:30",
+        "datumVremeKraja" : "2021-09-17T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 1000,
+        "brSlobodnihMesta" : 937,
+        "cenaRegular" : 500.0,
+        "status" : "AKTIVNO",
+        "tip" : "KONCERT",
+        "obrisan" : false,
+        "brojOcena" : 3,
+        "sumaOcena" : 7
+      },
+      "cena" : 1500.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "16" : {
+      "datumVreme" : "2021-08-03T18:09:56.272970",
+      "id" : 16,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 2,
+        "naziv" : "Dombos Festival",
+        "posterLink" : "./posters/dombos.jpg",
+        "datumVremePocetka" : "2021-06-17T03:30",
+        "datumVremeKraja" : "2021-06-19T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 10000,
+        "brSlobodnihMesta" : 936,
+        "cenaRegular" : 10.0,
+        "status" : "AKTIVNO",
+        "tip" : "FESTIVAL",
+        "obrisan" : false,
+        "brojOcena" : 5,
+        "sumaOcena" : 15
+      },
+      "cena" : 80.0,
+      "status" : "REZERVISANA",
+      "tip" : "FANPIT",
+      "obrisan" : false
+    },
+    "17" : {
+      "datumVreme" : "2021-08-03T18:09:56.275973300",
+      "id" : 17,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 2,
+        "naziv" : "Dombos Festival",
+        "posterLink" : "./posters/dombos.jpg",
+        "datumVremePocetka" : "2021-06-17T03:30",
+        "datumVremeKraja" : "2021-06-19T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 10000,
+        "brSlobodnihMesta" : 936,
+        "cenaRegular" : 10.0,
+        "status" : "AKTIVNO",
+        "tip" : "FESTIVAL",
+        "obrisan" : false,
+        "brojOcena" : 5,
+        "sumaOcena" : 15
+      },
+      "cena" : 80.0,
+      "status" : "REZERVISANA",
+      "tip" : "FANPIT",
+      "obrisan" : false
+    },
+    "18" : {
+      "datumVreme" : "2021-08-03T18:09:56.277975100",
+      "id" : 18,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 2,
+        "naziv" : "Dombos Festival",
+        "posterLink" : "./posters/dombos.jpg",
+        "datumVremePocetka" : "2021-06-17T03:30",
+        "datumVremeKraja" : "2021-06-19T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 10000,
+        "brSlobodnihMesta" : 936,
+        "cenaRegular" : 10.0,
+        "status" : "AKTIVNO",
+        "tip" : "FESTIVAL",
+        "obrisan" : false,
+        "brojOcena" : 5,
+        "sumaOcena" : 15
+      },
+      "cena" : 80.0,
+      "status" : "REZERVISANA",
+      "tip" : "FANPIT",
+      "obrisan" : false
+    },
+    "19" : {
+      "datumVreme" : "2021-08-03T18:09:56.280977600",
+      "id" : 19,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 2,
+        "naziv" : "Dombos Festival",
+        "posterLink" : "./posters/dombos.jpg",
+        "datumVremePocetka" : "2021-06-17T03:30",
+        "datumVremeKraja" : "2021-06-19T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 10000,
+        "brSlobodnihMesta" : 936,
+        "cenaRegular" : 10.0,
+        "status" : "AKTIVNO",
+        "tip" : "FESTIVAL",
+        "obrisan" : false,
+        "brojOcena" : 5,
+        "sumaOcena" : 15
+      },
+      "cena" : 80.0,
+      "status" : "REZERVISANA",
+      "tip" : "FANPIT",
+      "obrisan" : false
+    },
+    "20" : {
+      "datumVreme" : "2021-08-03T18:48:45.832131600",
+      "id" : 20,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 3,
+        "naziv" : "Ludilo",
+        "posterLink" : "./posters/rambo.jpeg",
+        "datumVremePocetka" : "2021-07-30T15:54",
+        "datumVremeKraja" : "2021-09-17T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 10000,
+        "brSlobodnihMesta" : 940,
+        "cenaRegular" : 500.0,
+        "status" : "AKTIVNO",
+        "tip" : "FESTIVAL",
+        "obrisan" : false,
+        "brojOcena" : 3,
+        "sumaOcena" : 7
+      },
+      "cena" : 4000.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "21" : {
+      "datumVreme" : "2021-08-03T18:48:45.835134100",
+      "id" : 21,
+      "idKupca" : 1,
+      "manifestacija" : {
+        "id" : 3,
+        "naziv" : "Ludilo",
+        "posterLink" : "./posters/rambo.jpeg",
+        "datumVremePocetka" : "2021-07-30T15:54",
+        "datumVremeKraja" : "2021-09-17T03:30",
+        "lokacija" : {
+          "id" : 2,
+          "sirina" : 45.241965,
+          "duzina" : 19.807804,
+          "adresa" : {
+            "ulica" : "Koste Abrasevica",
+            "broj" : "40",
+            "mesto" : "Novi Sad City"
+          },
+          "obrisan" : false
+        },
+        "brMesta" : 10000,
+        "brSlobodnihMesta" : 940,
+        "cenaRegular" : 500.0,
+        "status" : "AKTIVNO",
+        "tip" : "FESTIVAL",
+        "obrisan" : false,
+        "brojOcena" : 3,
+        "sumaOcena" : 7
+      },
+      "cena" : 4000.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
       "obrisan" : false
     }
   }

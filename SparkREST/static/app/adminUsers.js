@@ -2,7 +2,7 @@ Vue.component("adminUsers", {
 	data: function () {
 		    return {
                 users: [],
-                criteria: {ime : "", prezime: "", kIme: "", uloga: "SVE", tip: "SVE", sortirajPo: "IME", sortiraj: "RASTUCE"}
+                criteria: {ime : "", prezime: "", kIme: "", uloga: "SVE", tip: "SVE", sortirajPo: "IME", sortiraj: "RASTUCE", sumnjivost: "SVE"}
 		    }
 	},
 	template: ` 
@@ -52,15 +52,24 @@ Vue.component("adminUsers", {
                             <option value="ADMIN">Admin</option>
                         </select>
                     </div>
+
                 </div>
 
                 <div class="form-row">
+
+                    <div class="form-group col-md-2">
+                        <label for="sumnjivost">Sumnjivost:</label>
+                        <select name="sumnjivost" v-model="criteria.sumnjivost" id="sumnjivost" class="form-control">
+                            <option value="SVE">Sve</option>
+                            <option value="SUMNJIV">Sumnjiv</option>
+                            <option value="NESUMNJIV">Nesumnjiv</option>
+                        </select>
+                    </div>
             
                     <div class="form-group col-md-2">
                         <label for="tip">Tip:</label>
                         <select name="tip" v-model="criteria.tip" id="tip" class="form-control">
                             <option value="SVE">Sve</option>
-                            <option value="NIKAKVA">Nikakav</option>
                             <option value="BRONZANI">Bronzani</option>
                             <option value="SREBRNI">Srebrni</option>
                             <option value="ZLATNI">Zlatni</option>
@@ -85,11 +94,11 @@ Vue.component("adminUsers", {
                         </select>
                     </div>
 
-                    <div class="form-group col-md-2">
-                        <input type="button" name = "filtriraj" id = "filtriraj" value="Filtriraj" class="btn btn-primary" v-on:click="filter()">
-                    </div>
                 </div>
-        
+
+                <div>
+                        <input type="button" name = "filtriraj" id = "filtriraj" value="Filtriraj" class="btn btn-primary" v-on:click="filter()">
+                </div>
             
         </div>
       </div>
