@@ -84,7 +84,7 @@ Vue.component("manifestation-details", {
                 </div>
             </div>
 
-            <img v-bind:src="manifestation.posterLink" v-bind:alt="manifestation.naziv" id="slikaManifestacije">
+            <img v-bind:src="manifestation.posterLink" alt="slika nemoze da se ucita" id="slikaManifestacije">
                 
         </div>
 

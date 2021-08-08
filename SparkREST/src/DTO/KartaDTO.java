@@ -2,6 +2,7 @@ package DTO;
 
 import domain.Karta;
 import domain.Kupac;
+import domain.Manifestacija;
 import domain.StatusKarte;
 import domain.TipKarte;
 
@@ -12,16 +13,16 @@ public class KartaDTO {
 	private TipKarte tip;
 	private StatusKarte status;
 	
-	public KartaDTO(Karta ka, Kupac k) {
+	public KartaDTO(Karta ka, Kupac k, Manifestacija m) {
 		this.id = ka.getId();
 		this.kIme = k.getkIme();
 		this.ime = k.getIme();
 		this.prezime = k.getPrezime();
-		this.manifestacija = ka.getManifestacija().getNaziv();
-		this.datumVreme = ka.getManifestacija().getDatumVremePocetka();
+		this.manifestacija = m.getNaziv();
+		this.datumVreme = m.getDatumVremePocetka();
 		this.tip = ka.getTip();
 		this.status = ka.getStatus();
-		this.brMesta = ka.getManifestacija().getBrMesta();
+		this.brMesta = m.getBrMesta();
 		this.cena = ka.getCena();
 	}
 	

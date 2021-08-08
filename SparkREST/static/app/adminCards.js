@@ -77,7 +77,7 @@ Vue.component("adminCards", {
                         <div class="form-group col-md-2">
                             <label for="sortiranjePo">Sortiraj po:</label>
                             <select name="sortiranjePo" v-model="criteria.sortirajPo" id="sortiranjePo" class="form-control">
-                                <option value="NAZIV">Naziv</option>
+                                <option value="NAZIV">Manifestacija</option>
                                 <option value="DATUM">Datum</option>
                                 <option value="CENA">Cena</option>
                             </select>

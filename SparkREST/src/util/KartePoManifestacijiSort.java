@@ -8,7 +8,7 @@ public class KartePoManifestacijiSort implements Comparator<Karta> {
 
 	@Override
 	public int compare(Karta first, Karta second) {
-		return first.getManifestacija().getNaziv().compareTo(second.getManifestacija().getNaziv());
+		return Integer.compare(first.getIdManifestacije(), second.getIdManifestacije());
 	}
 	
 }

@@ -1,18 +1,20 @@
 package DTO;
 
 import domain.Komentar;
+import domain.Kupac;
+import domain.Manifestacija;
 
 public class KomentarDTO {
 	private String kIme, ime, prezime, manifestacija, komentar;
 	private int ocena, id;
 	private boolean odobren;
 	
-	public KomentarDTO(Komentar k) {
+	public KomentarDTO(Komentar k, Kupac kupac, Manifestacija m) {
 		this.id = k.getId();
-		this.kIme = k.getKupac().getkIme();
-		this.ime = k.getKupac().getIme();
-		this.prezime = k.getKupac().getPrezime();
-		this.manifestacija = k.getManifestacija().getNaziv();
+		this.kIme = kupac.getkIme();
+		this.ime = kupac.getIme();
+		this.prezime = kupac.getPrezime();
+		this.manifestacija = m.getNaziv();
 		this.komentar = k.getKomentar();
 		this.ocena = k.getOcena();
 		this.odobren = k.isOdobren();

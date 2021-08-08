@@ -1,17 +1,15 @@
 package domain;
 
 public class Komentar {
-	private int id;
-	private Kupac kupac;
-	private Manifestacija manifestacija;
+	private int id, idKupac, idManifestacija;
 	private String komentar;
 	private int ocena;
 	private boolean obrisan, odobren;
 
-	public Komentar(int id, Kupac kupac, Manifestacija manifestacija, String komentar, int ocena) {
+	public Komentar(int id, int kupac, int manifestacija, String komentar, int ocena) {
 		super();
-		this.kupac = kupac;
-		this.manifestacija = manifestacija;
+		this.idKupac = kupac;
+		this.idManifestacija = manifestacija;
 		this.komentar = komentar;
 		this.ocena = ocena;
 		this.id = id;
@@ -33,20 +31,22 @@ public class Komentar {
 		this.obrisan = obrisan;
 	}
 
-	public Kupac getKupac() {
-		return kupac;
+	
+
+	public int getIdKupac() {
+		return idKupac;
 	}
 
-	public void setKupac(Kupac kupac) {
-		this.kupac = kupac;
+	public void setIdKupac(int idKupac) {
+		this.idKupac = idKupac;
 	}
 
-	public Manifestacija getManifestacija() {
-		return manifestacija;
+	public int getIdManifestacija() {
+		return idManifestacija;
 	}
 
-	public void setManifestacija(Manifestacija manifestacija) {
-		this.manifestacija = manifestacija;
+	public void setIdManifestacija(int idManifestacija) {
+		this.idManifestacija = idManifestacija;
 	}
 
 	public String getKomentar() {
