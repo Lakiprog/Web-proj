@@ -7,6 +7,7 @@ Vue.component("adminUsers", {
 	},
 	template: ` 
     <div class="dinamic">
+    <br>
     <h2 align=center>Pregled Korisnika</h2>
 
     <div id="accordion">

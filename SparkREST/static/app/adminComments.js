@@ -6,6 +6,7 @@ Vue.component("adminComments", {
 	},
 	template: ` 
     <div class="dinamic">
+    <br>
     <h2 align=center>Pregled Komentara</h2>
     
     <div class="card text-white bg-dark mb-3 w-75">

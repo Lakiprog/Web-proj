@@ -7,6 +7,7 @@ Vue.component("adminManifestations", {
 	},
 	template: ` 
     <div class="dinamic">
+    <br>
     <h2 align=center>Pregled Manifestacija</h2>
 
     <div id="accordion">
@@ -131,7 +132,7 @@ Vue.component("adminManifestations", {
         <td>{{manifestation.adresa}}</td>
         <td v-if="manifestation.status == 'AKTIVNO'" style="color:green;">Aktivno</td>
         <td v-else style="color:red;">Neaktivno</td>
-        <td v-bind:hidden="manifestation.status == 'AKTIVNO'"><input type="button" class="btn btn-primary" value="Aktiviraj" v-on:click="activate(manifestation)" /></td>
+        <td><input type="button" class="btn btn-primary" v-bind:hidden="manifestation.status == 'AKTIVNO'" value="Aktiviraj" v-on:click="activate(manifestation)" /></td>
         <td><input type="button" class="btn btn-danger" value="Obrisi" v-on:click="deleteIt(manifestation)" /></td>
     </tr>
 
