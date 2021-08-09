@@ -30,8 +30,15 @@ Vue.component("manifestation-details", {
         <div class="card-body">
             
             <div id="informacije">
-                <p  v-if="manifestation.brojOcena > 0" class="card-text">Prosecna ocena: {{(manifestation.sumaOcena / manifestation.brojOcena).toFixed(2)}}</p>
-                <p  v-else>Prosecna ocena: 0</p>
+
+                <div class="star-ratings">
+                    <div class="fill-ratings">
+                        <span>★★★★★</span>
+                    </div>
+                    <div class="empty-ratings">
+                        <span>★★★★★</span>
+                    </div>
+                </div>
 
                 <p>Broj Mesta: {{manifestation.brMesta}}</p>
                 
@@ -130,11 +137,19 @@ Vue.component("manifestation-details", {
 			});
     	},
     	clickStar: function() {
-    	  	axios
+    	  	    axios
 		        .put("/rest/manifestations/rateManifestation/" + this.manifestation.id + "/" + "/" + this.user.id + "/" + this.grade, this.comment)
 		        .then(response => {
                     if (response.data == "success") {
                         toast("Uspesno ste ostavili svoju reviziju.");
+
+                        percentage = ((this.manifestation.sumaOcena + this.grade) / (this.manifestation.brojOcena + 1)).toFixed(1)*20;
+                        console.log((this.manifestation.sumaOcena + this.grade / this.manifestation.brojOcena + 1));
+                        $('.fill-ratings').width(percentage + "%");
+                        const star_rating_width = $('.fill-ratings span').width();
+                        $('.star-ratings').width(star_rating_width);
+                        
+                        this.rateable = false;
                     } else {
                         toast("Doslo je do greske.");
                     }
@@ -241,6 +256,15 @@ Vue.component("manifestation-details", {
                     this.manifestation.datumVremePocetka = this.manifestation.datumVremePocetka.replace('T', ' ');
                     this.manifestation.datumVremeKraja = this.manifestation.datumVremeKraja.replace('T', ' ');
                     this.showMap();
+
+                    if(this.manifestation.brojOcena == 0){
+                        $('.fill-ratings').width("0%");
+                    }else{
+                        percentage = (this.manifestation.sumaOcena / this.manifestation.brojOcena).toFixed(1)*20;
+                        $('.fill-ratings').width(percentage + "%");
+                    }
+                    const star_rating_width = $('.fill-ratings span').width();
+                    $('.star-ratings').width(star_rating_width);
                 }
                 if (this.user.uloga == "KUPAC") {
                     axios

@@ -17,6 +17,15 @@
       "ocena" : 4,
       "obrisan" : false,
       "odobren" : false
+    },
+    "3" : {
+      "id" : 3,
+      "idKupac" : 1,
+      "idManifestacija" : 3,
+      "komentar" : "bio sam spreman za ludilo, al ne i za madjarice.....",
+      "ocena" : 1,
+      "obrisan" : false,
+      "odobren" : false
     }
   }
 }

@@ -131,8 +131,22 @@ Vue.component("home-page", {
                         <p class="card-text">{{manifestation.datumVremePocetka.replace('T', ' ')}} - {{manifestation.datumVremeKraja.replace('T', ' ')}}</p>
                         <p class="card-text">{{manifestation.adresa}}</p>
                         <p class="card-text">Cena karte vec od: {{manifestation.cenaRegular}}RSD</p>
-                        <p  v-if="manifestation.brojOcena > 0" class="card-text">{{(manifestation.sumaOcena / manifestation.brojOcena).toFixed(2)}}</p>
-                        <p  v-else>0</p>
+                        <div v-bind:id="'rating'+ manifestation.id" v-if="manifestation.brojOcena > 0" class="star-ratings">
+                            <div class="fill-ratings" v-bind:style="{width: (manifestation.sumaOcena / manifestation.brojOcena).toFixed(1)*20 + '%'}">
+                                <span v-bind:id="'fill'+ manifestation.id" >★★★★★</span>
+                            </div>
+                            <div class="empty-ratings">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
+                        <div v-bind:id="'rating'+ manifestation.id" v-else class="star-ratings">
+                            <div class="fill-ratings" style="width: 0%;">
+                                <span v-bind:id="'fill'+ manifestation.id">★★★★★</span>
+                            </div>
+                            <div class="empty-ratings">
+                                <span>★★★★★</span>
+                            </div>
+                        </div>
                         <input type="button" class="btn btn-primary" value="Detalji" v-on:click="viewManifestation(manifestation)"/>
                     </div>
                 </div>
@@ -164,6 +178,15 @@ Vue.component("home-page", {
             var endIndex = ((startIndex + 5) > (this.manifestations.length - 1)) ? this.manifestations.length : startIndex + 5;
 
             this.currentPageManifestations = this.manifestations.slice(startIndex, endIndex);
+
+            this.$nextTick(function () {
+                this.currentPageManifestations.forEach(manifestation => {
+                    const star_rating_width = $('#fill' + manifestation.id).width();
+                    console.log($('#fill' + manifestation.id).index())
+                    $('#rating' + manifestation.id).width(star_rating_width);
+                });
+            })    
+            
         },
         filter: function(){
             axios
@@ -237,6 +260,16 @@ Vue.component("home-page", {
             } else {
                 this.currentPageManifestations = this.manifestations.slice(0, 5);
             }
+
+            this.$nextTick(function () {
+                this.manifestations.forEach(manifestation => {
+                    const star_rating_width = $('#fill' + manifestation.id).width();
+                    console.log($('#fill' + manifestation.id).index())
+                    $('#rating' + manifestation.id).width(star_rating_width);
+                });
+            })    
+            
         });
+        
     }
 });
