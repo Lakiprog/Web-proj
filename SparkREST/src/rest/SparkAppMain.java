@@ -14,6 +14,11 @@ import java.util.ArrayList;
 
 import com.google.gson.Gson;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.TimeUnit;
+
 import domain.Admin;
 import domain.Karta;
 import domain.Korisnik;
@@ -95,6 +100,21 @@ public class SparkAppMain {
 		webSocket("/ws", WsHandler.class);
 
 		staticFiles.externalLocation(new File("./static").getCanonicalPath());
+		
+		ScheduledExecutorService ses = Executors.newScheduledThreadPool(1);
+		
+		Runnable resetPenalties = () -> {
+			ArrayList<Kupac> customers = customersHandler.getkupci();
+			
+			System.out.println("Reseting penalties...");
+			for (int i = 0; i < customers.size(); ++i) {
+					Kupac k = customers.get(i);
+					k.setBrOtkazivanja(0);
+					customersHandler.azurirajKupca(k);
+			}
+		};
+		
+		ScheduledFuture<?> sf = ses.scheduleAtFixedRate(resetPenalties, 0, 30, TimeUnit.DAYS);
 		
 		post("/rest/users/logUserIn", (req, res) -> {
 			Korisnik user = gson.fromJson(req.body(), Korisnik.class);

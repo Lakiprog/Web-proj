@@ -12,7 +12,7 @@
       "uloga" : "KUPAC",
       "tip" : "BRONZANI",
       "brBodova" : -60,
-      "brOtkazivanja" : 1,
+      "brOtkazivanja" : 0,
       "karte" : [ 13, 14, 15, 16, 17, 18, 19, 20, 21 ],
       "blokiran" : false
     },
@@ -60,7 +60,7 @@
       "uloga" : "KUPAC",
       "tip" : null,
       "brBodova" : 0,
-      "brOtkazivanja" : 0,
+      "brOtkazivanja" : 2,
       "karte" : [ ],
       "blokiran" : false
     },
@@ -76,7 +76,7 @@
       "uloga" : "KUPAC",
       "tip" : null,
       "brBodova" : 0,
-      "brOtkazivanja" : 0,
+      "brOtkazivanja" : 4,
       "karte" : [ ],
       "blokiran" : false
     }

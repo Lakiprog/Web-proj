@@ -62,7 +62,7 @@ public class ManifestacijaHandler {
 	
 	public void azurirajManifestaciju(Manifestacija m) {
 		ucitani.put(m.getId(), m);
-		for (int i = 0; i < manifestacije.size();i++) {
+		for (int i = 0; i < manifestacije.size(); i++) {
 			if(m.getId() == manifestacije.get(i).getId()){
 				manifestacije.set(i, m);
 			}
