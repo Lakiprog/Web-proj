@@ -137,6 +137,7 @@ Vue.component("profile", {
                                 this.user.lozinka = response.data.lozinka;
                                 this.novaLozinka = "";
                                 this.novaLozinkaOpet = "";
+                                this.trenutnaLozinka = "";
                             }else {
                                 toast(response2.data);
                             }

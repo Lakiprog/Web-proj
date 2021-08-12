@@ -96,8 +96,8 @@ Vue.component("manifestation-details", {
         </div>
 
         <div v-bind:hidden="user.uloga != 'KUPAC' || !rateable">
-            <h2>Moja ocena(unesite komentar pa zatim ocenite klikom na zvezdicu): </h2>
-	        <div class="star-rating" v-on:click="clickStar()">
+            <h2>Moja ocena: </h2>
+	        <div class="star-rating">
                 <span class="fa fa-star-o" data-rating="1" ></span>
 				<span class="fa fa-star-o" data-rating="2"></span>
 				<span class="fa fa-star-o" data-rating="3"></span>
@@ -105,7 +105,8 @@ Vue.component("manifestation-details", {
 				<span class="fa fa-star-o" data-rating="5"></span>
 				<input type="hidden" name="whatever1" class="rating-value" v-model="grade">
             </div>
-            <textarea rows="6" style="width: 50%" name="text" v-model="comment"></textarea>
+            <textarea id="text" rows="6" style="width: 50%" name="text" v-model="comment"></textarea>
+            <input type="button" name="oceni" id = "oceni" value="Oceni" class="btn btn-primary" v-on:click="clickStar()">
         </div>
 
         <br>
@@ -113,7 +114,7 @@ Vue.component("manifestation-details", {
         <div v-bind:hidden="comments.length == 0">
         <label class="list-group-item text-white bg-dark border-primary">Komentari: </label>
         <ul class="list-group list-group-flush" v-for="comm in comments">
-            <li v-bind:hidden="(user.uloga == 'KUPAC' || user.uloga == 'GOST') && !comm.odobren"class="list-group-item text-white bg-dark border-light">Ocena: {{comm.ocena}}
+            <li v-bind:hidden="(user.uloga == 'KUPAC' || user.uloga == 'GOST') && !comm.odobren"class="list-group-item text-white bg-dark border-light">
             
             <div  v-bind:id="'rating'+ comm.id" class="star-ratings">
                 <div class="fill-ratings" v-bind:style="{width: comm.ocena*20 + '%'}">
@@ -150,28 +151,34 @@ Vue.component("manifestation-details", {
 			});
     	},
     	clickStar: function() {
-    	  	    axios
-		        .put("/rest/manifestations/rateManifestation/" + this.manifestation.id + "/" + "/" + this.user.id + "/" + this.grade, this.comment)
-		        .then(response => {
-                    if (response.data == "success") {
-                        toast("Uspesno ste ostavili svoju reviziju.");
+                if(this.grade == 0){
+                    toast("Niste birali ocenu.");
+                }else if(this.comment == ""){
+                    toast("Niste ostavili komentar.");
+                }else{
+                    axios
+                    .put("/rest/manifestations/rateManifestation/" + this.manifestation.id + "/" + "/" + this.user.id + "/" + this.grade, this.comment)
+                    .then(response => {
+                        if (response.data == "success") {
+                            toast("Uspesno ste ostavili svoju reviziju.");
 
-                        percentage = ((this.manifestation.sumaOcena + this.grade) / (this.manifestation.brojOcena + 1)).toFixed(1)*20;
-                        console.log((this.manifestation.sumaOcena + this.grade / this.manifestation.brojOcena + 1));
-                        $('.fill-ratings').width(percentage + "%");
-                        const star_rating_width = $('.fill-ratings span').width();
-                        $('.star-ratings').width(star_rating_width);
-                        
-                        this.rateable = false;
-                    } else {
-                        toast("Doslo je do greske.");
-                    }
-		        });
-            axios
-            .get("/rest/comments/getManifestationComments/" + this.manifestation.id)
-            .then(response => {
-                this.comments = response.data;
-            });
+                            percentage = ((this.manifestation.sumaOcena + this.grade) / (this.manifestation.brojOcena + 1)).toFixed(1)*20;
+                            console.log((this.manifestation.sumaOcena + this.grade / this.manifestation.brojOcena + 1));
+                            $('.fill-ratings').width(percentage + "%");
+                            const star_rating_width = $('.fill-ratings span').width();
+                            $('.star-ratings').width(star_rating_width);
+                            
+                            this.rateable = false;
+                        } else {
+                            toast("Doslo je do greske.");
+                        }
+                    });
+                    axios
+                    .get("/rest/comments/getManifestationComments/" + this.manifestation.id)
+                    .then(response => {
+                        this.comments = response.data;
+                    });
+                }
 		},
         calculatePrice: function() {
             this.calculated = true;
@@ -296,17 +303,17 @@ Vue.component("manifestation-details", {
                 .get("/rest/comments/getManifestationComments/" + this.manifestation.id)
                 .then(response => {
                     this.comments = response.data;
+                
+                    this.$nextTick(function () {
+                        this.comments.forEach(comment => {
+                            const star_rating_width = $('#fill' + comment.id).width();
+                            console.log($('#fill' + comment.id).index())
+                            $('#rating' + comment.id).width(star_rating_width);
+                        });
+                    })
                 });
             });
             this.SetRatingStar();
         });
-        
-        this.$nextTick(function () {
-            this.comments.forEach(comment => {
-                const star_rating_width = $('#fill' + comment.id).width();
-                console.log($('#fill' + comment.id).index())
-                $('#rating' + comment.id).width(star_rating_width);
-            });
-        })
     }
 });

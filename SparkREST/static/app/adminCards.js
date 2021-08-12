@@ -113,6 +113,7 @@ Vue.component("adminCards", {
 		<th>Datum Manifestacije</th>
         <th>Cena</th>
         <th>Status</th>
+        <th></th>
     </tr>
 
     <tr v-for="c in this.cards">
@@ -124,6 +125,7 @@ Vue.component("adminCards", {
         <td>{{c.cena}}</td>
         <td v-if="c.status == 'REZERVISANA'" style="color:green;">Rezervisana</td>
         <td v-else style="color:red;">Odustanak</td>
+        <td><input type="button" class="btn btn-danger" value="Obrisi" v-on:click="deleteIt(c)"/></td>
     </tr>
 
     </table>
@@ -133,6 +135,14 @@ Vue.component("adminCards", {
 `
 	, 
 	methods : {
+        deleteIt: function(c){
+            axios
+            .post("/rest/cards/delete", c)
+            .then(response => {
+                
+            });
+            this.cards = this.cards.filter(card => c.id != card.id);
+        },
         filter: function(){
             axios
             .post("/rest/cards/getCardsSorted", this.criteria)

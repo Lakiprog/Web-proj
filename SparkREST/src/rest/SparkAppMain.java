@@ -545,6 +545,28 @@ public class SparkAppMain {
 			return "success";
 		});
 		
+		post("/rest/cards/delete", (req, res) -> {
+			KartaDTO c = gson.fromJson(req.body(), KartaDTO.class);
+			Karta card = cardHandler.poId(c.getId());
+			Kupac kupac = usersHandler.poIdKupac(card.getIdKupca());
+			
+			cardHandler.brisiKartuLogicki(card.getId());
+			
+			ArrayList<Integer> ids = kupac.getKarte();
+			
+			for(int i = 0; i < ids.size(); i++) {
+				if(ids.get(i) == card.getId()) {
+					ids.remove(i);
+					kupac.setKarte(ids);
+					usersHandler.updateKupac(kupac);
+				}
+			}
+			
+			res.type("application/json");
+
+			return "success";
+		});
+		
 		get("/rest/comments/getCommentsProdavac", (req, res) -> {
 			Korisnik user = (Korisnik) req.session().attribute("currentUser");
 			Prodavac p = null;
@@ -728,7 +750,7 @@ public class SparkAppMain {
 				cardPrice = getDiscountedPrice(temp_customer, cardPrice);
 
 			for (int i = 0; i < number_of_cards; ++i) {
-				Karta new_card = new Karta(cardHandler.nextId(), LocalDateTime.now().toString(), temp_customer.getId(), temp_manifestation.getId(), cardPrice, StatusKarte.REZERVISANA, card_type);
+				Karta new_card = new Karta(cardHandler.nextId(), LocalDateTime.now().toString(), temp_customer.getId(), temp_manifestation.getId(), cardPrice/number_of_cards, StatusKarte.REZERVISANA, card_type);
 
 				temp_customer.getKarte().add(new_card.getId());
 				cardHandler.dodajKartu(new_card);

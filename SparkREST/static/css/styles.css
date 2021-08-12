@@ -90,6 +90,11 @@ h2{
     display: inline-block;
 }
 
+#text{
+    display: block;
+    margin: 1.5em;
+}
+
 #registruj{
     margin-left: 30px;
 }

@@ -75,8 +75,8 @@
       "status" : "AKTIVNO",
       "tip" : "FESTIVAL",
       "obrisan" : false,
-      "brojOcena" : 9,
-      "sumaOcena" : 23
+      "brojOcena" : 11,
+      "sumaOcena" : 27
     },
     "4" : {
       "id" : 4,
@@ -100,7 +100,7 @@
       "cenaRegular" : 5.0,
       "status" : "AKTIVNO",
       "tip" : "FESTIVAL",
-      "obrisan" : false,
+      "obrisan" : true,
       "brojOcena" : 3,
       "sumaOcena" : 7
     },
@@ -124,7 +124,7 @@
       "brMesta" : 1212,
       "brSlobodnihMesta" : 0,
       "cenaRegular" : 12.0,
-      "status" : "NEAKTIVNO",
+      "status" : "AKTIVNO",
       "tip" : "KONCERT",
       "obrisan" : false,
       "brojOcena" : 3,
@@ -148,7 +148,7 @@
         "obrisan" : false
       },
       "brMesta" : 1212,
-      "brSlobodnihMesta" : 950,
+      "brSlobodnihMesta" : 929,
       "cenaRegular" : 12.0,
       "status" : "AKTIVNO",
       "tip" : "FESTIVAL",
@@ -202,7 +202,7 @@
       "brMesta" : 700,
       "brSlobodnihMesta" : 700,
       "cenaRegular" : 100.0,
-      "status" : "NEAKTIVNO",
+      "status" : "AKTIVNO",
       "tip" : "POZORISTE",
       "obrisan" : false,
       "brojOcena" : 0,
