@@ -6,8 +6,10 @@ Vue.component("sellerBuyers", {
 	},
 	template: ` 
     <div class="dinamic">
-    <h2 align=center>Pregled Kupaca</h2>
 
+    <br>
+    <h2 align=center>Pregled Kupaca</h2>
+    <br>
     
     <div class="card text-white bg-dark mb-3 w-75">
 

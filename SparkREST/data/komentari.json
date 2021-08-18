@@ -7,7 +7,8 @@
       "komentar" : "bruh",
       "ocena" : 3,
       "obrisan" : false,
-      "odobren" : true
+      "odobren" : true,
+      "odbijen" : false
     },
     "2" : {
       "id" : 2,
@@ -16,7 +17,8 @@
       "komentar" : "dobra zurka",
       "ocena" : 4,
       "obrisan" : false,
-      "odobren" : false
+      "odobren" : false,
+      "odbijen" : true
     },
     "3" : {
       "id" : 3,
@@ -25,7 +27,8 @@
       "komentar" : "Bio sam spreman za ludilo, al ne i za madjarice....",
       "ocena" : 3,
       "obrisan" : false,
-      "odobren" : false
+      "odobren" : false,
+      "odbijen" : false
     }
   }
 }

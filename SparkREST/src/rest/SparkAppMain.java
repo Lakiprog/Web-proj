@@ -830,6 +830,24 @@ public class SparkAppMain {
 
 			return "success";
 		});
+		
+		post("/rest/comments/odbij", (req, res) -> {
+			KomentarDTO comment = gson.fromJson(req.body(), KomentarDTO.class);
+			Komentar c = commentHandler.poId(comment.getId());
+			c.setOdbijen(true);
+			commentHandler.azurirajKomentar(c);
+
+			//ArrayList<Komentar> comments = commentHandler.getKomentari();
+			//ArrayList<KomentarDTO> commentsDTO = new ArrayList<>();
+			
+			//for (Komentar k : comments) {
+			//	commentsDTO.add(new KomentarDTO(k));
+			//}
+
+			res.type("application/json");
+
+			return "success";
+		});
 
 		get("/rest/manifestations/rateable/:manifId/:userId", (req, res) -> {
 			int manifId = Integer.parseInt(req.params("manifId"));

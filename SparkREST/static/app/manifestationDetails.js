@@ -31,7 +31,7 @@ Vue.component("manifestation-details", {
             
             <div id="informacije">
 
-                <div class="star-ratings">
+                <div v-bind:hidden="Date.parse(manifestation.datumVremeKraja) > Date.now()" class="star-ratings">
                     <div class="fill-ratings">
                         <span>★★★★★</span>
                     </div>

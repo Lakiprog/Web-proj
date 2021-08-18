@@ -7,7 +7,10 @@ Vue.component("buyerCards", {
 	},
 	template: ` 
     <div class="dinamic">
+
+    <br>
     <h2 align=center>Pregled Karata</h2>
+    <br>
 
     <div id="accordion">
         <div class="card text-white bg-dark mb-3 w-75">

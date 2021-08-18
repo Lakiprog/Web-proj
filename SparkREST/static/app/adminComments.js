@@ -6,9 +6,11 @@ Vue.component("adminComments", {
 	},
 	template: ` 
     <div class="dinamic">
+    
     <br>
     <h2 align=center>Pregled Komentara</h2>
-    
+    <br>
+
     <div class="card text-white bg-dark mb-3 w-75">
 
     <table class="table table-hover table-dark">
@@ -18,6 +20,7 @@ Vue.component("adminComments", {
 		<th>Manifestacija</th>
 		<th>Komentar</th>
         <th>Ocena</th>
+        <th>Odobren</th>
         <th></th>
     </tr>
 
@@ -27,6 +30,9 @@ Vue.component("adminComments", {
         <td>{{c.manifestacija}}</td>
         <td>{{c.komentar}}</td>
         <td>{{c.ocena}}</td>
+        <td v-if="c.odobren" style="color:green;">Odobren</td>
+        <td v-else-if="!c.odbijen">-</td>
+        <td v-else style="color:red;">Odbijen</td>
         <td><input type="button" class="btn btn-danger" value="Obrisi" v-on:click="deleteIt(c)"/></td>
     </tr>
 
