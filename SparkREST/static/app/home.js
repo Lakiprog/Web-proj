@@ -124,7 +124,7 @@ Vue.component("home-page", {
             
             <div class="row">
 
-                <div v-for="manifestation of currentPageManifestations" class="card" style="width: 20rem; display: inline; height: 28rem;">
+                <div v-for="manifestation of currentPageManifestations" class="card" style="width: 20rem; display: inline; height: 33rem;">
                     <img class="card-img-top" v-bind:src="manifestation.posterLink" alt="Slika nemoze da se ucita">
                     <div class="card-body">
                         <h5 class="card-title">{{manifestation.naziv}}</h5>
