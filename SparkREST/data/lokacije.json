@@ -76,6 +76,61 @@
         "mesto" : "Temerin Municipality"
       },
       "obrisan" : false
+    },
+    "9" : {
+      "id" : 9,
+      "sirina" : 45.315754,
+      "duzina" : 19.768466,
+      "adresa" : {
+        "ulica" : "undefined",
+        "broj" : "",
+        "mesto" : "Novi Sad City"
+      },
+      "obrisan" : false
+    },
+    "10" : {
+      "id" : 10,
+      "sirina" : 45.239679,
+      "duzina" : 19.804357,
+      "adresa" : {
+        "ulica" : "Kruzna",
+        "broj" : "16",
+        "mesto" : "Novi Sad City "
+      },
+      "obrisan" : false
+    },
+    "11" : {
+      "id" : 11,
+      "sirina" : 45.24044,
+      "duzina" : 19.812106,
+      "adresa" : {
+        "ulica" : "Bele Vode",
+        "broj" : "7",
+        "mesto" : "Loznica City"
+      },
+      "obrisan" : false
+    },
+    "12" : {
+      "id" : 12,
+      "sirina" : 45.24044,
+      "duzina" : 19.812106,
+      "adresa" : {
+        "ulica" : "Bulevar patrijarha Pavla",
+        "broj" : "",
+        "mesto" : "Novi Sad City"
+      },
+      "obrisan" : false
+    },
+    "13" : {
+      "id" : 13,
+      "sirina" : 46.885509,
+      "duzina" : 19.6718,
+      "adresa" : {
+        "ulica" : "Hanság utca",
+        "broj" : "10",
+        "mesto" : "Kecskemét"
+      },
+      "obrisan" : false
     }
   }
 }

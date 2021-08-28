@@ -56,8 +56,10 @@ Vue.component("create-manifestation", {
 
                 <div class="form-group">
                     <label for="poster">Slika postera:</label>
-                    <input type="file" name = "poster" v-model="manifestation.posterLink" id = "poster" class="form-control form-control-sm" accept="image/png, image/jpeg" required>
+                    <input type="file" name = "poster" v-on:change="posterChanged" id = "poster" class="form-control form-control-sm" accept="image/png, image/jpeg">
                 </div>
+
+                <img id="preview" src="#" alt="poster">
         
                 <br>
 
@@ -93,6 +95,17 @@ Vue.component("create-manifestation", {
     `
 	, 
 	methods : {
+        posterChanged : function(event) {
+            console.log(event.target.files);
+            const reader = new FileReader();
+
+            reader.addEventListener("load", () => {
+                this.manifestation.posterLink = reader.result;
+                preview.src = reader.result;
+            })
+
+            reader.readAsDataURL(event.target.files[0]);
+        },
         reverseGeolocation: function(coords) {
             let self = this;
             fetch('http://nominatim.openstreetmap.org/reverse?format=json&lon=' + coords[0] + '&lat=' + coords[1])

@@ -7,7 +7,9 @@ import static spark.Spark.post;
 import static spark.Spark.staticFiles;
 import static spark.Spark.webSocket;
 
+import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.security.Key;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -959,6 +961,21 @@ public class SparkAppMain {
 			if(manifestation.getPosterLink().equals("")) {
 				manifestation.setPosterLink(manifestationHandler.poId(manifestation.getId()).getPosterLink());
 			}
+			//else {
+			//	try{
+		   //         byte[] bytes = manifestation.getPosterLink().getBytes();
+		    //        BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(new File("./static/posters/"+manifestation.getId()+".jpg")));
+		            //manifestation.setPosterLink(posterLink);
+		    //        stream.write(bytes);
+		    //        stream.flush();
+		    //        stream.close();
+
+		    //    }
+		    //    catch(Exception e){
+		    //        System.out.println("Error while uploading image");
+		    //        e.printStackTrace();
+		    //    }
+			//}
 			
 			manifestationHandler.azurirajManifestaciju(manifestation);
 			

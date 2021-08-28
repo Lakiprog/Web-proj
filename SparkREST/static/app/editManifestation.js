@@ -56,8 +56,10 @@ Vue.component("edit-manifestation", {
 
                 <div class="form-group">
                     <label for="poster">Slika postera(ako ocete da menjate):</label>
-                    <input type="file" name = "poster" v-model="manifestation.posterLink" id = "poster" class="form-control form-control-sm" accept="image/png, image/jpeg">
+                    <input type="file" name = "poster" v-on:change="posterChanged" id = "poster" class="form-control form-control-sm" accept="image/png, image/jpeg">
                 </div>
+
+                <img id="preview" src="#" alt="poster">
         
                 <br>
 
@@ -93,6 +95,17 @@ Vue.component("edit-manifestation", {
     `
 	, 
 	methods : {
+        posterChanged : function(event) {
+            console.log(event.target.files);
+            const reader = new FileReader();
+
+            reader.addEventListener("load", () => {
+                this.manifestation.posterLink = reader.result;
+                preview.src = reader.result;
+            })
+
+            reader.readAsDataURL(event.target.files[0]);
+        },
         reverseGeolocation: function(coords) {
             let self = this;
             fetch('http://nominatim.openstreetmap.org/reverse?format=json&lon=' + coords[0] + '&lat=' + coords[1])
@@ -205,6 +218,7 @@ Vue.component("edit-manifestation", {
                 this.$router.push({ name: "SellerManifestations" });
             } else {
                 this.manifestation = response.data;
+                preview.src = this.manifestation.posterLink;
                 this.manifestation.posterLink = "";
                 this.currentPosition.lon = this.manifestation.geoDuzina;
                 this.currentPosition.lat = this.manifestation.geoSirina;
