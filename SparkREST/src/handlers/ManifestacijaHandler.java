@@ -155,9 +155,9 @@ public class ManifestacijaHandler {
 		}
 		
 		for (Manifestacija manifestacija : ms) {
-			if(manifestacija.getNaziv().contains(kriterijumi.getNaziv())) {
+			if(manifestacija.getNaziv().toLowerCase().contains(kriterijumi.getNaziv().toLowerCase())) {
 				
-				if(manifestacija.getLokacija().getAdresa().toString().contains(kriterijumi.getAdresa())) {
+				if(manifestacija.getLokacija().getAdresa().toString().toLowerCase().contains(kriterijumi.getAdresa().toLowerCase())) {
 					
 					if(manifestacija.getCenaRegular() <= kriterijumi.getCenaMax() && manifestacija.getCenaRegular() >= kriterijumi.getCenaMin()) {
 						
@@ -166,19 +166,28 @@ public class ManifestacijaHandler {
 							if((kriterijumi.getRasprodate().equals("SVE")) || (kriterijumi.getRasprodate().equals("RASPRODATE") && manifestacija.getBrSlobodnihMesta() == 0)
 									|| (kriterijumi.getRasprodate().equals("NERASPRODATE") && manifestacija.getBrSlobodnihMesta() > 0)) {
 								
-								if(kriterijumi.getDatumOd().equals("") || kriterijumi.getDatumDo().equals("")) {
-									m.add(manifestacija);
-								}else {
-									
-									LocalDateTime pocetak = LocalDateTime.parse(manifestacija.getDatumVremePocetka());
+								LocalDateTime pocetak = LocalDateTime.parse(manifestacija.getDatumVremePocetka());
+								boolean datumi = true;
+								
+								if(!kriterijumi.getDatumOd().equals("")) {
 									LocalDateTime kriterijumOd = LocalDateTime.parse(kriterijumi.getDatumOd() + "T00:00:00");
-									LocalDateTime kriterijumDo = LocalDateTime.parse(kriterijumi.getDatumDo() + "T00:00:00");
-									
-									if(pocetak.isAfter(kriterijumOd) && pocetak.isBefore(kriterijumDo)) {
-										m.add(manifestacija);
+									if(pocetak.isBefore(kriterijumOd)) {
+										datumi = false;
 									}
-									
-								}	
+								}
+								
+								if(!kriterijumi.getDatumDo().equals("")) {
+									LocalDateTime kriterijumDo = LocalDateTime.parse(kriterijumi.getDatumDo() + "T00:00:00");
+									if(pocetak.isAfter(kriterijumDo)) {
+										datumi = false;
+									}
+								}
+								
+								if(kriterijumi.getDatumOd().equals("") && kriterijumi.getDatumDo().equals("")){
+									m.add(manifestacija);
+								}else if(datumi){
+									m.add(manifestacija);
+								}
 								
 							}
 							

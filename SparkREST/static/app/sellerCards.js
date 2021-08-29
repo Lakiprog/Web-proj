@@ -139,7 +139,28 @@ Vue.component("sellerCards", {
             axios
             .post("/rest/cards/filterCardsProdavac", this.criteria)
             .then(response => {
-                this.cards = response.data;
+                if(this.criteria.sortirajPo == "DATUM"){
+                    
+                    this.cards = response.data.sort((a, b)=>{
+                        return Date.parse(a.datumVreme) - Date.parse(b.datumVreme);
+                    });
+
+                    if(this.criteria.sortiraj != "RASTUCE"){
+                        this.cards.reverse();
+                    }
+
+                }else if(this.criteria.sortirajPo == "NAZIV"){
+                        
+                    this.cards = response.data.sort((a, b)=>{
+                        return a.manifestacija.localeCompare(b.manifestacija);
+                    });
+
+                    if(this.criteria.sortiraj != "RASTUCE"){
+                        this.cards.reverse();
+                    }
+                }else{
+                    this.cards = response.data;
+                }
             });
         }
 	},

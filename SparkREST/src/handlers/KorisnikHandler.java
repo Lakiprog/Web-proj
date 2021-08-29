@@ -12,10 +12,6 @@ import util.KorisniciPoBodovimaSort;
 import util.KorisniciPoImenuSort;
 import util.KorisniciPoKorisnickomImenuSort;
 import util.KorisniciPoPrezimenuSort;
-import util.ManifestacijePoCeniSort;
-import util.ManifestacijePoDatumuSort;
-import util.ManifestacijePoLokacijiSort;
-import util.ManifestacijePoNazivuSort;
 
 public class KorisnikHandler {
 
@@ -205,11 +201,11 @@ public class KorisnikHandler {
 		}
 		
 		for (Korisnik korisnik : ks) {
-			if(korisnik.getIme().contains(kriterijumi.getIme())) {
+			if(korisnik.getIme().toLowerCase().contains(kriterijumi.getIme().toLowerCase())) {
 				
-				if(korisnik.getPrezime().contains(kriterijumi.getPrezime())) {
+				if(korisnik.getPrezime().toLowerCase().contains(kriterijumi.getPrezime().toLowerCase())) {
 					
-					if(korisnik.getkIme().contains(kriterijumi.getkIme())) {
+					if(korisnik.getkIme().toLowerCase().contains(kriterijumi.getkIme().toLowerCase())) {
 						
 						if(kriterijumi.getUloga().equals("SVE") || korisnik.getUloga().toString().equals(kriterijumi.getUloga())) {
 							

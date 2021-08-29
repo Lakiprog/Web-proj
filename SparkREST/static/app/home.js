@@ -3,7 +3,7 @@ Vue.component("home-page", {
 		    return {
                 manifestations: [],
                 currentPageManifestations: [],
-                criteria: {naziv : "", adresa: "", datumOd : "", datumDo: "", cenaMin: 0, cenaMax: 10000, tip: "SVE", sortirajPo: "NAZIV", sortiraj: "RASTUCE", rasprodate: "SVE"},
+                criteria: {naziv : "", adresa: "", datumOd : "", datumDo: "", cenaMin: 0, cenaMax: 10000, tip: "SVE", sortirajPo: "DATUM", sortiraj: "RASTUCE", rasprodate: "SVE"},
                 pagenum: 1,
                 numberOfPages: 0,
                 pages: [],
@@ -192,19 +192,24 @@ Vue.component("home-page", {
             axios
             .post("/rest/manifestations/getManifestationsSorted", this.criteria)
             .then(response => {
-                this.manifestations = response.data.sort((a, b)=>{
-                    first = Date.parse(a.datumVremePocetka);
-                    if(first < Date.now()){
-                        first += 100*(Date.now() - first) + Date.now();
-                    }
-    
-                    second = Date.parse(b.datumVremePocetka);
-                    if(second < Date.now()){
-                        second += 100*(Date.now() - second) + Date.now();
-                    }
-    
-                    return  first - second; 
-                });
+
+                if(this.criteria.sortirajPo == "DATUM"){
+                    this.manifestations = response.data.sort((a, b)=>{
+                        first = Date.parse(a.datumVremePocetka);
+                        if(first < Date.now()){
+                            first += 100*(Date.now() - first) + Date.now();
+                        }
+        
+                        second = Date.parse(b.datumVremePocetka);
+                        if(second < Date.now()){
+                            second += 100*(Date.now() - second) + Date.now();
+                        }
+        
+                        return  first - second; 
+                    });
+                }else{
+                    this.manifestations = response.data;
+                }
 
                 this.numberOfPages = parseInt(this.manifestations.length / 5);
                 this.numberOfPages += (this.manifestations.length % 5 == 0) ? 0 : 1;
@@ -217,6 +222,14 @@ Vue.component("home-page", {
                 } else {
                     this.currentPageManifestations = this.manifestations.slice(0, 5);
                 }
+
+                this.$nextTick(function () {
+                    this.currentPageManifestations.forEach(manifestation => {
+                        const star_rating_width = $('#fill' + manifestation.id).width();
+                        console.log($('#fill' + manifestation.id).index())
+                        $('#rating' + manifestation.id).width(star_rating_width);
+                    });
+                })
             });
         },
         viewManifestation(m) {

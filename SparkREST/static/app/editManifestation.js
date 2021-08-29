@@ -96,7 +96,6 @@ Vue.component("edit-manifestation", {
 	, 
 	methods : {
         posterChanged : function(event) {
-            console.log(event.target.files);
             const reader = new FileReader();
 
             reader.addEventListener("load", () => {

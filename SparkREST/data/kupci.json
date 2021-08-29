@@ -79,6 +79,22 @@
       "brOtkazivanja" : 4,
       "karte" : [ ],
       "blokiran" : false
+    },
+    "6" : {
+      "id" : 6,
+      "kIme" : "lule",
+      "lozinka" : "lule",
+      "ime" : "Luka",
+      "prezime" : "Radosevic",
+      "datumRodjenja" : "1994-02-22",
+      "pol" : "MUSKO",
+      "obrisan" : false,
+      "uloga" : "KUPAC",
+      "tip" : "BRONZANI",
+      "brBodova" : 0,
+      "brOtkazivanja" : 0,
+      "karte" : [ ],
+      "blokiran" : false
     }
   }
 }

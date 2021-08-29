@@ -11,6 +11,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 import domain.TipKupca;
+import domain.TipMedalje;
 
 
 public class TipoviKupcaHandler {
@@ -117,5 +118,32 @@ public class TipoviKupcaHandler {
 	
 	public TipKupca poId(Integer id) {
 		return ucitani.get(id);
+	}
+	
+	public TipKupca getSrebrni() {
+		for (TipKupca tip : tipovi) {
+			if(tip.getTip() == TipMedalje.SREBRNI) {
+				return tip;
+			}
+		}
+		return null;
+	}
+	
+	public TipKupca getZlatni() {
+		for (TipKupca tip : tipovi) {
+			if(tip.getTip() == TipMedalje.ZLATNI) {
+				return tip;
+			}
+		}
+		return null;
+	}
+	
+	public TipKupca getBronzani() {
+		for (TipKupca tip : tipovi) {
+			if(tip.getTip() == TipMedalje.BRONZANI) {
+				return tip;
+			}
+		}
+		return null;
 	}
 }

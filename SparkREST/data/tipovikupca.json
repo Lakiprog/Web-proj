@@ -3,8 +3,22 @@
     "1" : {
       "id" : 1,
       "tip" : "BRONZANI",
-      "popust" : 0.1,
-      "brBodova" : 100,
+      "popust" : 100,
+      "brBodova" : 0,
+      "obrisan" : false
+    },
+    "2" : {
+      "id" : 2,
+      "tip" : "SREBRNI",
+      "popust" : 97,
+      "brBodova" : 3000,
+      "obrisan" : false
+    },
+    "3" : {
+      "id" : 3,
+      "tip" : "ZLATNI",
+      "popust" : 95,
+      "brBodova" : 4000,
       "obrisan" : false
     }
   }

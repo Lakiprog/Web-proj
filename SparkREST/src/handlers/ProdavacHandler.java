@@ -10,8 +10,6 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
-import domain.Admin;
-import domain.Kupac;
 import domain.Prodavac;
 
 public class ProdavacHandler {

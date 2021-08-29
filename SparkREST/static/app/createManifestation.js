@@ -96,7 +96,6 @@ Vue.component("create-manifestation", {
 	, 
 	methods : {
         posterChanged : function(event) {
-            console.log(event.target.files);
             const reader = new FileReader();
 
             reader.addEventListener("load", () => {
@@ -185,7 +184,10 @@ Vue.component("create-manifestation", {
 
             let startDate = new Date(this.manifestation.datumVremePocetka);
             let endDate = new Date(this.manifestation.datumVremeKraja);
-            if(startDate < endDate){
+            if(startDate < Date.now()){
+                $.toast("Nemoze manifestacija od proslosti da krene!");
+            }
+            else if(startDate < endDate){
                 axios
                 .post("/rest/manifestations/createManifestation", this.manifestation)
                 .then(response => {
@@ -197,7 +199,7 @@ Vue.component("create-manifestation", {
                     }
             });
             }else{
-                $.toast("Kraj manifestacije mora da bude posle pocetka");
+                $.toast("Kraj manifestacije mora da bude posle pocetka!");
             }
         }
 	},

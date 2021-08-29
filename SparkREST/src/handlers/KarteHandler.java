@@ -13,7 +13,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
 import DTO.KarteSortiranjeDTO;
-import domain.Admin;
 import domain.Karta;
 import util.KartePoCeniSort;
 import util.KartePoDatumuSort;
@@ -134,7 +133,7 @@ public class KarteHandler {
 		}
 		
 		for (Karta karta : ks) {
-			if(mH.poId(karta.getIdManifestacije()).getNaziv().contains(kriterijumi.getNaziv())) {
+			if(mH.poId(karta.getIdManifestacije()).getNaziv().toLowerCase().contains(kriterijumi.getNaziv().toLowerCase())) {
 				
 				if(kriterijumi.getTip().equals("SVE") || karta.getTip().toString().equals(kriterijumi.getTip())) {
 					
@@ -142,18 +141,27 @@ public class KarteHandler {
 						
 						if(karta.getCena() <= kriterijumi.getCenaMax() && karta.getCena() >= kriterijumi.getCenaMin()) {
 							
-							if(kriterijumi.getDatumOd().equals("") || kriterijumi.getDatumDo().equals("")) {
-								k.add(karta);
-							}else {
-								
-								LocalDateTime pocetak = LocalDateTime.parse(karta.getDatumVreme());
+							LocalDateTime pocetak = LocalDateTime.parse(mH.poId(karta.getIdManifestacije()).getDatumVremePocetka());
+							boolean datumi = true;
+							
+							if(!kriterijumi.getDatumOd().equals("")) {
 								LocalDateTime kriterijumOd = LocalDateTime.parse(kriterijumi.getDatumOd() + "T00:00:00");
-								LocalDateTime kriterijumDo = LocalDateTime.parse(kriterijumi.getDatumDo() + "T00:00:00");
-								
-								if(pocetak.isAfter(kriterijumOd) && pocetak.isBefore(kriterijumDo)) {
-									k.add(karta);
+								if(pocetak.isBefore(kriterijumOd)) {
+									datumi = false;
 								}
-								
+							}
+							
+							if(!kriterijumi.getDatumDo().equals("")) {
+								LocalDateTime kriterijumDo = LocalDateTime.parse(kriterijumi.getDatumDo() + "T00:00:00");
+								if(pocetak.isAfter(kriterijumDo)) {
+									datumi = false;
+								}
+							}
+							
+							if(kriterijumi.getDatumOd().equals("") && kriterijumi.getDatumDo().equals("")){
+								k.add(karta);
+							}else if(datumi){
+								k.add(karta);
 							}
 							
 						}

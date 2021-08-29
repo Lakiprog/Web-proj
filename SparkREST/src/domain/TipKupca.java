@@ -7,6 +7,10 @@ public class TipKupca {
 	private int brBodova;
 	private boolean obrisan;
 	
+	public TipKupca() {
+		
+	}
+	
 	public TipMedalje getTip() {
 		return tip;
 	}

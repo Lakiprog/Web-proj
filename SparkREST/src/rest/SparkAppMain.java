@@ -45,25 +45,25 @@ import handlers.KorisnikHandler;
 import handlers.KupciHandler;
 import handlers.LokacijeHandler;
 import handlers.ManifestacijaHandler;
+import handlers.TipoviKupcaHandler;
 import handlers.WsHandler;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
 
 public class SparkAppMain {
-
-	
-	private static final int SILVER_POINTS = 3000;
-	private static final int GOLD_POINTS = 4000;
-
-	private static final int SILVER_DISCOUNT = 97;
-	private static final int GOLD_DISCOUNT = 95;
-
 	private static KorisnikHandler usersHandler = new KorisnikHandler();
 	private static ManifestacijaHandler manifestationHandler = new ManifestacijaHandler();
 	private static LokacijeHandler locationHandler = new LokacijeHandler();
 	private static KarteHandler cardHandler = new KarteHandler();
 	private static KomentariHandler commentHandler = new KomentariHandler();
 	private static KupciHandler customersHandler = new KupciHandler();
+	private static TipoviKupcaHandler typeHandler = new TipoviKupcaHandler();
+	
+	private static final int SILVER_POINTS = typeHandler.getSrebrni().getBrBodova();
+	private static final int GOLD_POINTS = typeHandler.getZlatni().getBrBodova();
+
+	private static final int SILVER_DISCOUNT = (int) typeHandler.getSrebrni().getPopust();
+	private static final int GOLD_DISCOUNT = (int) typeHandler.getZlatni().getPopust();
 	
 	private static Gson gson = new Gson();
 	static Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
@@ -949,17 +949,21 @@ public class SparkAppMain {
 		
 		post("/rest/manifestations/editManifestation", (req, res) -> {
 			Manifestacija manifestation = gson.fromJson(req.body(), Manifestacija.class);
-			
+			Manifestacija m = manifestationHandler.poId(manifestation.getId());
 			res.type("application/json");
 
 			if(manifestationHandler.checkBadTimes(manifestation.getDatumVremePocetka(), manifestation.getDatumVremeKraja(), manifestation.getLokacija(), manifestation.getId())) {
-				return "Vec postoji manifestacija na datoj lokaciji za dato vreme";
+				return "Vec postoji manifestacija na datoj lokaciji za dato vreme!";
+			}else if((m.getBrMesta() - m.getBrSlobodnihMesta()) > manifestation.getBrMesta()) {
+				return "Vec ste prodali vise karata od datog!";
 			}
+			
+			manifestation.setBrSlobodnihMesta(manifestation.getBrMesta() - (m.getBrMesta() - m.getBrSlobodnihMesta()) );
 			
 			//TODO mozda prekopirati sliku u neki nas folder
 			
 			if(manifestation.getPosterLink().equals("")) {
-				manifestation.setPosterLink(manifestationHandler.poId(manifestation.getId()).getPosterLink());
+				manifestation.setPosterLink(m.getPosterLink());
 			}
 			//else {
 			//	try{

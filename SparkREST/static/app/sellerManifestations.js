@@ -130,7 +130,7 @@ Vue.component("sellerManifestations", {
         <td>{{manifestation.naziv}}</td>
         <td>{{manifestation.tip}}</td>
         <td>{{manifestation.datumVremePocetka.replace('T', ' ')}} - {{manifestation.datumVremeKraja.replace('T', ' ')}}</td>
-        <td>{{manifestation.brMesta}}</td>
+        <td>{{manifestation.brSlobodnihMesta}} / {{manifestation.brMesta}}</td>
         <td>{{manifestation.cenaRegular}}</td>
         <td>{{manifestation.adresa}}</td>
         <td v-if="manifestation.status == 'AKTIVNO'" style="color:green;">Aktivno</td>
