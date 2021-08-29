@@ -65,7 +65,22 @@ Vue.component("registerSeller", {
 `
 	, 
 	methods : {
+        isInformationValid: function() {
+            let usernameValid = Boolean(this.user.kIme);
+            let fNameValid = Boolean(this.user.ime);
+            let lNameValid = Boolean(this.user.prezime);
+            let bdayValid = Boolean(this.user.datumRodjenja);
+            let passwd1Valid = Boolean(this.user.lozinka);
+            let passwd2Valid = Boolean(this.lozinkaOpet);
+
+            return usernameValid && fNameValid && lNameValid && bdayValid && passwd1Valid && passwd2Valid;
+        },
         registerSeller: function(){
+            if (!this.isInformationValid()) {
+                $.toast({text: "Popunite sva polja", icon: "error"});
+                return;
+            }
+
             if(this.user.lozinka == this.lozinkaOpet){
                 axios
                 .post("/rest/users/registerSeller", this.user)

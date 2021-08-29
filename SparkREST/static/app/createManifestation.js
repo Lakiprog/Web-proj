@@ -160,7 +160,22 @@ Vue.component("create-manifestation", {
             });
 
         },
+        isInformationValid: function() {
+            let nameValid = Boolean(this.manifestation.naziv);
+            let seatsValid = Boolean(this.manifestation.brMesta);
+            let priceValid = Boolean(this.manifestation.cenaRegular);
+            let startDateValid = Boolean(this.manifestation.datumVremePocetka);
+            let endDateValid = Boolean(this.manifestation.datumVremeKraja);
+            let posterLinkValid = Boolean(this.manifestation.posterLink);
+
+            return nameValid && seatsValid && priceValid && startDateValid && endDateValid && posterLinkValid;
+        },
         createManifestation: function(){
+            if (!this.isInformationValid()) {
+                $.toast({text: "Popunite sva polja", icon: "error"});
+                return;
+            }
+
             let splited = this.currentPosition.adresa.split(", ");
             let grad = splited[1];
             let ulicaSplit = splited[0].split(" ");

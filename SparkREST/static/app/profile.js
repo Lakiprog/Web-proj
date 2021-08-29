@@ -109,6 +109,15 @@ Vue.component("profile", {
             });
         },
         updatePassword: function(){
+            let currentPasswdValid = Boolean(this.trenutnaLozinka);
+            let newPasswdValid = Boolean(this.novaLozinka);
+            let newPasswdAgainValid = Boolean(this.novaLozinkaOpet);
+
+            if (!(currentPasswdValid && newPasswdValid && newPasswdValid)) {
+                $.toast({text: "Popunite sva polja", icon: "error"});
+                return;
+            }
+
             if(this.novaLozinka != this.novaLozinkaOpet) {
                 toast("Lozinke moraju biti iste");
             } else if(this.trenutnaLozinka != this.user.lozinka) {

@@ -37,6 +37,13 @@ Vue.component("login", {
 	, 
 	methods : {
         logUserIn: function() {
+            let usernameValid = Boolean(this.user.kIme);
+            let passwdValid = Boolean(this.user.lozinka);
+            if (!(usernameValid && passwdValid)) {
+                $.toast({text: "Niste uneli podatke", icon: "error"});
+                return;
+            }
+
             let self = this;
             axios
             .post("/rest/users/logUserIn", this.user)
@@ -55,7 +62,7 @@ Vue.component("login", {
                     this.$router.go();
                     //update();
                 } else {
-                   $. toast({text : response.data, icon: "error"});
+                   $.toast({text : response.data, icon: "error"});
                 }
             });
         },
