@@ -88,7 +88,21 @@ Vue.component("profile", {
     `
 	, 
 	methods : {
+        isInformationValid: function() {
+            let usernameValid = Boolean(this.user.kIme);
+            let fNameValid = Boolean(this.user.ime);
+            let lNameValid = Boolean(this.user.prezime);
+            let bdayValid = Boolean(this.user.datumRodjenja);
+
+            return usernameValid && fNameValid && lNameValid && bdayValid;
+        },
         update: function(){
+            
+            if (!this.isInformationValid()) {
+                $.toast({text: "Popunite sva polja", icon: "error"});
+                return;
+            }
+
             let uloga = "";
             if(this.user.uloga == "KUPAC"){
                 uloga = "Kupac"
@@ -113,7 +127,7 @@ Vue.component("profile", {
             let newPasswdValid = Boolean(this.novaLozinka);
             let newPasswdAgainValid = Boolean(this.novaLozinkaOpet);
 
-            if (!(currentPasswdValid && newPasswdValid && newPasswdValid)) {
+            if (!(currentPasswdValid && newPasswdValid && newPasswdAgainValid)) {
                 $.toast({text: "Popunite sva polja", icon: "error"});
                 return;
             }

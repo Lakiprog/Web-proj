@@ -131,6 +131,17 @@
         "mesto" : "Kecskemét"
       },
       "obrisan" : false
+    },
+    "14" : {
+      "id" : 14,
+      "sirina" : 45.244856,
+      "duzina" : 19.833244,
+      "adresa" : {
+        "ulica" : "Puskinova",
+        "broj" : "26",
+        "mesto" : "Novi Sad City"
+      },
+      "obrisan" : false
     }
   }
 }

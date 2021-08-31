@@ -95,6 +95,22 @@
       "brOtkazivanja" : 0,
       "karte" : [ ],
       "blokiran" : false
+    },
+    "7" : {
+      "id" : 7,
+      "kIme" : "isus",
+      "lozinka" : "nemaobraz",
+      "ime" : "Stefan",
+      "prezime" : "Batyity",
+      "datumRodjenja" : "2020-05-28",
+      "pol" : "ZENSKO",
+      "obrisan" : false,
+      "uloga" : "KUPAC",
+      "tip" : "BRONZANI",
+      "brBodova" : 0,
+      "brOtkazivanja" : 0,
+      "karte" : [ ],
+      "blokiran" : false
     }
   }
 }

@@ -105,6 +105,14 @@ Vue.component("edit-manifestation", {
 
             reader.readAsDataURL(event.target.files[0]);
         },
+        isInformationValid: function() {
+            let nameValid = Boolean(this.manifestation.naziv);
+            let seatsValid = Boolean(this.manifestation.brMesta);
+            let startDateValid = Boolean(this.manifestation.datumVremePocetka);
+            let endDateValid = Boolean(this.manifestation.datumVremeKraja);
+
+            return nameValid && seatsValid && startDateValid && endDateValid;
+        },
         reverseGeolocation: function(coords) {
             let self = this;
             fetch('http://nominatim.openstreetmap.org/reverse?format=json&lon=' + coords[0] + '&lat=' + coords[1])
@@ -163,6 +171,11 @@ Vue.component("edit-manifestation", {
 
         },
         editManifestation: function(){
+            if (!this.isInformationValid()) {
+                $.toast({text: "Popunite sva polja", icon: "error"});
+                return;
+            }
+
             let splited = this.currentPosition.adresa.split(", ");
             let grad = splited[1];
             let ulicaSplit = splited[0].split(" ");
