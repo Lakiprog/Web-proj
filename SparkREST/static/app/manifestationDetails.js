@@ -213,12 +213,18 @@ Vue.component("manifestation-details", {
 
                 return;
             }
+            
+            if(this.numberOfCards > this.manifestation.brSlobodnihMesta){
+                toast("Nema ovoliko slobodnih karata!");
+                return;
+            }
 
             axios
             .post("/rest/cards/reserveCard/" + this.type + "/" + this.manifestation.id + "/" + this.numberOfCards)
             .then(response => {
                 if (response.data == "success") {
                     toast("Karta uspesno rezervisana.");
+                    this.manifestation.brSlobodnihMesta -= this.numberOfCards;
                 } else {
                     toast("Doslo je do greske.");
                 }
