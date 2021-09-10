@@ -324,11 +324,16 @@ Vue.component("manifestation-details", {
                     let self = this;
 
                     setInterval(function () {
-                        self.comments.forEach(comment => {
-                            const star_rating_width = $('#fill' + comment.id).width();
-                            $('#rating' + comment.id).width(star_rating_width);
-                        });
-                        fixed = true;
+                        if(!self.fixed ){
+                            self.fixed = true;
+                            const star_rating_width = $('.fill-ratings span').width();
+                            $('.star-ratings').width(star_rating_width);
+
+                            self.comments.forEach(comment => {
+                                const star_rating_width = $('#fill' + comment.id).width();
+                                $('#rating' + comment.id).width(star_rating_width);
+                            });
+                        }
                     }, 500);
                 });
             });

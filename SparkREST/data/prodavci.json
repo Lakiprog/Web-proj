@@ -23,7 +23,7 @@
       "pol" : "ZENSKO",
       "obrisan" : false,
       "uloga" : "PRODAVAC",
-      "manifestacije" : [ 1, 2, 3, 5, 6, 7, 8, 9, 10 ],
+      "manifestacije" : [ 1, 2, 3, 5, 6, 7, 8, 9, 10, 11 ],
       "blokiran" : false
     },
     "3" : {
@@ -37,6 +37,19 @@
       "obrisan" : true,
       "uloga" : "PRODAVAC",
       "manifestacije" : [ ],
+      "blokiran" : false
+    },
+    "4" : {
+      "id" : 4,
+      "kIme" : "angular",
+      "lozinka" : "angular",
+      "ime" : "angular",
+      "prezime" : "ts",
+      "datumRodjenja" : "2021-05-04",
+      "pol" : "MUSKO",
+      "obrisan" : false,
+      "uloga" : "PRODAVAC",
+      "manifestacije" : [ 12, 13 ],
       "blokiran" : false
     }
   }

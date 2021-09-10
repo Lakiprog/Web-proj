@@ -163,12 +163,11 @@ Vue.component("create-manifestation", {
         isInformationValid: function() {
             let nameValid = Boolean(this.manifestation.naziv);
             let seatsValid = Boolean(this.manifestation.brMesta);
-            let priceValid = Boolean(this.manifestation.cenaRegular);
             let startDateValid = Boolean(this.manifestation.datumVremePocetka);
             let endDateValid = Boolean(this.manifestation.datumVremeKraja);
             let posterLinkValid = Boolean(this.manifestation.posterLink);
 
-            return nameValid && seatsValid && priceValid && startDateValid && endDateValid && posterLinkValid;
+            return nameValid && seatsValid && startDateValid && endDateValid && posterLinkValid;
         },
         createManifestation: function(){
             if (!this.isInformationValid()) {

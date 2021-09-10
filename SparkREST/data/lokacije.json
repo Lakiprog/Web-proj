@@ -142,6 +142,50 @@
         "mesto" : "Novi Sad City"
       },
       "obrisan" : false
+    },
+    "15" : {
+      "id" : 15,
+      "sirina" : 45.238763,
+      "duzina" : 19.81647,
+      "adresa" : {
+        "ulica" : "Jozefa Atile",
+        "broj" : "16",
+        "mesto" : "Novi Sad City"
+      },
+      "obrisan" : false
+    },
+    "16" : {
+      "id" : 16,
+      "sirina" : 45.244921,
+      "duzina" : 19.833053,
+      "adresa" : {
+        "ulica" : "Puskinova",
+        "broj" : "22",
+        "mesto" : "Novi Sad City"
+      },
+      "obrisan" : false
+    },
+    "17" : {
+      "id" : 17,
+      "sirina" : 45.247205,
+      "duzina" : 19.853303,
+      "adresa" : {
+        "ulica" : "Доктора Симе Милошевића",
+        "broj" : "",
+        "mesto" : "Novi Sad City"
+      },
+      "obrisan" : false
+    },
+    "18" : {
+      "id" : 18,
+      "sirina" : 44.52979,
+      "duzina" : 19.223608,
+      "adresa" : {
+        "ulica" : "Zike Jovanovica Spanca",
+        "broj" : "",
+        "mesto" : "Loznica City"
+      },
+      "obrisan" : false
     }
   }
 }

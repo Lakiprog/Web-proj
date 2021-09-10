@@ -6,7 +6,7 @@
       "idManifestacija" : 1,
       "komentar" : "bruh",
       "ocena" : 3,
-      "obrisan" : false,
+      "obrisan" : true,
       "odobren" : true,
       "odbijen" : false
     },
@@ -46,6 +46,56 @@
       "idManifestacija" : 9,
       "komentar" : "pa ono, neka su",
       "ocena" : 2,
+      "obrisan" : false,
+      "odobren" : true,
+      "odbijen" : false
+    },
+    "6" : {
+      "id" : 6,
+      "idKupac" : 8,
+      "idManifestacija" : 10,
+      "komentar" : "Ono kad si najjaci veb programer, mentorises mentora o angularu na praksi ",
+      "ocena" : 1,
+      "obrisan" : false,
+      "odobren" : true,
+      "odbijen" : false
+    },
+    "7" : {
+      "id" : 7,
+      "idKupac" : 8,
+      "idManifestacija" : 6,
+      "komentar" : "jeftino je je ovde ziveti, al sa kakvim ljudima",
+      "ocena" : 4,
+      "obrisan" : false,
+      "odobren" : true,
+      "odbijen" : false
+    },
+    "8" : {
+      "id" : 8,
+      "idKupac" : 1,
+      "idManifestacija" : 6,
+      "komentar" : "ok rakija",
+      "ocena" : 3,
+      "obrisan" : false,
+      "odobren" : false,
+      "odbijen" : false
+    },
+    "9" : {
+      "id" : 9,
+      "idKupac" : 7,
+      "idManifestacija" : 6,
+      "komentar" : "drina breeeeeeeeeee",
+      "ocena" : 5,
+      "obrisan" : false,
+      "odobren" : true,
+      "odbijen" : false
+    },
+    "10" : {
+      "id" : 10,
+      "idKupac" : 8,
+      "idManifestacija" : 11,
+      "komentar" : "szeretem a noket",
+      "ocena" : 4,
       "obrisan" : false,
       "odobren" : true,
       "odbijen" : false

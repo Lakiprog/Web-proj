@@ -132,7 +132,7 @@ Vue.component("adminUsers", {
         <td>{{u.uloga}}</td>
         <td v-if="u.uloga == 'KUPAC' && u.brOtkazivanja > 5" style="color:red;">Da</td>
         <td v-if="u.uloga == 'KUPAC' && u.brOtkazivanja <= 5" style="color:green;">Ne</td>
-        <td v-else >-</td>
+        <td v-if="u.uloga != 'KUPAC'" >-</td>
         <td v-bind:hidden="u.uloga == 'ADMIN'"><input type="button" value="Obrisi" class="btn btn-danger"  v-on:click="deleteIt(u)" /></td>
 		<td v-if="u.blokiran" v-bind:hidden="u.uloga == 'ADMIN'"><input type="button" class="btn btn-primary" value="Odbanuj"  v-on:click="unblock(u)" /></td>
         <td v-else v-bind:hidden="u.uloga == 'ADMIN'" ><input type="button" class="btn btn-danger" value="Banuj"  v-on:click="block(u)" /></td>
