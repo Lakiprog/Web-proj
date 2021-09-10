@@ -137,9 +137,12 @@ Vue.component("buyerCards", {
             axios
             .post("/rest/cards/odustani", c)
             .then(response => {
-                
+                if(response.data == "success"){
+                    c.status = "ODUSTANAK";
+                }else{
+                    toast(response.data)
+                }
             });
-            c.status = "ODUSTANAK";
         },
         filter: function(){
             axios

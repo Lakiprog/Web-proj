@@ -559,6 +559,686 @@
       "status" : "REZERVISANA",
       "tip" : "REGULAR",
       "obrisan" : false
+    },
+    "57" : {
+      "datumVreme" : "2021-09-10T18:04:08.684641900",
+      "id" : 57,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 200.0,
+      "status" : "ODUSTANAK",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "58" : {
+      "datumVreme" : "2021-09-10T18:04:08.689646500",
+      "id" : 58,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 200.0,
+      "status" : "ODUSTANAK",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "59" : {
+      "datumVreme" : "2021-09-10T18:04:08.691649400",
+      "id" : 59,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 200.0,
+      "status" : "ODUSTANAK",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "60" : {
+      "datumVreme" : "2021-09-10T18:04:08.692650200",
+      "id" : 60,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 200.0,
+      "status" : "ODUSTANAK",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "61" : {
+      "datumVreme" : "2021-09-10T18:04:08.694651",
+      "id" : 61,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 200.0,
+      "status" : "ODUSTANAK",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "62" : {
+      "datumVreme" : "2021-09-10T18:04:08.695651800",
+      "id" : 62,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 200.0,
+      "status" : "ODUSTANAK",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "63" : {
+      "datumVreme" : "2021-09-10T18:04:08.697653700",
+      "id" : 63,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 200.0,
+      "status" : "ODUSTANAK",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "64" : {
+      "datumVreme" : "2021-09-10T18:04:08.698655800",
+      "id" : 64,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 200.0,
+      "status" : "ODUSTANAK",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "65" : {
+      "datumVreme" : "2021-09-10T18:04:08.699656400",
+      "id" : 65,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 200.0,
+      "status" : "ODUSTANAK",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "66" : {
+      "datumVreme" : "2021-09-10T18:04:08.700657100",
+      "id" : 66,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 200.0,
+      "status" : "ODUSTANAK",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "67" : {
+      "datumVreme" : "2021-09-10T18:04:08.702658200",
+      "id" : 67,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 200.0,
+      "status" : "ODUSTANAK",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "68" : {
+      "datumVreme" : "2021-09-10T18:04:08.704660600",
+      "id" : 68,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 200.0,
+      "status" : "ODUSTANAK",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "69" : {
+      "datumVreme" : "2021-09-10T18:04:08.705661900",
+      "id" : 69,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 200.0,
+      "status" : "ODUSTANAK",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "70" : {
+      "datumVreme" : "2021-09-10T18:04:08.706661800",
+      "id" : 70,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 200.0,
+      "status" : "ODUSTANAK",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "71" : {
+      "datumVreme" : "2021-09-10T18:04:08.708664600",
+      "id" : 71,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 200.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "72" : {
+      "datumVreme" : "2021-09-10T18:04:08.709665500",
+      "id" : 72,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 200.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "73" : {
+      "datumVreme" : "2021-09-10T18:04:08.710666400",
+      "id" : 73,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 200.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "74" : {
+      "datumVreme" : "2021-09-10T18:04:08.711667500",
+      "id" : 74,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 200.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "75" : {
+      "datumVreme" : "2021-09-10T18:04:08.712668400",
+      "id" : 75,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 200.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "76" : {
+      "datumVreme" : "2021-09-10T18:04:08.713669300",
+      "id" : 76,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 200.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "77" : {
+      "datumVreme" : "2021-09-10T18:22:06.524604500",
+      "id" : 77,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "78" : {
+      "datumVreme" : "2021-09-10T18:22:06.525605500",
+      "id" : 78,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "79" : {
+      "datumVreme" : "2021-09-10T18:22:06.526606",
+      "id" : 79,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "80" : {
+      "datumVreme" : "2021-09-10T18:22:06.527606900",
+      "id" : 80,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "81" : {
+      "datumVreme" : "2021-09-10T18:22:06.529608600",
+      "id" : 81,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "82" : {
+      "datumVreme" : "2021-09-10T18:22:06.530609800",
+      "id" : 82,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "83" : {
+      "datumVreme" : "2021-09-10T18:22:06.531610500",
+      "id" : 83,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "84" : {
+      "datumVreme" : "2021-09-10T18:22:06.532612400",
+      "id" : 84,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "85" : {
+      "datumVreme" : "2021-09-10T18:22:06.533768800",
+      "id" : 85,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "86" : {
+      "datumVreme" : "2021-09-10T18:22:06.534613600",
+      "id" : 86,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "87" : {
+      "datumVreme" : "2021-09-10T18:22:06.535615200",
+      "id" : 87,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "88" : {
+      "datumVreme" : "2021-09-10T18:22:06.536616300",
+      "id" : 88,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "89" : {
+      "datumVreme" : "2021-09-10T18:22:06.537617300",
+      "id" : 89,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "90" : {
+      "datumVreme" : "2021-09-10T18:22:06.537617300",
+      "id" : 90,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "91" : {
+      "datumVreme" : "2021-09-10T18:22:06.539618400",
+      "id" : 91,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "92" : {
+      "datumVreme" : "2021-09-10T18:22:06.540619600",
+      "id" : 92,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "93" : {
+      "datumVreme" : "2021-09-10T18:22:06.541620200",
+      "id" : 93,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "94" : {
+      "datumVreme" : "2021-09-10T18:22:06.541620200",
+      "id" : 94,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "95" : {
+      "datumVreme" : "2021-09-10T18:22:06.542621300",
+      "id" : 95,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "96" : {
+      "datumVreme" : "2021-09-10T18:22:06.543622200",
+      "id" : 96,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "97" : {
+      "datumVreme" : "2021-09-10T18:22:06.544622700",
+      "id" : 97,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "98" : {
+      "datumVreme" : "2021-09-10T18:22:06.545623400",
+      "id" : 98,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "99" : {
+      "datumVreme" : "2021-09-10T18:22:06.546624500",
+      "id" : 99,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "100" : {
+      "datumVreme" : "2021-09-10T18:22:06.547625700",
+      "id" : 100,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "101" : {
+      "datumVreme" : "2021-09-10T18:22:06.548626800",
+      "id" : 101,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "102" : {
+      "datumVreme" : "2021-09-10T18:22:06.548626800",
+      "id" : 102,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "103" : {
+      "datumVreme" : "2021-09-10T18:22:06.549627700",
+      "id" : 103,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "104" : {
+      "datumVreme" : "2021-09-10T18:22:06.550628600",
+      "id" : 104,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "105" : {
+      "datumVreme" : "2021-09-10T18:22:06.551629500",
+      "id" : 105,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "106" : {
+      "datumVreme" : "2021-09-10T18:22:06.552630500",
+      "id" : 106,
+      "idKupca" : 7,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "107" : {
+      "datumVreme" : "2021-09-10T19:06:53.772784300",
+      "id" : 107,
+      "idKupca" : 1,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "108" : {
+      "datumVreme" : "2021-09-10T19:06:53.776787500",
+      "id" : 108,
+      "idKupca" : 1,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "109" : {
+      "datumVreme" : "2021-09-10T19:06:53.778789500",
+      "id" : 109,
+      "idKupca" : 1,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "110" : {
+      "datumVreme" : "2021-09-10T19:06:53.780790800",
+      "id" : 110,
+      "idKupca" : 1,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "111" : {
+      "datumVreme" : "2021-09-10T19:06:53.782793300",
+      "id" : 111,
+      "idKupca" : 1,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "112" : {
+      "datumVreme" : "2021-09-10T19:06:53.783793500",
+      "id" : 112,
+      "idKupca" : 1,
+      "idManifestacije" : 9,
+      "cena" : 800.0,
+      "status" : "REZERVISANA",
+      "tip" : "VIP",
+      "obrisan" : false
+    },
+    "113" : {
+      "datumVreme" : "2021-09-10T19:53:07.998975",
+      "id" : 113,
+      "idKupca" : 1,
+      "idManifestacije" : 6,
+      "cena" : 12.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "114" : {
+      "datumVreme" : "2021-09-10T19:53:08.000975900",
+      "id" : 114,
+      "idKupca" : 1,
+      "idManifestacije" : 6,
+      "cena" : 12.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "115" : {
+      "datumVreme" : "2021-09-10T19:53:08.001978300",
+      "id" : 115,
+      "idKupca" : 1,
+      "idManifestacije" : 6,
+      "cena" : 12.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "116" : {
+      "datumVreme" : "2021-09-10T19:53:08.002978700",
+      "id" : 116,
+      "idKupca" : 1,
+      "idManifestacije" : 6,
+      "cena" : 12.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "117" : {
+      "datumVreme" : "2021-09-10T19:53:08.004980100",
+      "id" : 117,
+      "idKupca" : 1,
+      "idManifestacije" : 6,
+      "cena" : 12.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "118" : {
+      "datumVreme" : "2021-09-10T19:53:08.005981200",
+      "id" : 118,
+      "idKupca" : 1,
+      "idManifestacije" : 6,
+      "cena" : 12.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "119" : {
+      "datumVreme" : "2021-09-10T19:53:16.191428700",
+      "id" : 119,
+      "idKupca" : 1,
+      "idManifestacije" : 6,
+      "cena" : 12.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "120" : {
+      "datumVreme" : "2021-09-10T19:53:16.192429300",
+      "id" : 120,
+      "idKupca" : 1,
+      "idManifestacije" : 6,
+      "cena" : 12.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "121" : {
+      "datumVreme" : "2021-09-10T19:53:16.193430200",
+      "id" : 121,
+      "idKupca" : 1,
+      "idManifestacije" : 6,
+      "cena" : 12.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "122" : {
+      "datumVreme" : "2021-09-10T19:53:16.194431200",
+      "id" : 122,
+      "idKupca" : 1,
+      "idManifestacije" : 6,
+      "cena" : 12.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "123" : {
+      "datumVreme" : "2021-09-10T19:53:16.195432500",
+      "id" : 123,
+      "idKupca" : 1,
+      "idManifestacije" : 6,
+      "cena" : 12.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
+    },
+    "124" : {
+      "datumVreme" : "2021-09-10T19:53:16.196433400",
+      "id" : 124,
+      "idKupca" : 1,
+      "idManifestacije" : 6,
+      "cena" : 12.0,
+      "status" : "REZERVISANA",
+      "tip" : "REGULAR",
+      "obrisan" : false
     }
   }
 }

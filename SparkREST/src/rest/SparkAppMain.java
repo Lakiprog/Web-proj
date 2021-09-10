@@ -542,6 +542,11 @@ public class SparkAppMain {
 			card.setStatus(StatusKarte.ODUSTANAK);
 			cardHandler.azurirajKartu(card);
 			
+			Manifestacija m = manifestationHandler.poId(c.getIdManifestacije());
+			
+			m.setBrSlobodnihMesta(m.getBrSlobodnihMesta() + 1);
+			manifestationHandler.azurirajManifestaciju(m);
+			
 			res.type("application/json");
 
 			return "success";

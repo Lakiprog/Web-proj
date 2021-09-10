@@ -27,7 +27,27 @@
       "komentar" : "Bio sam spreman za ludilo, al ne i za madjarice....",
       "ocena" : 3,
       "obrisan" : false,
-      "odobren" : false,
+      "odobren" : true,
+      "odbijen" : false
+    },
+    "4" : {
+      "id" : 4,
+      "idKupac" : 7,
+      "idManifestacija" : 9,
+      "komentar" : "kul bro kul",
+      "ocena" : 4,
+      "obrisan" : false,
+      "odobren" : true,
+      "odbijen" : false
+    },
+    "5" : {
+      "id" : 5,
+      "idKupac" : 1,
+      "idManifestacija" : 9,
+      "komentar" : "pa ono, neka su",
+      "ocena" : 2,
+      "obrisan" : false,
+      "odobren" : true,
       "odbijen" : false
     }
   }

@@ -277,11 +277,16 @@ Vue.component("home-page", {
             this.$nextTick(function () {
                 this.manifestations.forEach(manifestation => {
                     const star_rating_width = $('#fill' + manifestation.id).width();
-                    console.log($('#fill' + manifestation.id).index())
                     $('#rating' + manifestation.id).width(star_rating_width);
                 });
             })    
             
+            setTimeout(function () {
+                this.manifestations.forEach(manifestation => {
+                    const star_rating_width = $('#fill' + manifestation.id).width();
+                    $('#rating' + manifestation.id).width(star_rating_width);
+                });
+            }, 1000);
         });
         
     }

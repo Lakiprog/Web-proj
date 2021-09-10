@@ -13,6 +13,7 @@ Vue.component("manifestation-details", {
                 grade: 0,
                 rateable: false,
                 comment: "",
+                fixed: false,
 		    }
 	},
 	template: ` 
@@ -271,6 +272,8 @@ Vue.component("manifestation-details", {
             if (response.data) {
                 this.korisnik = response.data;
                 this.user = response.data;
+            }else{
+                this.user = {uloga:'GOST'};
             }
             axios
             .get("/rest/manifestations/manifestation/" + this.$route.params.id)
@@ -313,10 +316,20 @@ Vue.component("manifestation-details", {
                     this.$nextTick(function () {
                         this.comments.forEach(comment => {
                             const star_rating_width = $('#fill' + comment.id).width();
-                            console.log($('#fill' + comment.id).index())
                             $('#rating' + comment.id).width(star_rating_width);
                         });
-                    })
+                        fixed = true;
+                    });
+
+                    let self = this;
+
+                    setInterval(function () {
+                        self.comments.forEach(comment => {
+                            const star_rating_width = $('#fill' + comment.id).width();
+                            $('#rating' + comment.id).width(star_rating_width);
+                        });
+                        fixed = true;
+                    }, 500);
                 });
             });
             this.SetRatingStar();
